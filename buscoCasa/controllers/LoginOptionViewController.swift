@@ -18,10 +18,16 @@ class LoginOptionViewController: UIViewController {
     var dict : [String: AnyObject] = [:]
     var user : User!
 
+    @IBOutlet weak var loginWithEmailBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //creating button
+        loginWithEmailBtn.layer.cornerRadius = 5
+        loginWithEmailBtn.layer.borderWidth = 1
+        loginWithEmailBtn.layer.borderColor = UIColor.blue.cgColor
+        loginWithEmailBtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+        
         accountBtn.layer.cornerRadius = 5
         accountBtn.layer.borderWidth = 1
         accountBtn.layer.borderColor = UIColor.blue.cgColor

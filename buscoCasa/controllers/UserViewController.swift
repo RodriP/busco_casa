@@ -14,6 +14,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var hightConstraint: NSLayoutConstraint!
     @IBOutlet weak var editUserInfoBtn: UIButton!
     @IBOutlet weak var userEmail: UILabel!
+    @IBOutlet weak var logoutBtn: UIButton!
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +45,17 @@ class UserViewController: UIViewController {
     private func setButtonIcon(){
         let icon = UIImage(named: "ball_point_pen")!
         
+        logoutBtn.layer.cornerRadius = 5
+        logoutBtn.layer.borderWidth = 1
+        logoutBtn.layer.borderColor = UIColor.blue.cgColor
+        logoutBtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+        
+        editUserInfoBtn.layer.cornerRadius = 5
+        editUserInfoBtn.layer.borderWidth = 1
+        editUserInfoBtn.layer.borderColor = UIColor.blue.cgColor
         editUserInfoBtn.setImage(icon, for: .normal)
         editUserInfoBtn.imageView?.contentMode = .scaleAspectFit
-        editUserInfoBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -20, bottom: 0, right: 0)
+        editUserInfoBtn.imageEdgeInsets = UIEdgeInsets(top: 5, left: -20, bottom: 5, right: 5)
     }
     @IBAction func logout(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

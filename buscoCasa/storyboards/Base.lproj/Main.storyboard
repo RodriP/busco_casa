@@ -13,7 +13,6 @@
         <!--Navigation Controller-->
         <scene sceneID="GcS-qV-9KG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Zrh-2U-Gxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="MainNavigationController" id="12Z-HH-4fW" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="owK-ul-k3e">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -23,6 +22,7 @@
                         <segue destination="kSx-0a-TKd" kind="relationship" relationship="rootViewController" id="Xvd-kT-64n"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zrh-2U-Gxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2530" y="110"/>
         </scene>
@@ -451,7 +451,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bfp-HD-tnn">
-                                <rect key="frame" x="20" y="443" width="374" height="30"/>
+                                <rect key="frame" x="40" y="423" width="334" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="q3w-0i-n1a"/>
+                                </constraints>
                                 <state key="normal" title="New Account">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -461,7 +464,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="jzS-5H-K6P">
-                                <rect key="frame" x="20" y="493" width="374" height="30"/>
+                                <rect key="frame" x="40" y="483" width="334" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uCM-dW-pFY"/>
+                                </constraints>
                                 <state key="normal" title="Login with your email">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -470,33 +476,36 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="Nay-2X-dzF"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facelogin" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-HK-mgi">
-                                <rect key="frame" x="32" y="246" width="350" height="117"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facelogin" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-HK-mgi">
+                                <rect key="frame" x="40" y="246" width="334" height="117"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jzS-5H-K6P" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" id="0l7-na-xNg"/>
-                            <constraint firstItem="eO2-GT-ja8" firstAttribute="trailing" secondItem="bfp-HD-tnn" secondAttribute="trailing" constant="20" id="2eL-M5-blP"/>
+                            <constraint firstItem="eO2-GT-ja8" firstAttribute="trailing" secondItem="bfp-HD-tnn" secondAttribute="trailing" constant="40" id="2eL-M5-blP"/>
                             <constraint firstItem="UQn-Dj-Jn6" firstAttribute="top" secondItem="eO2-GT-ja8" secondAttribute="top" constant="16" id="4vL-6f-rts"/>
                             <constraint firstItem="UQn-Dj-Jn6" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" constant="-5" id="9zO-AE-74f"/>
-                            <constraint firstItem="eO2-GT-ja8" firstAttribute="trailing" secondItem="jzS-5H-K6P" secondAttribute="trailing" constant="20" id="DUO-fA-UpJ"/>
+                            <constraint firstItem="eO2-GT-ja8" firstAttribute="trailing" secondItem="jzS-5H-K6P" secondAttribute="trailing" constant="40" id="DUO-fA-UpJ"/>
                             <constraint firstItem="eO2-GT-ja8" firstAttribute="bottom" secondItem="jzS-5H-K6P" secondAttribute="bottom" constant="339" id="NZ2-pI-wM9"/>
                             <constraint firstItem="bfp-HD-tnn" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" id="OzK-at-Kzz"/>
                             <constraint firstItem="bfp-HD-tnn" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" id="PJS-qW-2nc"/>
+                            <constraint firstItem="bi9-HK-mgi" firstAttribute="leading" secondItem="eO2-GT-ja8" secondAttribute="leading" constant="40" id="YJD-pI-P0x"/>
+                            <constraint firstItem="eO2-GT-ja8" firstAttribute="trailing" secondItem="bi9-HK-mgi" secondAttribute="trailing" constant="40" id="cUm-35-rY7"/>
                             <constraint firstItem="M3M-go-iAg" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" id="e4o-pU-mO2"/>
                             <constraint firstItem="bi9-HK-mgi" firstAttribute="top" secondItem="M3M-go-iAg" secondAttribute="bottom" id="eGf-hn-SN3"/>
                             <constraint firstItem="jzS-5H-K6P" firstAttribute="top" secondItem="bfp-HD-tnn" secondAttribute="bottom" constant="20" id="gfg-mt-7nr"/>
                             <constraint firstItem="bi9-HK-mgi" firstAttribute="centerX" secondItem="eO2-GT-ja8" secondAttribute="centerX" id="jV9-1Y-bx2"/>
                             <constraint firstItem="M3M-go-iAg" firstAttribute="top" secondItem="UQn-Dj-Jn6" secondAttribute="bottom" constant="16" id="kEY-aZ-tps"/>
-                            <constraint firstItem="jzS-5H-K6P" firstAttribute="leading" secondItem="eO2-GT-ja8" secondAttribute="leading" constant="20" id="kEo-nG-nq2"/>
-                            <constraint firstItem="bfp-HD-tnn" firstAttribute="leading" secondItem="eO2-GT-ja8" secondAttribute="leading" constant="20" id="qXR-My-UlL"/>
+                            <constraint firstItem="jzS-5H-K6P" firstAttribute="leading" secondItem="eO2-GT-ja8" secondAttribute="leading" constant="40" id="kEo-nG-nq2"/>
+                            <constraint firstItem="bfp-HD-tnn" firstAttribute="leading" secondItem="eO2-GT-ja8" secondAttribute="leading" constant="40" id="qXR-My-UlL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eO2-GT-ja8"/>
                     </view>
                     <navigationItem key="navigationItem" id="UcV-73-d1F"/>
                     <connections>
                         <outlet property="accountBtn" destination="bfp-HD-tnn" id="gG8-Sg-DFE"/>
+                        <outlet property="loginWithEmailBtn" destination="jzS-5H-K6P" id="Ngu-ue-hcf"/>
                         <outlet property="loginWithFacebook" destination="bi9-HK-mgi" id="tqS-yw-fG5"/>
                     </connections>
                 </viewController>
