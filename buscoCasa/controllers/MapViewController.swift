@@ -16,7 +16,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Map"
-        var locationManager : CLLocationManager = CLLocationManager()
+        let locationManager : CLLocationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
     }

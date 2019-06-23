@@ -22,7 +22,15 @@ class LoginOptionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //creating button
+
+        prepareButtons()
+        
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        loginWithFacebook.isUserInteractionEnabled = true
+        loginWithFacebook.addGestureRecognizer(singleTap)
+    }
+    
+    private func prepareButtons(){
         loginWithEmailBtn.layer.cornerRadius = 5
         loginWithEmailBtn.layer.borderWidth = 1
         loginWithEmailBtn.layer.borderColor = UIColor.blue.cgColor
@@ -32,20 +40,10 @@ class LoginOptionViewController: UIViewController {
         accountBtn.layer.borderWidth = 1
         accountBtn.layer.borderColor = UIColor.blue.cgColor
         accountBtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
-
-        
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
-        loginWithFacebook.isUserInteractionEnabled = true
-        loginWithFacebook.addGestureRecognizer(singleTap)
     }
     
     @objc func tapDetected() {
         loginButtonClicked()
-    }
-
-    @IBAction func loginWithEmail(_ sender: Any) {
-    }
-    @IBAction func createNewAccount(_ sender: Any) {
     }
     
     
@@ -63,7 +61,7 @@ class LoginOptionViewController: UIViewController {
             case .success( _, _, _):
                 self.getFBUserData()
             case .cancelled:
-                print("Login cancelled")
+                print("Login cancelled, nothing here")
             }
         }
     }

@@ -25,6 +25,12 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        userImage.isUserInteractionEnabled = true
+       let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        userImage.addGestureRecognizer(singleTap)
+    }
+    
+    private func prepareButtons(){
         updateBtn.layer.cornerRadius = 5
         updateBtn.layer.borderWidth = 1
         updateBtn.layer.borderColor = UIColor.white.cgColor
@@ -34,11 +40,8 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         userImage.layer.cornerRadius = heightConstraint.constant/2
         userImage.layer.borderWidth = 1
         userImage.layer.borderColor = UIColor.lightGray.cgColor
-        
-        userImage.isUserInteractionEnabled = true
-       let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
-        userImage.addGestureRecognizer(singleTap)
     }
+    
     @IBAction func uploadAction(_ sender: Any) {
         let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
     

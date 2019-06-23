@@ -14,8 +14,6 @@ class PasswordRegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordField.isSecureTextEntry = true
-
-       
     }
     
     @IBAction func skipPassword(_ sender: Any) {
