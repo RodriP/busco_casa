@@ -389,6 +389,7 @@
                     <connections>
                         <segue destination="rGL-Eu-W7S" kind="relationship" relationship="viewControllers" id="fa5-DQ-CYn"/>
                         <segue destination="1mP-4d-WNS" kind="relationship" relationship="viewControllers" id="B4c-ft-iaE"/>
+                        <segue destination="mvS-Xf-hXO" kind="relationship" relationship="viewControllers" id="oPO-zI-7Aq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rc6-Zd-MS4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -414,6 +415,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yaa-Ga-4A2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3544" y="-313"/>
+        </scene>
+        <!--bookmarks-->
+        <scene sceneID="SQF-z4-Nhj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="bookmarks" id="mvS-Xf-hXO" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wTB-09-wUi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3aC-zq-jN7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3582" y="-187"/>
         </scene>
         <!--Login Option View Controller-->
         <scene sceneID="AN5-5T-nbi">
