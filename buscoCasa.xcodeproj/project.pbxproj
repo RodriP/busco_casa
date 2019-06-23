@@ -3,25 +3,53 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0B9DCE84C2DB41399B80900 /* Pods_buscoCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */; };
+		F871437622BE78E1007CA5AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* Constants.swift */; };
+		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
+		F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437922BEA12C007CA5AC /* UserViewController.swift */; };
+		F871437C22BEA1E7007CA5AC /* user.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437B22BEA1E7007CA5AC /* user.storyboard */; };
+		F871437E22BEA1F3007CA5AC /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437D22BEA1F3007CA5AC /* map.storyboard */; };
+		F871438022BEA425007CA5AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437F22BEA425007CA5AC /* MapViewController.swift */; };
+		F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438122BED428007CA5AC /* MailRegistrationViewController.swift */; };
 		F8C8826A2293925100177093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882692293925100177093 /* AppDelegate.swift */; };
-		F8C8826C2293925100177093 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8826B2293925100177093 /* ViewController.swift */; };
+		F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8826B2293925100177093 /* LoginWithMailViewController.swift */; };
 		F8C8826F2293925100177093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C8826D2293925100177093 /* Main.storyboard */; };
 		F8C882712293925200177093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C882702293925200177093 /* Assets.xcassets */; };
 		F8C882742293925200177093 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C882722293925200177093 /* LaunchScreen.storyboard */; };
+		F8C882812293993100177093 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882802293993100177093 /* User.swift */; };
+		F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882822294231400177093 /* LoginOptionViewController.swift */; };
+		F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */; };
+		F8C8828722946DE400177093 /* PasswordRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */; };
+		F8C88289229471D900177093 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C88288229471D900177093 /* PictureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		978DADC5CE87E99BF284E7A2 /* Pods-buscoCasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buscoCasa.debug.xcconfig"; path = "Target Support Files/Pods-buscoCasa/Pods-buscoCasa.debug.xcconfig"; sourceTree = "<group>"; };
+		A6E63470E6D6FA01B01AD900 /* Pods-buscoCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buscoCasa.release.xcconfig"; path = "Target Support Files/Pods-buscoCasa/Pods-buscoCasa.release.xcconfig"; sourceTree = "<group>"; };
+		ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_buscoCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F871437522BE78E1007CA5AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
+		F871437922BEA12C007CA5AC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		F871437B22BEA1E7007CA5AC /* user.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = user.storyboard; sourceTree = "<group>"; };
+		F871437D22BEA1F3007CA5AC /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
+		F871437F22BEA425007CA5AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F871438122BED428007CA5AC /* MailRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8C882662293925100177093 /* buscoCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buscoCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C882692293925100177093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8C8826B2293925100177093 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8C8826B2293925100177093 /* LoginWithMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithMailViewController.swift; sourceTree = "<group>"; };
 		F8C8826E2293925100177093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8C882702293925200177093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8C882732293925200177093 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8C882752293925200177093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8C882802293993100177093 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F8C882822294231400177093 /* LoginOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionViewController.swift; sourceTree = "<group>"; };
+		F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameRegistrationViewController.swift; sourceTree = "<group>"; };
+		F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegistrationViewController.swift; sourceTree = "<group>"; };
+		F8C88288229471D900177093 /* PictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +57,64 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B9DCE84C2DB41399B80900 /* Pods_buscoCasa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090CB09F0F44A06B62FC4FDF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				978DADC5CE87E99BF284E7A2 /* Pods-buscoCasa.debug.xcconfig */,
+				A6E63470E6D6FA01B01AD900 /* Pods-buscoCasa.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		24010A1804F7CB27EDF71DBA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F871437422BE78AC007CA5AC /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				F871437522BE78E1007CA5AC /* Constants.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		F871438322BED430007CA5AC /* loginWithEmail */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8826B2293925100177093 /* LoginWithMailViewController.swift */,
+			);
+			path = loginWithEmail;
+			sourceTree = "<group>";
+		};
+		F871438422BED44E007CA5AC /* loginRegistration */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */,
+				F8C88288229471D900177093 /* PictureViewController.swift */,
+				F871438122BED428007CA5AC /* MailRegistrationViewController.swift */,
+				F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */,
+			);
+			path = loginRegistration;
+			sourceTree = "<group>";
+		};
 		F8C8825D2293925100177093 = {
 			isa = PBXGroup;
 			children = (
 				F8C882682293925100177093 /* buscoCasa */,
 				F8C882672293925100177093 /* Products */,
+				090CB09F0F44A06B62FC4FDF /* Pods */,
+				24010A1804F7CB27EDF71DBA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +129,47 @@
 		F8C882682293925100177093 /* buscoCasa */ = {
 			isa = PBXGroup;
 			children = (
+				F871437422BE78AC007CA5AC /* utils */,
+				F8C8827D2293930D00177093 /* storyboards */,
+				F8C8827C229392B100177093 /* controllers */,
+				F8C8827B2293926400177093 /* models */,
 				F8C882692293925100177093 /* AppDelegate.swift */,
-				F8C8826B2293925100177093 /* ViewController.swift */,
-				F8C8826D2293925100177093 /* Main.storyboard */,
 				F8C882702293925200177093 /* Assets.xcassets */,
 				F8C882722293925200177093 /* LaunchScreen.storyboard */,
 				F8C882752293925200177093 /* Info.plist */,
 			);
 			path = buscoCasa;
+			sourceTree = "<group>";
+		};
+		F8C8827B2293926400177093 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				F8C882802293993100177093 /* User.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		F8C8827C229392B100177093 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F871438422BED44E007CA5AC /* loginRegistration */,
+				F871438322BED430007CA5AC /* loginWithEmail */,
+				F8C882822294231400177093 /* LoginOptionViewController.swift */,
+				F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */,
+				F871437922BEA12C007CA5AC /* UserViewController.swift */,
+				F871437F22BEA425007CA5AC /* MapViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		F8C8827D2293930D00177093 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F8C8826D2293925100177093 /* Main.storyboard */,
+				F871437B22BEA1E7007CA5AC /* user.storyboard */,
+				F871437D22BEA1F3007CA5AC /* map.storyboard */,
+			);
+			path = storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8C882782293925200177093 /* Build configuration list for PBXNativeTarget "buscoCasa" */;
 			buildPhases = (
+				9AFEB92A9F66415F5AC7BE5B /* [CP] Check Pods Manifest.lock */,
 				F8C882622293925100177093 /* Sources */,
 				F8C882632293925100177093 /* Frameworks */,
 				F8C882642293925100177093 /* Resources */,
+				9360809A6529A85396851EDB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +233,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8C882742293925200177093 /* LaunchScreen.storyboard in Resources */,
+				F871437C22BEA1E7007CA5AC /* user.storyboard in Resources */,
+				F871437E22BEA1F3007CA5AC /* map.storyboard in Resources */,
 				F8C882712293925200177093 /* Assets.xcassets in Resources */,
 				F8C8826F2293925100177093 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +242,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		9360809A6529A85396851EDB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-buscoCasa/Pods-buscoCasa-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-buscoCasa/Pods-buscoCasa-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-buscoCasa/Pods-buscoCasa-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AFEB92A9F66415F5AC7BE5B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-buscoCasa-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F8C882622293925100177093 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8C8826C2293925100177093 /* ViewController.swift in Sources */,
+				F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */,
+				F871438022BEA425007CA5AC /* MapViewController.swift in Sources */,
+				F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */,
+				F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,
+				F8C8828722946DE400177093 /* PasswordRegistrationViewController.swift in Sources */,
+				F8C882812293993100177093 /* User.swift in Sources */,
+				F8C88289229471D900177093 /* PictureViewController.swift in Sources */,
+				F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */,
+				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
+				F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */,
+				F871437622BE78E1007CA5AC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +444,7 @@
 		};
 		F8C882792293925200177093 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978DADC5CE87E99BF284E7A2 /* Pods-buscoCasa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -297,6 +462,7 @@
 		};
 		F8C8827A2293925200177093 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6E63470E6D6FA01B01AD900 /* Pods-buscoCasa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

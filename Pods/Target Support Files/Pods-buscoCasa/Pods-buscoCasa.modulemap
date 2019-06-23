@@ -1,0 +1,6 @@
+framework module Pods_buscoCasa {
+  umbrella header "Pods-buscoCasa-umbrella.h"
+
+  export *
+  module * { export * }
+}
