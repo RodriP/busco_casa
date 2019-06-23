@@ -132,7 +132,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-Bp-S9c">
                                 <rect key="frame" x="345" y="64" width="39" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skipBtn:" destination="M01-cP-wAq" eventType="touchUpInside" id="Ff7-YJ-lM5"/>
                                 </connections>
@@ -149,19 +151,21 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVL-GQ-POl">
                                 <rect key="frame" x="50" y="144" width="314" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW4-aC-XT4">
-                                <rect key="frame" x="187" y="244.5" width="40" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Next"/>
+                                <rect key="frame" x="185.5" y="244.5" width="43" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="cGn-3q-BjW" kind="presentation" id="tKk-qW-fQs"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.71715616849087227" blue="0.41816340845031963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.1939910715" green="0.47314130049999997" blue="0.65726198189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e1Y-uI-FFa" firstAttribute="trailing" secondItem="9bH-Bp-S9c" secondAttribute="trailing" constant="30" id="1Ep-Yz-1bg"/>
                             <constraint firstItem="CBg-Yk-fFG" firstAttribute="top" secondItem="rVL-GQ-POl" secondAttribute="bottom" constant="15" id="5uE-Ty-PRJ"/>
@@ -196,7 +200,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9H-4i-Lu3">
                                 <rect key="frame" x="345" y="65" width="39" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skipAction:" destination="cGn-3q-BjW" eventType="touchUpInside" id="Cl5-nC-Zi5"/>
                                     <action selector="skipBtn:" destination="M01-cP-wAq" eventType="touchUpInside" id="XET-hk-Q4h"/>
@@ -214,19 +220,21 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvq-mP-9lj">
                                 <rect key="frame" x="180" y="144" width="54" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhy-dY-Gyw">
-                                <rect key="frame" x="187" y="245" width="40" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Next"/>
+                                <rect key="frame" x="185.5" y="245" width="43" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="3RX-77-3nm" kind="presentation" id="1BC-cm-5HP"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VzB-ML-eeJ" firstAttribute="top" secondItem="kvq-mP-9lj" secondAttribute="bottom" constant="15" id="4Uo-qd-fFl"/>
                             <constraint firstItem="VzB-ML-eeJ" firstAttribute="top" secondItem="JM1-au-90E" secondAttribute="top" constant="187" id="7sT-XT-m2c"/>
@@ -269,13 +277,15 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U61-c6-Mka">
                                 <rect key="frame" x="50" y="144" width="314" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syc-dS-rWv">
-                                <rect key="frame" x="187" y="245" width="40" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Next"/>
+                                <rect key="frame" x="185.5" y="245" width="43" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="aKs-8q-yyP" kind="presentation" id="7Qb-WI-63b"/>
                                 </connections>
@@ -283,13 +293,15 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUX-jv-gxk">
                                 <rect key="frame" x="345" y="64" width="39" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skipPassword:" destination="3RX-77-3nm" eventType="touchUpInside" id="hJE-Ji-ZJI"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.85881541678265871" green="0.80502819983538609" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="syc-dS-rWv" firstAttribute="centerX" secondItem="m1y-l3-Vo3" secondAttribute="centerX" id="9wD-Mz-cph"/>
                             <constraint firstItem="y2A-Mz-MJg" firstAttribute="leading" secondItem="m1y-l3-Vo3" secondAttribute="leading" constant="15" id="DV2-25-MIc"/>
@@ -324,7 +336,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhM-ZY-i5a">
                                 <rect key="frame" x="345" y="59" width="39" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Skip"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="skipAction:" destination="aKs-8q-yyP" eventType="touchUpInside" id="vng-HK-hyJ"/>
                                 </connections>
@@ -332,7 +346,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pic a picture!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-eU-vND">
                                 <rect key="frame" x="50" y="144" width="314" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="userplaceholder" translatesAutoresizingMaskIntoConstraints="NO" id="bc6-AA-fMt">
@@ -343,16 +357,18 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jsd-2i-1nb">
-                                <rect key="frame" x="187" y="407" width="40" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <state key="normal" title="Next"/>
+                                <rect key="frame" x="185.5" y="407" width="43" height="38"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="nextFlow:" destination="aKs-8q-yyP" eventType="touchUpInside" id="NG3-FZ-4Jv"/>
                                     <segue destination="hOb-FM-jfQ" kind="show" id="c3x-ea-zIJ"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.7167292271289607" green="1" blue="0.61098129846325588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Jsd-2i-1nb" firstAttribute="centerX" secondItem="HRd-U1-IXa" secondAttribute="centerX" id="3Db-MC-qqd"/>
                             <constraint firstItem="bc6-AA-fMt" firstAttribute="top" secondItem="Fru-eU-vND" secondAttribute="bottom" constant="20" id="44A-pO-iiu"/>
@@ -373,7 +389,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGL-q8-bXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1437.68115942029" y="482.8125"/>
+            <point key="canvasLocation" x="1397" y="483"/>
         </scene>
         <!--User Menu Tab View Controller-->
         <scene sceneID="IzA-J5-XCh">
@@ -539,6 +555,6 @@
         <image name="userplaceholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="nFX-gS-ui6"/>
+        <segue reference="c3x-ea-zIJ"/>
     </inferredMetricsTieBreakers>
 </document>
