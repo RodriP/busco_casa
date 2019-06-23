@@ -8,7 +8,12 @@
 
 import UIKit
 
-class UserViewController: UIViewController {
+protocol ModalDelegate {
+    func changeUser(user user: User)
+}
+
+class UserViewController: UIViewController, ModalDelegate {
+    
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userPicture: UIImageView!
     @IBOutlet weak var hightConstraint: NSLayoutConstraint!
@@ -18,29 +23,32 @@ class UserViewController: UIViewController {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
+        userPicture.contentMode = .scaleAspectFill
+        setButtonIcon()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         userName.text = user.name
         userEmail.text = user.mail
-        if let image = ImageStorageUtils.getSavedImage(named: "image.png") {
+        if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
             // From new registration flow
             userPicture.image = image
         } else {
             // From FB login
             userPicture.downloaded(from: user.photo)
         }
-        userPicture.contentMode = .scaleAspectFill
-        setButtonIcon()
-        self.navigationItem.setHidesBackButton(true, animated:true);
     }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         userPicture.layer.cornerRadius = hightConstraint.constant/2
         userPicture.layer.borderWidth = 1
         userPicture.layer.borderColor = UIColor.lightGray.cgColor
     }
-    @IBAction func editUserInfo(_ sender: Any) {
-    }
 
+    func changeUser(user: User) {
+        self.user = user
+    }
     
     private func setButtonIcon(){
         let icon = UIImage(named: "ball_point_pen")!
@@ -57,6 +65,7 @@ class UserViewController: UIViewController {
         editUserInfoBtn.imageView?.contentMode = .scaleAspectFit
         editUserInfoBtn.imageEdgeInsets = UIEdgeInsets(top: 5, left: -20, bottom: 5, right: 5)
     }
+    
     @IBAction func logout(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginOptionViewController") as! LoginOptionViewController
@@ -64,6 +73,13 @@ class UserViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let editController = segue.destination as? EditUserViewController else{
+            fatalError()
+        }
+        editController.delegate = self
+        editController.user = self.user
+    }
 }
 
 
@@ -87,4 +103,5 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+    
 }

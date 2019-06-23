@@ -24,9 +24,8 @@ class PasswordRegistrationViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let password = passwordField.text, !password.isEmpty else{
-            let alert = UIAlertController(title: "Empty password name", message: "User password can't be empty", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyPassword, message: AppConstants.UserConstants.userEmptyPassMsg, action: actions), animated: true, completion: nil)
             return
         }
         

@@ -21,5 +21,17 @@ struct AppConstants{
     
     struct UserConstants{
         static let userImage = "image"
+        static let userEmptyErrorTitle = "Empty user or password"
+        static let userEmptyErrorMsg = "Check your data"
+        static let userEmptyPassword = "Empty password"
+        static let userEmptyPassMsg = "User password can't be empty"
+        static let userChoosePictureError = "Choose a picture before continue"
+        static let userChoosePicMsg = "You have to choose a profile picture"
+        static let userImageNameToSave = "image.png"
+        static let userEmailErrorTitle = "Empty user mail"
+        static let userEmailErrorMsg = "User mail can't be empty"
+        static let userNameEmptyTitle = "Empty user name"
+        static let userNameEmptyMsg = "User Name can't be empty"
+        static let userEmptyValue = ""
     }
 }

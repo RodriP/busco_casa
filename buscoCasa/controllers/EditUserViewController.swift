@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditUserViewController: UIViewController {
+class EditUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var cancelBtn: UIButton!
@@ -16,7 +16,12 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var updateBtn: UIButton!
+    var delegate: ModalDelegate?
     var user : User!
+    var imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,61 @@ class EditUserViewController: UIViewController {
         updateBtn.layer.borderWidth = 1
         updateBtn.layer.borderColor = UIColor.white.cgColor
         updateBtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+        
+        userImage.contentMode = .scaleAspectFill
+        userImage.layer.cornerRadius = heightConstraint.constant/2
+        userImage.layer.borderWidth = 1
+        userImage.layer.borderColor = UIColor.lightGray.cgColor
+        
+        userImage.isUserInteractionEnabled = true
+       let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        userImage.addGestureRecognizer(singleTap)
+    }
+    @IBAction func uploadAction(_ sender: Any) {
+        let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+    
+        guard let name = userNameTxt.text, !name.isEmpty else {
+            
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userNameEmptyMsg,message:AppConstants.UserConstants.userNameEmptyMsg, action: actions), animated: true, completion: nil)
+            return
+        }
+        user.name = name
+        guard let email = emailTxt.text, !email.isEmpty else {
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmailErrorTitle,message:AppConstants.UserConstants.userEmailErrorMsg, action: actions), animated: true, completion: nil)
+                return
+        }
+        user.mail = email
+        guard let password = passwordTxt.text, !password.isEmpty else {
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyPassword,message:AppConstants.UserConstants.userEmptyPassMsg, action: actions), animated: true, completion: nil)
+            return
+        }
+        user.password = password
+        delegate?.changeUser(user: user)
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @objc func tapDetected() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
+        
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: { () -> Void in
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.userImage.image = image
+                ImageStorageUtils.saveImage(image: image)
+                
+            }
+        })
+        self.user.photo = AppConstants.UserConstants.userImageNameToSave
     }
 
     @IBAction func cancelButtonAction(_ sender: Any) {

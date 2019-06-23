@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A0B9DCE84C2DB41399B80900 /* Pods_buscoCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */; };
+		F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */; };
 		F871437622BE78E1007CA5AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* Constants.swift */; };
 		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
 		F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437922BEA12C007CA5AC /* UserViewController.swift */; };
@@ -33,6 +34,7 @@
 		978DADC5CE87E99BF284E7A2 /* Pods-buscoCasa.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buscoCasa.debug.xcconfig"; path = "Target Support Files/Pods-buscoCasa/Pods-buscoCasa.debug.xcconfig"; sourceTree = "<group>"; };
 		A6E63470E6D6FA01B01AD900 /* Pods-buscoCasa.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-buscoCasa.release.xcconfig"; path = "Target Support Files/Pods-buscoCasa/Pods-buscoCasa.release.xcconfig"; sourceTree = "<group>"; };
 		ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_buscoCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDialogUtils.swift; sourceTree = "<group>"; };
 		F871437522BE78E1007CA5AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
 		F871437922BEA12C007CA5AC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				F871437522BE78E1007CA5AC /* Constants.swift */,
 				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
+				F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */,
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
 				F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */,
+				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
 				F871437622BE78E1007CA5AC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

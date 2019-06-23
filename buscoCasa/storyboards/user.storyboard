@@ -13,7 +13,7 @@
         <!--Navigation Controller-->
         <scene sceneID="MtI-rK-hKn">
             <objects>
-                <navigationController id="gzn-Dv-VzL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="UserNavigationController" id="gzn-Dv-VzL" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pMY-5b-bVw">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -53,7 +53,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Edit User Information"/>
                                         <connections>
-                                            <action selector="editUserInfo:" destination="30n-kg-ym4" eventType="touchUpInside" id="Pet-8l-txu"/>
                                             <segue destination="BFw-z2-2XZ" kind="presentation" id="MAm-9b-CFF"/>
                                         </connections>
                                     </button>
@@ -137,7 +136,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hO0-fa-cMq">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hO0-fa-cMq">
                                 <rect key="frame" x="15" y="477" width="384" height="38"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -147,7 +146,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="New email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F93-Kp-8ga">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F93-Kp-8ga">
                                 <rect key="frame" x="15" y="545" width="384" height="38"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -157,7 +156,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="New user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-ub-UDI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kf5-ub-UDI">
                                 <rect key="frame" x="15" y="409" width="384" height="38"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -182,6 +181,9 @@
                                 <state key="normal" title="Update!">
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="uploadAction:" destination="BFw-z2-2XZ" eventType="touchUpInside" id="dHD-I6-MEs"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a Pic!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsO-rK-jvX">
                                 <rect key="frame" x="147" y="340" width="120" height="24"/>
@@ -231,6 +233,7 @@
                     <connections>
                         <outlet property="cancelBtn" destination="ugY-Be-FqE" id="g2j-Mt-FsZ"/>
                         <outlet property="emailTxt" destination="F93-Kp-8ga" id="XOJ-tv-rdW"/>
+                        <outlet property="heightConstraint" destination="lOZ-xQ-La4" id="5o1-4k-s8f"/>
                         <outlet property="passwordTxt" destination="hO0-fa-cMq" id="zor-Bk-zeO"/>
                         <outlet property="updateBtn" destination="114-5t-a2b" id="ZAr-au-dRH"/>
                         <outlet property="userImage" destination="1wD-vH-eaB" id="kol-3J-DrQ"/>

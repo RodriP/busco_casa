@@ -22,15 +22,14 @@ class UserNameRegistrationViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let userName = userNameTxt.text, !userName.isEmpty else{
-            let alert = UIAlertController(title: "Empty user name", message: "User Name can't be empty", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userNameEmptyTitle, message: AppConstants.UserConstants.userNameEmptyMsg, action: actions), animated: true, completion: nil)
             return
         }
         guard let emailController = segue.destination as? MailRegistrationViewController else{
             fatalError()
         }
-        user = User(name: userName, mail: "", password: "", photo: "")
+        user = User(name: userName, mail: AppConstants.UserConstants.userEmptyValue, password: AppConstants.UserConstants.userEmptyValue, photo: AppConstants.UserConstants.userEmptyValue)
         emailController.user = self.user
     }
     

@@ -11,7 +11,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
+         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "user">
@@ -19,7 +19,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
+         contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditUserViewController.uploadAction(_:):EditUserViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "user">
@@ -35,7 +43,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
+         contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "user">

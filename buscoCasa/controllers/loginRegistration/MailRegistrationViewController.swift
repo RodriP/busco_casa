@@ -23,9 +23,8 @@ class MailRegistrationViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let mail = mailUserText.text, !mail.isEmpty else{
-            let alert = UIAlertController(title: "Empty user mail", message: "User mail can't be empty", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmailErrorTitle, message: AppConstants.UserConstants.userEmailErrorMsg, action: actions), animated: true, completion: nil)
             return
         }
         guard let passwordController = segue.destination as? PasswordRegistrationViewController else{
