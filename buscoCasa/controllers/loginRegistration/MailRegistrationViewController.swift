@@ -17,6 +17,9 @@ class MailRegistrationViewController: UIViewController {
         super.viewDidLoad()
 
     }
+    @IBAction func skipAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let mail = mailUserText.text, !mail.isEmpty else{

@@ -19,7 +19,13 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         userName.text = user.name
         userEmail.text = user.mail
-        userPicture.downloaded(from: user.photo)
+        if let image = ImageStorageUtils.getSavedImage(named: "image.png") {
+            // From new registration flow
+            userPicture.image = image
+        } else {
+            // From FB login
+            userPicture.downloaded(from: user.photo)
+        }
         userPicture.contentMode = .scaleAspectFill
         setButtonIcon()
         self.navigationItem.setHidesBackButton(true, animated:true);
@@ -33,6 +39,7 @@ class UserViewController: UIViewController {
     }
     @IBAction func editUserInfo(_ sender: Any) {
     }
+
     
     private func setButtonIcon(){
         let icon = UIImage(named: "ball_point_pen")!

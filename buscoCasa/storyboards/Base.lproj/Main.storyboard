@@ -191,6 +191,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Skip"/>
                                 <connections>
+                                    <action selector="skipAction:" destination="cGn-3q-BjW" eventType="touchUpInside" id="Cl5-nC-Zi5"/>
                                     <action selector="skipBtn:" destination="M01-cP-wAq" eventType="touchUpInside" id="XET-hk-Q4h"/>
                                 </connections>
                             </button>
@@ -317,6 +318,9 @@
                                 <rect key="frame" x="355" y="59" width="39" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Skip"/>
+                                <connections>
+                                    <action selector="skipAction:" destination="aKs-8q-yyP" eventType="touchUpInside" id="vng-HK-hyJ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pic a picture!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fru-eU-vND">
                                 <rect key="frame" x="50" y="144" width="314" height="28"/>
@@ -336,6 +340,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
+                                    <action selector="nextFlow:" destination="aKs-8q-yyP" eventType="touchUpInside" id="NG3-FZ-4Jv"/>
                                     <segue destination="hOb-FM-jfQ" kind="show" id="c3x-ea-zIJ"/>
                                 </connections>
                             </button>
@@ -361,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGL-q8-bXc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="483"/>
+            <point key="canvasLocation" x="1437.68115942029" y="482.8125"/>
         </scene>
         <!--User Menu Tab View Controller-->
         <scene sceneID="IzA-J5-XCh">

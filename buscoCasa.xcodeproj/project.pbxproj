@@ -15,6 +15,7 @@
 		F871437E22BEA1F3007CA5AC /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437D22BEA1F3007CA5AC /* map.storyboard */; };
 		F871438022BEA425007CA5AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437F22BEA425007CA5AC /* MapViewController.swift */; };
 		F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438122BED428007CA5AC /* MailRegistrationViewController.swift */; };
+		F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */; };
 		F8C8826A2293925100177093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882692293925100177093 /* AppDelegate.swift */; };
 		F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8826B2293925100177093 /* LoginWithMailViewController.swift */; };
 		F8C8826F2293925100177093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C8826D2293925100177093 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 		F871437D22BEA1F3007CA5AC /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
 		F871437F22BEA425007CA5AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F871438122BED428007CA5AC /* MailRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailRegistrationViewController.swift; sourceTree = "<group>"; };
+		F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageUtils.swift; sourceTree = "<group>"; };
 		F8C882662293925100177093 /* buscoCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buscoCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C882692293925100177093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C8826B2293925100177093 /* LoginWithMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithMailViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				F871437522BE78E1007CA5AC /* Constants.swift */,
+				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */,
 				F871438022BEA425007CA5AC /* MapViewController.swift in Sources */,
+				F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */,
 				F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */,
 				F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,

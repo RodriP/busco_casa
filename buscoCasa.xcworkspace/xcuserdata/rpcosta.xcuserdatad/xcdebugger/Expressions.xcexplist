@@ -11,10 +11,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "dict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

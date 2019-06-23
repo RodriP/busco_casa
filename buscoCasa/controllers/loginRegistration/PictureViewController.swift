@@ -21,6 +21,9 @@ class PictureViewController: UIViewController, UINavigationControllerDelegate, U
         userImageView.addGestureRecognizer(singleTap)
     }
     
+    @IBAction func skipAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         userImageView.contentMode = .scaleAspectFill
@@ -45,8 +48,44 @@ class PictureViewController: UIViewController, UINavigationControllerDelegate, U
         self.dismiss(animated: true, completion: { () -> Void in
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 self.userImageView.image = image
+                self.saveImage(image: image)
+
             }
         })
+        self.user.photo = "image.png"
+    }
+    
+    @IBAction func nextFlow(_ sender: Any) {
+        guard ImageStorageUtils.getSavedImage(named: "image.png") != nil else {
+            let alert = UIAlertController(title: "Choose a picture before continue", message: "You have to choose a profile picture", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+    }
+    
+    func saveImage(image: UIImage) -> Bool {
+        guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
+            return false
+        }
+        guard let directory = try? FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false) as NSURL else {
+            return false
+        }
+        do {
+            try data.write(to: directory.appendingPathComponent("image.png")!)
+            return true
+        } catch {
+            print(error.localizedDescription)
+            return false
+        }
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let userMenuController = segue.destination as? UserMenuTabViewController else{
+            fatalError()
+        }
+        userMenuController.user = self.user
     }
     
 }

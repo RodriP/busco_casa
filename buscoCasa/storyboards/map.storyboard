@@ -44,6 +44,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map_marker" id="N3e-fS-CYh" userLabel="User Account"/>
                     <navigationItem key="navigationItem" title="Map" id="LDd-sp-y8e"/>
+                    <connections>
+                        <outlet property="map" destination="3oj-AM-lb9" id="Z1I-ln-Beg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Ya-6a-PDb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
