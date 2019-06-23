@@ -25,6 +25,8 @@ class LoginOptionViewController: UIViewController {
         accountBtn.layer.cornerRadius = 5
         accountBtn.layer.borderWidth = 1
         accountBtn.layer.borderColor = UIColor.blue.cgColor
+        accountBtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         loginWithFacebook.isUserInteractionEnabled = true
