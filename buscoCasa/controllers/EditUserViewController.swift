@@ -24,7 +24,7 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        prepareButtons()
         userImage.isUserInteractionEnabled = true
        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         userImage.addGestureRecognizer(singleTap)

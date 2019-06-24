@@ -507,7 +507,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginWithEmail:" destination="kSx-0a-TKd" eventType="touchUpInside" id="O3r-VZ-fv8"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="P6w-V5-sRN"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facelogin" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-HK-mgi">
@@ -555,6 +554,6 @@
         <image name="userplaceholder" width="240" height="240"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c3x-ea-zIJ"/>
+        <segue reference="nFX-gS-ui6"/>
     </inferredMetricsTieBreakers>
 </document>
