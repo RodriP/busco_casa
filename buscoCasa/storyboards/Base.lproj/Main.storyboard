@@ -507,6 +507,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginWithEmail:" destination="kSx-0a-TKd" eventType="touchUpInside" id="O3r-VZ-fv8"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="hZy-LC-stV"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facelogin" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-HK-mgi">
