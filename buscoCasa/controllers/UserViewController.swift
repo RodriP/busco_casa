@@ -67,14 +67,11 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginOptionViewController") as! LoginOptionViewController
-        present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)*/
+        self.parent?.navigationController?.popViewController(animated: true)
         ImageStorageUtils.deleteDirectory()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        ImageStorageUtils.saveImage(image: userPicture.image!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +97,7 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async() {
                 self.image = image
+                ImageStorageUtils.saveImage(image: image)
             }
             }.resume()
     }
