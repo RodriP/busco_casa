@@ -58,6 +58,7 @@
 		F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegistrationViewController.swift; sourceTree = "<group>"; };
 		F8C88288229471D900177093 /* PictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
+		F8EFD50822C59D31007769D8 /* MontevideoLocation.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MontevideoLocation.gpx; path = buscoCasa/utils/MontevideoLocation.gpx; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +93,7 @@
 		F871437422BE78AC007CA5AC /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				F8EFD50822C59D31007769D8 /* MontevideoLocation.gpx */,
 				F871437522BE78E1007CA5AC /* Constants.swift */,
 				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
 				F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */,

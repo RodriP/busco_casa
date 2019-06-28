@@ -12,13 +12,15 @@ class UserMenuTabViewController: UITabBarController {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
-                guard let userViewController = viewControllers?.first as? UINavigationController else {
-                    return
-                }
         
-                guard let userAccountVC = userViewController.viewControllers.first as? UserViewController else {
-                    return
-                }
+        guard let navigationVC = viewControllers?.first as? UINavigationController else {
+            return
+        }
+        
+        guard let userAccountVC = navigationVC.viewControllers.first as? UserViewController else {
+                return
+        }
+        
         userAccountVC.user = self.user
 
     }

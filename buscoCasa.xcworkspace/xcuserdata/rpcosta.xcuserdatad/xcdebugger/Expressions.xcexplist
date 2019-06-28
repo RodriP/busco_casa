@@ -51,6 +51,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationVC.viewControllers[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PictureViewController.nextFlow(_:):PictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
          <PersistentStrings>
             <PersistentString

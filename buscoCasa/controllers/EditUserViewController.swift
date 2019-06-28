@@ -25,6 +25,7 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareButtons()
+        loadData()
         userImage.isUserInteractionEnabled = true
        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         userImage.addGestureRecognizer(singleTap)
@@ -40,6 +41,13 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         userImage.layer.cornerRadius = heightConstraint.constant/2
         userImage.layer.borderWidth = 1
         userImage.layer.borderColor = UIColor.lightGray.cgColor
+    }
+    
+    private func loadData(){
+        emailTxt.text = user.mail
+        userNameTxt.text = user.name
+        passwordTxt.text = user.password
+        userImage.image = ImageStorageUtils.getSavedImage(named: user.photo)
     }
     
     @IBAction func uploadAction(_ sender: Any) {

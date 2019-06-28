@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ModalDelegate {
-    func changeUser(user user: User)
+    func changeUser(user: User)
 }
 
 class UserViewController: UIViewController, ModalDelegate {
@@ -70,7 +70,7 @@ class UserViewController: UIViewController, ModalDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "LoginOptionViewController") as! LoginOptionViewController
         present(vc, animated: true, completion: nil)
-        self.navigationController?.popViewController(animated: true)
+        ImageStorageUtils.deleteDirectory()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -85,7 +85,7 @@ class UserViewController: UIViewController, ModalDelegate {
 
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -98,8 +98,9 @@ extension UIImageView {
                 self.image = image
             }
             }.resume()
+        ImageStorageUtils.saveImage(image: self.image ?? UIImage(named:"userplaceholder")!)
     }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
