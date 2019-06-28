@@ -84,6 +84,7 @@
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home" translatesAutoresizingMaskIntoConstraints="NO" id="flu-aP-aOF">
                                 <rect key="frame" x="107" y="144" width="200" height="200"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="Uhq-Hx-R9H"/>
                                     <constraint firstAttribute="height" constant="200" id="rEb-77-vFE"/>
@@ -505,12 +506,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-<<<<<<< HEAD
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="oJU-5r-DVd"/>
-=======
-                                    <action selector="loginWithEmail:" destination="kSx-0a-TKd" eventType="touchUpInside" id="O3r-VZ-fv8"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="hZy-LC-stV"/>
->>>>>>> 288bcba2d9683096078286c5d087b0731d808077
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facelogin" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bi9-HK-mgi">

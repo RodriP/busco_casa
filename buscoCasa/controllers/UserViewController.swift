@@ -73,6 +73,10 @@ class UserViewController: UIViewController, ModalDelegate {
         ImageStorageUtils.deleteDirectory()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        ImageStorageUtils.saveImage(image: userPicture.image!)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let editController = segue.destination as? EditUserViewController else{
             fatalError()
@@ -98,7 +102,6 @@ extension UIImageView {
                 self.image = image
             }
             }.resume()
-        ImageStorageUtils.saveImage(image: self.image ?? UIImage(named:"userplaceholder")!)
     }
     func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         guard let url = URL(string: link) else { return }

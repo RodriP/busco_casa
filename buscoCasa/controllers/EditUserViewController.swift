@@ -47,7 +47,7 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         emailTxt.text = user.mail
         userNameTxt.text = user.name
         passwordTxt.text = user.password
-        userImage.image = ImageStorageUtils.getSavedImage(named: user.photo)
+        userImage.image = ImageStorageUtils.getSavedImage(named: "image.png")
     }
     
     @IBAction func uploadAction(_ sender: Any) {
