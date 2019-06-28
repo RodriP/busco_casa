@@ -106,7 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/EditUserViewController.swift"
+<<<<<<< HEAD
             timestampString = "583384301.101168"
+=======
+            timestampString = "583371093.534488"
+>>>>>>> 288bcba2d9683096078286c5d087b0731d808077
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "53"
@@ -154,7 +158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/EditUserViewController.swift"
+<<<<<<< HEAD
             timestampString = "583384301.101365"
+=======
+            timestampString = "583371093.535007"
+>>>>>>> 288bcba2d9683096078286c5d087b0731d808077
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "69"
