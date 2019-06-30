@@ -24,19 +24,54 @@ class UserViewController: UIViewController, ModalDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         userPicture.contentMode = .scaleAspectFill
-        setButtonIcon()
+        registerForNotifications()
+        if user != nil {
+            setButtonIcon()
+        } else {
+            setupLoginState()
+            return
+        }
+    }
+    
+    private func setupLoginState(){
+        let storyboard = UIStoryboard(name: "login", bundle: nil)
+        let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+        self.present(loginNC, animated: true, completion: nil)
+    }
+    
+    private func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentUser),
+                                               name: AppConstants.UserConstants.userValue,
+                                               object: nil)
+        
+    }
+    
+    @objc private func currentUser(notification: NSNotification) {
+        if let user = notification.userInfo?[AppConstants.UserConstants.userObject] as? User {
+            self.user = user
+            setButtonIcon()
+            setUserData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        userName.text = user.name
-        userEmail.text = user.mail
-        if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
-            // From new registration flow
-            userPicture.image = image
-        } else {
-            // From FB login
-            userPicture.downloaded(from: user.photo)
+        setUserData()
+    }
+    
+    private func setUserData(){
+        if user != nil {
+            userName.text = user.name
+            userEmail.text = user.mail
+            if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
+                // From new registration flow
+                userPicture.image = image
+            } else {
+                // From FB login
+                userPicture.downloaded(from: user.photo)
+            }
         }
     }
     override func viewDidLayoutSubviews() {
@@ -67,11 +102,9 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
-        /*let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginOptionViewController") as! LoginOptionViewController
-        present(vc, animated: true, completion: nil)*/
-        self.parent?.navigationController?.popViewController(animated: true)
         ImageStorageUtils.deleteDirectory()
+        self.user = nil
+        setupLoginState()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -24,6 +24,7 @@ class LoginOptionViewController: UIViewController {
         super.viewDidLoad()
 
         prepareButtons()
+        registerForNotifications()
         
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         loginWithFacebook.isUserInteractionEnabled = true
@@ -44,6 +45,19 @@ class LoginOptionViewController: UIViewController {
     
     @objc func tapDetected() {
         loginButtonClicked()
+    }
+    
+    private func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentUser),
+                                               name: AppConstants.UserConstants.userValue,
+                                               object: nil)
+        
+    }
+    
+    @objc private func currentUser(notification: NSNotification) {
+        
     }
     
     
@@ -83,9 +97,11 @@ class LoginOptionViewController: UIViewController {
                     }
                     self.user = User(name: userName, mail: mail, password: "empty", photo: userUrlPhoto)
                     
-                    let controller = self.storyboard?.instantiateViewController(withIdentifier: "UserMenuTabViewController") as! UserMenuTabViewController
-                        controller.user = self.user
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    let userDataDict:[String: User] = [AppConstants.UserConstants.userObject: self.user]
+                    
+                    NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: userDataDict)
+                    
+                    self.dismiss(animated: true, completion: nil)
                 }
             })
         }

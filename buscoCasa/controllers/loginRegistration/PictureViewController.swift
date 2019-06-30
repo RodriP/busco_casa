@@ -61,15 +61,10 @@ class PictureViewController: UIViewController, UINavigationControllerDelegate, U
             self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userChoosePictureError, message: AppConstants.UserConstants.userChoosePicMsg, action: actions), animated: true, completion: nil)
             return
         }
-    }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let userMenuController = segue.destination as? UserMenuTabViewController else{
-            fatalError()
-        }
-        userMenuController.user = self.user
+        let userDataDict:[String: User] = [AppConstants.UserConstants.userObject: self.user]
+        
+        NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: userDataDict)
+        dismiss(animated: true, completion: nil)
     }
     
 }

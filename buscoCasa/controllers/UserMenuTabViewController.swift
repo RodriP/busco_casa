@@ -9,19 +9,25 @@
 import UIKit
 
 class UserMenuTabViewController: UITabBarController {
-    var user : User!
+    var user : User?
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        guard let navigationVC = viewControllers?.first as? UINavigationController else {
-            return
-        }
-        
-        guard let userAccountVC = navigationVC.viewControllers.first as? UserViewController else {
+        if let currentUser = user {
+            guard let navigationVC = viewControllers?.first as? UINavigationController else {
                 return
+            }
+            
+            guard let userAccountVC = navigationVC.viewControllers.first as? UserViewController else {
+                return
+            }
+            
+            userAccountVC.user = currentUser
+        } else {
+            let storyboard = UIStoryboard(name: "login", bundle: nil)
+            let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+            self.present(loginNC, animated: true, completion: nil)
         }
-        
-        userAccountVC.user = self.user
+
 
     }
 

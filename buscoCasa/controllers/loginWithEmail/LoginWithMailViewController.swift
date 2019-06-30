@@ -32,27 +32,20 @@ class LoginWithMailViewController: UIViewController {
     }
     
     @IBAction func loginButtonClick(_ sender: Any) {
-        guard let user = validatUser() else {
-            return
-        }
-        self.user = user
-    }
-    
-    private func validatUser() -> User? {
         guard let userName = userTextField.text,
             let password = passwordTextField.text, !userName.isEmpty && !password.isEmpty else{
-            let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
-            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyErrorTitle, message: AppConstants.UserConstants.userEmptyErrorMsg, action: actions), animated: true, completion: nil)
-                return nil
+                let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyErrorTitle, message: AppConstants.UserConstants.userEmptyErrorMsg, action: actions), animated: true, completion: nil)
+                return
         }
         // Fake user until we have Local Storage to save user info and checks
         let user = User(name: userName,mail:"batman@gmail.com", password:password, photo: "https://www.missingnumber.com.mx/wp-content/uploads/2016/04/Batman-SquareEnix-PlayArtsKai.jpg")
-        return user
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! UserMenuTabViewController
-        vc.user = self.user
+        let userDataDict:[String: User] = [AppConstants.UserConstants.userObject: user]
+        
+        NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: userDataDict)
+        
+        dismiss(animated: true, completion: nil)
+        self.parent?.dismiss(animated: true, completion: nil)
     }
     
 }
