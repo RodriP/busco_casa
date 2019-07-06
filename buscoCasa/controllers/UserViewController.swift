@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol ModalDelegate {
     func changeUser(user: User)
@@ -23,14 +24,20 @@ class UserViewController: UIViewController, ModalDelegate {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userPicture.contentMode = .scaleAspectFill
-        registerForNotifications()
-        if user != nil {
-            setButtonIcon()
-        } else {
-            setupLoginState()
-            return
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    self.user = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
+        setButtonIcon()
     }
     
     private func setupLoginState(){
@@ -39,22 +46,6 @@ class UserViewController: UIViewController, ModalDelegate {
         self.present(loginNC, animated: true, completion: nil)
     }
     
-    private func registerForNotifications() {
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(currentUser),
-                                               name: AppConstants.UserConstants.userValue,
-                                               object: nil)
-        
-    }
-    
-    @objc private func currentUser(notification: NSNotification) {
-        if let user = notification.userInfo?[AppConstants.UserConstants.userObject] as? User {
-            self.user = user
-            setButtonIcon()
-            setUserData()
-        }
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,6 +67,7 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        userPicture.contentMode = .scaleAspectFill
         userPicture.layer.cornerRadius = hightConstraint.constant/2
         userPicture.layer.borderWidth = 1
         userPicture.layer.borderColor = UIColor.lightGray.cgColor
@@ -102,7 +94,7 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
-        ImageStorageUtils.deleteDirectory()
+        navigationController?.popViewController(animated: false)
         self.user = nil
         setupLoginState()
     }

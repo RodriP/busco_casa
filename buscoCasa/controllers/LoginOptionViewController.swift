@@ -10,6 +10,7 @@ import UIKit
 import FacebookLogin
 import FBSDKLoginKit
 import FBSDKCoreKit
+import SwiftKeychainWrapper
 
 class LoginOptionViewController: UIViewController {
 
@@ -25,10 +26,26 @@ class LoginOptionViewController: UIViewController {
 
         prepareButtons()
         registerForNotifications()
-        
+
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         loginWithFacebook.isUserInteractionEnabled = true
         loginWithFacebook.addGestureRecognizer(singleTap)
+    }
+    
+    private func registerForNotifications() {
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(currentUser),
+                                               name: AppConstants.UserConstants.userValue,
+                                               object: nil)
+        
+    }
+    
+    @objc private func currentUser() {
+        dismiss(animated: true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+        self.present(mainVC, animated: true, completion: nil)
     }
     
     private func prepareButtons(){
@@ -45,19 +62,6 @@ class LoginOptionViewController: UIViewController {
     
     @objc func tapDetected() {
         loginButtonClicked()
-    }
-    
-    private func registerForNotifications() {
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(currentUser),
-                                               name: AppConstants.UserConstants.userValue,
-                                               object: nil)
-        
-    }
-    
-    @objc private func currentUser(notification: NSNotification) {
-        
     }
     
     
@@ -95,13 +99,17 @@ class LoginOptionViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                         return
                     }
+                    ImageStorageUtils.deleteDirectory()
                     self.user = User(name: userName, mail: mail, password: "empty", photo: userUrlPhoto)
                     
-                    let userDataDict:[String: User] = [AppConstants.UserConstants.userObject: self.user]
+                    NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: nil)
                     
-                    NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: userDataDict)
+                    //Save user
+                    let jsonData = try! JSONEncoder().encode(self.user)
+                    let userJsonString = String(data: jsonData, encoding: .utf8)!
+                    KeychainWrapper.standard.set(userJsonString, forKey: AppConstants.UserConstants.userSaveData)
                     
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popViewController(animated: true)
                 }
             })
         }

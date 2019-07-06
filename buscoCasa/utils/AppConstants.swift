@@ -23,6 +23,9 @@ struct AppConstants{
         static let userValue = NSNotification.Name("user")
         static let userObject = "user"
         static let userImage = "image"
+        static let userSaveData = "userData"
+        static let userValidationErrorMsg = "Wrong user name or password"
+        static let userValidationError = "Login Error"
         static let userEmptyErrorTitle = "Empty user or password"
         static let userEmptyErrorMsg = "Check your data"
         static let userEmptyPassword = "Empty password"

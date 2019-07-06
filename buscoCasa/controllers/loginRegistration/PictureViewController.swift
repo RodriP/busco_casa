@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class PictureViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var hightConstraint: NSLayoutConstraint!
@@ -61,10 +62,13 @@ class PictureViewController: UIViewController, UINavigationControllerDelegate, U
             self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userChoosePictureError, message: AppConstants.UserConstants.userChoosePicMsg, action: actions), animated: true, completion: nil)
             return
         }
-        let userDataDict:[String: User] = [AppConstants.UserConstants.userObject: self.user]
+        NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: nil)
         
-        NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: userDataDict)
-        dismiss(animated: true, completion: nil)
+        //Save user
+        let jsonData = try! JSONEncoder().encode(user)
+        let userJsonString = String(data: jsonData, encoding: .utf8)!
+        KeychainWrapper.standard.set(userJsonString, forKey: AppConstants.UserConstants.userSaveData)
+        
+        self.navigationController?.popViewController(animated: true)
     }
-    
 }

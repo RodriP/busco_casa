@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        var savedUser : User? = nil
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    savedUser = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        let storyboard : UIStoryboard
+        let initialViewController : UIViewController
+
+        
+        if savedUser != nil {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "MainNavigationController")
+        } else {
+            storyboard = UIStoryboard(name: "login", bundle: nil)
+            initialViewController = storyboard.instantiateViewController(withIdentifier: "loginNavigationController")
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+        
         return ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
