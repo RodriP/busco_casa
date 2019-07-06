@@ -7,5 +7,6 @@ target 'buscoCasa' do
   pod 'FBSDKLoginKit'
   pod 'FacebookCore'
   pod 'FacebookLogin'
+  pod 'SwiftKeychainWrapper'
 
 end

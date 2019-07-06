@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 protocol ModalDelegate {
     func changeUser(user: User)
@@ -23,24 +24,50 @@ class UserViewController: UIViewController, ModalDelegate {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
-        userPicture.contentMode = .scaleAspectFill
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    self.user = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
         setButtonIcon()
     }
     
+    private func setupLoginState(){
+        let storyboard = UIStoryboard(name: "login", bundle: nil)
+        let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+        self.present(loginNC, animated: true, completion: nil)
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        userName.text = user.name
-        userEmail.text = user.mail
-        if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
-            // From new registration flow
-            userPicture.image = image
-        } else {
-            // From FB login
-            userPicture.downloaded(from: user.photo)
+        setUserData()
+    }
+    
+    private func setUserData(){
+        if user != nil {
+            userName.text = user.name
+            userEmail.text = user.mail
+            if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
+                // From new registration flow
+                userPicture.image = image
+            } else {
+                // From FB login
+                userPicture.downloaded(from: user.photo)
+            }
         }
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        userPicture.contentMode = .scaleAspectFill
         userPicture.layer.cornerRadius = hightConstraint.constant/2
         userPicture.layer.borderWidth = 1
         userPicture.layer.borderColor = UIColor.lightGray.cgColor
@@ -67,14 +94,9 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "LoginOptionViewController") as! LoginOptionViewController
-        present(vc, animated: true, completion: nil)
-        ImageStorageUtils.deleteDirectory()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        ImageStorageUtils.saveImage(image: userPicture.image!)
+        navigationController?.popViewController(animated: false)
+        self.user = nil
+        setupLoginState()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -100,6 +122,7 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async() {
                 self.image = image
+                ImageStorageUtils.saveImage(image: image)
             }
             }.resume()
     }

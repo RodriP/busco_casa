@@ -10,7 +10,8 @@
 		A0B9DCE84C2DB41399B80900 /* Pods_buscoCasa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */; };
 		F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */; };
 		F830A91022C0182200107881 /* bookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F830A90F22C0182200107881 /* bookmarks.storyboard */; };
-		F871437622BE78E1007CA5AC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* Constants.swift */; };
+		F840082622C6D64E00CFC612 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F840082522C6D64E00CFC612 /* login.storyboard */; };
+		F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* AppConstants.swift */; };
 		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
 		F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437922BEA12C007CA5AC /* UserViewController.swift */; };
 		F871437C22BEA1E7007CA5AC /* user.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437B22BEA1E7007CA5AC /* user.storyboard */; };
@@ -37,7 +38,8 @@
 		ED76C3349DBA22D9D4EDC164 /* Pods_buscoCasa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_buscoCasa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDialogUtils.swift; sourceTree = "<group>"; };
 		F830A90F22C0182200107881 /* bookmarks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = bookmarks.storyboard; sourceTree = "<group>"; };
-		F871437522BE78E1007CA5AC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		F840082522C6D64E00CFC612 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		F871437522BE78E1007CA5AC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
 		F871437922BEA12C007CA5AC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		F871437B22BEA1E7007CA5AC /* user.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = user.storyboard; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				F8EFD50822C59D31007769D8 /* MontevideoLocation.gpx */,
-				F871437522BE78E1007CA5AC /* Constants.swift */,
+				F871437522BE78E1007CA5AC /* AppConstants.swift */,
 				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
 				F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */,
 			);
@@ -182,6 +184,7 @@
 				F871437B22BEA1E7007CA5AC /* user.storyboard */,
 				F871437D22BEA1F3007CA5AC /* map.storyboard */,
 				F830A90F22C0182200107881 /* bookmarks.storyboard */,
+				F840082522C6D64E00CFC612 /* login.storyboard */,
 			);
 			path = storyboards;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				F8C882712293925200177093 /* Assets.xcassets in Resources */,
 				F830A91022C0182200107881 /* bookmarks.storyboard in Resources */,
 				F8C8826F2293925100177093 /* Main.storyboard in Resources */,
+				F840082622C6D64E00CFC612 /* login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,7 +322,7 @@
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
 				F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */,
 				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
-				F871437622BE78E1007CA5AC /* Constants.swift in Sources */,
+				F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

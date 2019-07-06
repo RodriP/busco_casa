@@ -47,7 +47,8 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         emailTxt.text = user.mail
         userNameTxt.text = user.name
         passwordTxt.text = user.password
-        userImage.image = ImageStorageUtils.getSavedImage(named: "image.png")
+        passwordTxt.isSecureTextEntry = true
+        userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)
     }
     
     @IBAction func uploadAction(_ sender: Any) {
@@ -69,6 +70,7 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
             return
         }
         user.password = password
+        ImageStorageUtils.saveImage(image: userImage.image!)
         delegate?.changeUser(user: user)
         dismiss(animated: true, completion: nil)
     }
@@ -90,8 +92,6 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         self.dismiss(animated: true, completion: { () -> Void in
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 self.userImage.image = image
-                ImageStorageUtils.saveImage(image: image)
-                
             }
         })
         self.user.photo = AppConstants.UserConstants.userImageNameToSave

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class LoginWithMailViewController: UIViewController {
     @IBOutlet weak var houseImage: UIImageView!
@@ -32,27 +33,36 @@ class LoginWithMailViewController: UIViewController {
     }
     
     @IBAction func loginButtonClick(_ sender: Any) {
-        guard let user = validatUser() else {
-            return
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        var savedUser : User? = nil
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    savedUser = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
-        self.user = user
-    }
-    
-    private func validatUser() -> User? {
+
+        
         guard let userName = userTextField.text,
             let password = passwordTextField.text, !userName.isEmpty && !password.isEmpty else{
-            let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
-            self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyErrorTitle, message: AppConstants.UserConstants.userEmptyErrorMsg, action: actions), animated: true, completion: nil)
-                return nil
+                let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userEmptyErrorTitle, message: AppConstants.UserConstants.userEmptyErrorMsg, action: actions), animated: true, completion: nil)
+                return
         }
-        // Fake user until we have Local Storage to save user info and checks
-        let user = User(name: userName,mail:"batman@gmail.com", password:password, photo: "https://www.missingnumber.com.mx/wp-content/uploads/2016/04/Batman-SquareEnix-PlayArtsKai.jpg")
-        return user
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! UserMenuTabViewController
-        vc.user = self.user
+        guard savedUser != nil && savedUser!.name.elementsEqual(userName) && savedUser!.password.elementsEqual(password) else{
+                let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userValidationError, message: AppConstants.UserConstants.userValidationErrorMsg, action: actions), animated: true, completion: nil)
+                return
+        }
+        NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: nil)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
