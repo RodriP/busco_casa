@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditUserViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class EditUserViewController: UIViewController {
 
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var cancelBtn: UIButton!
@@ -25,10 +25,13 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareButtons()
-        loadData()
         userImage.isUserInteractionEnabled = true
        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         userImage.addGestureRecognizer(singleTap)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadData()
     }
     
     private func prepareButtons(){
@@ -101,3 +104,12 @@ class EditUserViewController: UIViewController, UINavigationControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
 }
+
+extension EditUserViewController: UINavigationControllerDelegate{
+ //nothing here, only for delegate
+}
+
+extension EditUserViewController: UIImagePickerControllerDelegate{
+ //nothing here, only for delegate
+}
+

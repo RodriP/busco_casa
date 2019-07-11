@@ -9,7 +9,7 @@
 import UIKit
 import SwiftKeychainWrapper
 
-class PictureViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class PictureViewController: UIViewController {
     @IBOutlet weak var hightConstraint: NSLayoutConstraint!
     var user : User!
     @IBOutlet weak var userImageView: UIImageView!
@@ -71,4 +71,13 @@ class PictureViewController: UIViewController, UINavigationControllerDelegate, U
         
         self.navigationController?.popViewController(animated: true)
     }
+}
+
+extension PictureViewController: UINavigationControllerDelegate {
+    //Nothing here, only for delegate
+    
+}
+
+extension PictureViewController: UIImagePickerControllerDelegate {
+    //Nothing here, only for delegate
 }

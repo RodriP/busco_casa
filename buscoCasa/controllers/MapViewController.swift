@@ -10,14 +10,14 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate{
+class MapViewController: UIViewController{
 
     @IBOutlet weak var map: MKMapView!
     var user : User!
     private let locationManager :CLLocationManager = CLLocationManager()
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Map"
+        self.title = AppConstants.MapConstants.MapTitle
         locationManager.requestWhenInUseAuthorization()
         if CLLocationManager.locationServicesEnabled() {
             locationManager.delegate = self
@@ -75,4 +75,12 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
         return annotationView
     }
+}
+
+extension MapViewController: CLLocationManagerDelegate {
+    //Nothing here, only for delegate
+}
+
+extension MapViewController: MKMapViewDelegate {
+    //Nothing here, only for delegate
 }

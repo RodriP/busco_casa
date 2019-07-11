@@ -16,7 +16,7 @@ class LoginOptionViewController: UIViewController {
 
     @IBOutlet weak var accountBtn: UIButton!
     @IBOutlet weak var loginWithFacebook: UIImageView!
-    var dict : [String: AnyObject] = [:]
+    var fbDictionaryDataResult : [String: AnyObject] = [:]
     var user : User!
 
     @IBOutlet weak var loginWithEmailBtn: UIButton!
@@ -89,8 +89,8 @@ class LoginOptionViewController: UIViewController {
         if((AccessToken.current) != nil){
             GraphRequest(graphPath: AppConstants.LoginConstants.loginMe, parameters: [AppConstants.LoginConstants.loginFields: "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
-                    self.dict = result as! [String : AnyObject]
-                    guard let userName = self.dict["name"] as? String , let mail = self.dict["email"] as? String, let userphotoDictionary = self.dict["picture"] as? [String:NSDictionary], let photoData = userphotoDictionary["data"], let userUrlPhoto = photoData["url"] as? String else {
+                    self.fbDictionaryDataResult = result as! [String : AnyObject]
+                    guard let userName = self.fbDictionaryDataResult["name"] as? String , let mail = self.fbDictionaryDataResult["email"] as? String, let userphotoDictionary = self.fbDictionaryDataResult["picture"] as? [String:NSDictionary], let photoData = userphotoDictionary["data"], let userUrlPhoto = photoData["url"] as? String else {
                         let alert = UIAlertController(title: AppConstants.LoginConstants.loginErrorTitle, message: (AppConstants.LoginConstants.loginErrorRetry), preferredStyle: UIAlertController.Style.alert)
                         alert.addAction(UIAlertAction(title: AppConstants.LoginConstants.loginRetry, style: UIAlertAction.Style.default, handler: { action in
                             self.loginButtonClicked()

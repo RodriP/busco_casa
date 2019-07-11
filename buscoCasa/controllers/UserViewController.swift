@@ -24,6 +24,18 @@ class UserViewController: UIViewController, ModalDelegate {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
+        setButtonIcon()
+    }
+    
+    private func setupLoginState(){
+        let storyboard = UIStoryboard(name: "login", bundle: nil)
+        let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+        self.present(loginNC, animated: true, completion: nil)
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
             if let jsonData = retrievedUser!.data(using: .utf8)
@@ -37,18 +49,6 @@ class UserViewController: UIViewController, ModalDelegate {
                 }
             }
         }
-        setButtonIcon()
-    }
-    
-    private func setupLoginState(){
-        let storyboard = UIStoryboard(name: "login", bundle: nil)
-        let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
-        self.present(loginNC, animated: true, completion: nil)
-    }
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         setUserData()
     }
     

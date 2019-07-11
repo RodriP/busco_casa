@@ -39,4 +39,8 @@ struct AppConstants{
         static let userNameEmptyMsg = "User Name can't be empty"
         static let userEmptyValue = ""
     }
+    
+    struct MapConstants{
+        static let MapTitle = "Map"
+    }
 }

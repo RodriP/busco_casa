@@ -19,10 +19,8 @@ class LoginWithMailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loginbtn.layer.cornerRadius = 5
-        loginbtn.layer.borderWidth = 1
-        loginbtn.layer.borderColor = UIColor.white.cgColor
-        loginbtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)    }
+        loadButtonData()
+   }
 
     @IBAction func userChange(_ sender: Any) {
     }
@@ -32,6 +30,12 @@ class LoginWithMailViewController: UIViewController {
     @IBAction func passwordChange(_ sender: Any) {
     }
     
+    private func loadButtonData (){
+        loginbtn.layer.cornerRadius = 5
+        loginbtn.layer.borderWidth = 1
+        loginbtn.layer.borderColor = UIColor.white.cgColor
+        loginbtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
+    }
     @IBAction func loginButtonClick(_ sender: Any) {
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         var savedUser : User? = nil
