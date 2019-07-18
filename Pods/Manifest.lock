@@ -5,14 +5,15 @@ PODS:
     - FacebookCore (~> 0.7)
     - FBSDKCoreKit (~> 5.0)
     - FBSDKLoginKit (~> 5.0)
-  - FBSDKCoreKit (5.2.0):
-    - FBSDKCoreKit/Basics (= 5.2.0)
-    - FBSDKCoreKit/Core (= 5.2.0)
-  - FBSDKCoreKit/Basics (5.2.0)
-  - FBSDKCoreKit/Core (5.2.0):
+  - FBSDKCoreKit (5.2.3):
+    - FBSDKCoreKit/Basics (= 5.2.3)
+    - FBSDKCoreKit/Core (= 5.2.3)
+  - FBSDKCoreKit/Basics (5.2.3)
+  - FBSDKCoreKit/Core (5.2.3):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.2.0):
+  - FBSDKLoginKit (5.2.3):
     - FBSDKCoreKit (~> 5.0)
+  - lottie-ios (3.1.2)
   - SwiftKeychainWrapper (3.4.0)
 
 DEPENDENCIES:
@@ -20,6 +21,7 @@ DEPENDENCIES:
   - FacebookLogin
   - FBSDKCoreKit
   - FBSDKLoginKit
+  - lottie-ios
   - SwiftKeychainWrapper
 
 SPEC REPOS:
@@ -28,15 +30,17 @@ SPEC REPOS:
     - FacebookLogin
     - FBSDKCoreKit
     - FBSDKLoginKit
+    - lottie-ios
     - SwiftKeychainWrapper
 
 SPEC CHECKSUMS:
   FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
   FacebookLogin: 94cdad6850e86a2b04704dedfe7674a7af8148eb
-  FBSDKCoreKit: fd37d65447ef93255191dd5ded4f63955d23f8aa
-  FBSDKLoginKit: b814ebf853e7b28592eab4d24b458a89b3f8d69e
+  FBSDKCoreKit: 5154c35d9058fd7dfa0445ba19e194c4b172fc32
+  FBSDKLoginKit: dc98b6bf12334f1a42f28d0457fffc9aa3d1eca5
+  lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: ac6881129e80d64c30e2985835e4943e9537a38d
+PODFILE CHECKSUM: 2a79c800562408602ef4bf2b1f49fc3d65e92c4e
 
 COCOAPODS: 1.7.2

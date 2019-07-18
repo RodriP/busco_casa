@@ -8,5 +8,5 @@ target 'buscoCasa' do
   pod 'FacebookCore'
   pod 'FacebookLogin'
   pod 'SwiftKeychainWrapper'
-
+  pod 'lottie-ios'
 end
