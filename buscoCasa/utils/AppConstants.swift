@@ -42,5 +42,9 @@ struct AppConstants{
     
     struct MapConstants{
         static let MapTitle = "Map"
+        static let AskLocationTitle = "Set Location Services"
+        static let AskLocationMsg = "We need to access to location services for this application"
+        static let AskLocationConfigAction = "Ir a Configuración"
+        static let AskLocationCancelAction = "Cancel"
     }
 }
