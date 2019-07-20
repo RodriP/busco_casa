@@ -11,9 +11,11 @@ import FacebookLogin
 import FBSDKLoginKit
 import FBSDKCoreKit
 import SwiftKeychainWrapper
+import Lottie
 
 class LoginOptionViewController: UIViewController {
 
+    @IBOutlet weak var loginImageAnimation: AnimationView!
     @IBOutlet weak var accountBtn: UIButton!
     @IBOutlet weak var loginWithFacebook: UIImageView!
     var fbDictionaryDataResult : [String: AnyObject] = [:]
@@ -26,10 +28,20 @@ class LoginOptionViewController: UIViewController {
 
         prepareButtons()
         registerForNotifications()
-
+        
         let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         loginWithFacebook.isUserInteractionEnabled = true
         loginWithFacebook.addGestureRecognizer(singleTap)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        playAnimation()
+    }
+    
+    func playAnimation(){
+        let animation = Animation.named("loginHome")
+        loginImageAnimation.animation = animation
+        loginImageAnimation.loopMode = .loop
+        loginImageAnimation.play()
     }
     
     private func registerForNotifications() {

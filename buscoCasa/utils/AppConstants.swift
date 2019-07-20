@@ -21,6 +21,8 @@ struct AppConstants{
     
     struct UserConstants{
         static let userValue = NSNotification.Name("user")
+        static let welcomeUser = "Bienvenid@ a BuscoCasa!"
+        static let welcomeLoggedUser = "Bienvenid@ de nuevo "
         static let userObject = "user"
         static let userImage = "image"
         static let userSaveData = "userData"

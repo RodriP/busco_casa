@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import Lottie
 
 class LoginWithMailViewController: UIViewController {
     @IBOutlet weak var houseImage: UIImageView!
@@ -15,6 +16,7 @@ class LoginWithMailViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     var user : User!
     
+    @IBOutlet weak var mailAnimationImage: AnimationView!
     @IBOutlet weak var loginbtn: UIButton!
     
     override func viewDidLoad() {
@@ -24,9 +26,21 @@ class LoginWithMailViewController: UIViewController {
 
     @IBAction func userChange(_ sender: Any) {
     }
-    @IBAction func skipAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    
+    override func viewWillAppear(_ animated: Bool) {
+        playAnimation()
     }
+    
+    func playAnimation(){
+        let animation = Animation.named("loginHome")
+        mailAnimationImage.animation = animation
+        mailAnimationImage.layer.cornerRadius = self.mailAnimationImage.frame.size.width / 2;
+        mailAnimationImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
+        mailAnimationImage.clipsToBounds = true
+        mailAnimationImage.loopMode = .loop
+        mailAnimationImage.play()
+    }
+
     @IBAction func passwordChange(_ sender: Any) {
     }
     
