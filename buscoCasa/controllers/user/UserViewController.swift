@@ -44,7 +44,6 @@ class UserViewController: UIViewController, ModalDelegate {
     private func setupLoginState(){
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
-        ImageStorageUtils.deleteDirectory()
         self.present(loginNC, animated: true, completion: nil)
     }
     

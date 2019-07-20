@@ -30,11 +30,6 @@ class EditUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareButtons()
-        userImage.isUserInteractionEnabled = true
-       let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
-        userImage.addGestureRecognizer(singleTap)
-        animateImage.isUserInteractionEnabled = true
-        animateImage.addGestureRecognizer(singleTap)
     }
     
     private func playAnimation(){
@@ -50,6 +45,15 @@ class EditUserViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         loadData()
+        userImage.isUserInteractionEnabled = true
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        
+        let singleTapAnimation = UITapGestureRecognizer(target: self, action: #selector(animationTapDetected))
+
+        userImage.addGestureRecognizer(singleTap)
+        
+        animateImage.isUserInteractionEnabled = true
+        animateImage.addGestureRecognizer(singleTapAnimation)
     }
     
     private func prepareButtons(){
@@ -119,7 +123,17 @@ class EditUserViewController: UIViewController {
             
             present(imagePicker, animated: true, completion: nil)
         }
-        
+    }
+    
+    @objc func animationTapDetected() {
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
