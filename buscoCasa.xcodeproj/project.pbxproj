@@ -14,8 +14,10 @@
 		F8013FD522E207EC00035010 /* CustomLaunch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8013FD422E207EC00035010 /* CustomLaunch.storyboard */; };
 		F8013FD722E208F000035010 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8013FD622E208F000035010 /* LaunchViewController.swift */; };
 		F8013FDA22E2108200035010 /* homeAnimation.json in Resources */ = {isa = PBXBuildFile; fileRef = F8013FD922E2108200035010 /* homeAnimation.json */; };
+		F80FCC2822E3768B00DF5255 /* choosePicture.json in Resources */ = {isa = PBXBuildFile; fileRef = F80FCC2722E3768A00DF5255 /* choosePicture.json */; };
 		F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */; };
 		F830A91022C0182200107881 /* bookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F830A90F22C0182200107881 /* bookmarks.storyboard */; };
+		F837648F22E3AA4D00C03EC3 /* profile.json in Resources */ = {isa = PBXBuildFile; fileRef = F837648E22E3AA4D00C03EC3 /* profile.json */; };
 		F840082622C6D64E00CFC612 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F840082522C6D64E00CFC612 /* login.storyboard */; };
 		F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* AppConstants.swift */; };
 		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
@@ -23,18 +25,15 @@
 		F871437C22BEA1E7007CA5AC /* user.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437B22BEA1E7007CA5AC /* user.storyboard */; };
 		F871437E22BEA1F3007CA5AC /* map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F871437D22BEA1F3007CA5AC /* map.storyboard */; };
 		F871438022BEA425007CA5AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437F22BEA425007CA5AC /* MapViewController.swift */; };
-		F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438122BED428007CA5AC /* MailRegistrationViewController.swift */; };
 		F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */; };
 		F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438722BFC47B007CA5AC /* EditUserViewController.swift */; };
+		F8BE36B122E35D6700923C64 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE36B022E35D6700923C64 /* RegistrationViewController.swift */; };
 		F8C8826A2293925100177093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882692293925100177093 /* AppDelegate.swift */; };
 		F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8826B2293925100177093 /* LoginWithMailViewController.swift */; };
 		F8C8826F2293925100177093 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8C8826D2293925100177093 /* Main.storyboard */; };
 		F8C882712293925200177093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C882702293925200177093 /* Assets.xcassets */; };
 		F8C882812293993100177093 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882802293993100177093 /* User.swift */; };
 		F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882822294231400177093 /* LoginOptionViewController.swift */; };
-		F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */; };
-		F8C8828722946DE400177093 /* PasswordRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */; };
-		F8C88289229471D900177093 /* PictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C88288229471D900177093 /* PictureViewController.swift */; };
 		F8DD28F322E22ACA00F9889B /* loginHome.json in Resources */ = {isa = PBXBuildFile; fileRef = F8DD28F222E22AC900F9889B /* loginHome.json */; };
 /* End PBXBuildFile section */
 
@@ -49,8 +48,10 @@
 		F8013FD422E207EC00035010 /* CustomLaunch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CustomLaunch.storyboard; sourceTree = "<group>"; };
 		F8013FD622E208F000035010 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		F8013FD922E2108200035010 /* homeAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = homeAnimation.json; sourceTree = "<group>"; };
+		F80FCC2722E3768A00DF5255 /* choosePicture.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = choosePicture.json; sourceTree = "<group>"; };
 		F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDialogUtils.swift; sourceTree = "<group>"; };
 		F830A90F22C0182200107881 /* bookmarks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = bookmarks.storyboard; sourceTree = "<group>"; };
+		F837648E22E3AA4D00C03EC3 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profile.json; sourceTree = "<group>"; };
 		F840082522C6D64E00CFC612 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
 		F871437522BE78E1007CA5AC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
@@ -58,9 +59,9 @@
 		F871437B22BEA1E7007CA5AC /* user.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = user.storyboard; sourceTree = "<group>"; };
 		F871437D22BEA1F3007CA5AC /* map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = map.storyboard; sourceTree = "<group>"; };
 		F871437F22BEA425007CA5AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		F871438122BED428007CA5AC /* MailRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailRegistrationViewController.swift; sourceTree = "<group>"; };
 		F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageUtils.swift; sourceTree = "<group>"; };
 		F871438722BFC47B007CA5AC /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		F8BE36B022E35D6700923C64 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F8C882662293925100177093 /* buscoCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buscoCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C882692293925100177093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8C8826B2293925100177093 /* LoginWithMailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithMailViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +70,6 @@
 		F8C882752293925200177093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8C882802293993100177093 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F8C882822294231400177093 /* LoginOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionViewController.swift; sourceTree = "<group>"; };
-		F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameRegistrationViewController.swift; sourceTree = "<group>"; };
-		F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRegistrationViewController.swift; sourceTree = "<group>"; };
-		F8C88288229471D900177093 /* PictureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewController.swift; sourceTree = "<group>"; };
 		F8DD28F222E22AC900F9889B /* loginHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginHome.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +142,8 @@
 		F8013FD822E20F4F00035010 /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				F837648E22E3AA4D00C03EC3 /* profile.json */,
+				F80FCC2722E3768A00DF5255 /* choosePicture.json */,
 				F8DD28F222E22AC900F9889B /* loginHome.json */,
 				F8013FD922E2108200035010 /* homeAnimation.json */,
 			);
@@ -171,10 +171,7 @@
 		F871438422BED44E007CA5AC /* loginRegistration */ = {
 			isa = PBXGroup;
 			children = (
-				F8C8828622946DE400177093 /* PasswordRegistrationViewController.swift */,
-				F8C88288229471D900177093 /* PictureViewController.swift */,
-				F871438122BED428007CA5AC /* MailRegistrationViewController.swift */,
-				F8C8828422942FF400177093 /* UserNameRegistrationViewController.swift */,
+				F8BE36B022E35D6700923C64 /* RegistrationViewController.swift */,
 			);
 			path = loginRegistration;
 			sourceTree = "<group>";
@@ -311,7 +308,9 @@
 				F871437C22BEA1E7007CA5AC /* user.storyboard in Resources */,
 				F871437E22BEA1F3007CA5AC /* map.storyboard in Resources */,
 				F8C882712293925200177093 /* Assets.xcassets in Resources */,
+				F80FCC2822E3768B00DF5255 /* choosePicture.json in Resources */,
 				F8013FDA22E2108200035010 /* homeAnimation.json in Resources */,
+				F837648F22E3AA4D00C03EC3 /* profile.json in Resources */,
 				F830A91022C0182200107881 /* bookmarks.storyboard in Resources */,
 				F8C8826F2293925100177093 /* Main.storyboard in Resources */,
 				F840082622C6D64E00CFC612 /* login.storyboard in Resources */,
@@ -369,8 +368,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F871438222BED428007CA5AC /* MailRegistrationViewController.swift in Sources */,
 				F871438022BEA425007CA5AC /* MapViewController.swift in Sources */,
+				F8BE36B122E35D6700923C64 /* RegistrationViewController.swift in Sources */,
 				F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */,
 				F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */,
 				F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */,
@@ -379,12 +378,9 @@
 				F8013FD722E208F000035010 /* LaunchViewController.swift in Sources */,
 				F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,
-				F8C8828722946DE400177093 /* PasswordRegistrationViewController.swift in Sources */,
 				F8C882812293993100177093 /* User.swift in Sources */,
-				F8C88289229471D900177093 /* PictureViewController.swift in Sources */,
 				F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */,
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
-				F8C8828522942FF400177093 /* UserNameRegistrationViewController.swift in Sources */,
 				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
 				F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */,
 			);

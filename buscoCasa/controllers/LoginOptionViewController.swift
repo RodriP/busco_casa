@@ -37,7 +37,7 @@ class LoginOptionViewController: UIViewController {
         playAnimation()
     }
     
-    func playAnimation(){
+    private func playAnimation(){
         let animation = Animation.named("loginHome")
         loginImageAnimation.animation = animation
         loginImageAnimation.loopMode = .loop

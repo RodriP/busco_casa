@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Lottie
+import SwiftKeychainWrapper
 
 class EditUserViewController: UIViewController {
 
@@ -14,6 +16,9 @@ class EditUserViewController: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var emailTxt: UITextField!
     @IBOutlet weak var passwordTxt: UITextField!
+    
+    @IBOutlet weak var animateImage: AnimationView!
+    
     @IBOutlet weak var userNameTxt: UITextField!
     @IBOutlet weak var updateBtn: UIButton!
     var delegate: ModalDelegate?
@@ -28,6 +33,19 @@ class EditUserViewController: UIViewController {
         userImage.isUserInteractionEnabled = true
        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
         userImage.addGestureRecognizer(singleTap)
+        animateImage.isUserInteractionEnabled = true
+        animateImage.addGestureRecognizer(singleTap)
+    }
+    
+    private func playAnimation(){
+        animateImage.isHidden = false
+        let animation = Animation.named("profile")
+        animateImage.animation = animation
+        animateImage.layer.cornerRadius = self.animateImage.frame.size.width / 2;
+        animateImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
+        animateImage.clipsToBounds = true
+        animateImage.loopMode = .loop
+        animateImage.play()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,7 +69,14 @@ class EditUserViewController: UIViewController {
         userNameTxt.text = user.name
         passwordTxt.text = user.password
         passwordTxt.isSecureTextEntry = true
-        userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)
+        if(user.photo.elementsEqual("")) {
+            userImage.isHidden = true
+            playAnimation()
+        } else{
+            userImage.isHidden = false
+            userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)
+            animateImage.isHidden = true
+        }
     }
     
     @IBAction func uploadAction(_ sender: Any) {
@@ -75,6 +100,12 @@ class EditUserViewController: UIViewController {
         user.password = password
         ImageStorageUtils.saveImage(image: userImage.image!)
         delegate?.changeUser(user: user)
+        
+        //Save user
+        let jsonData = try! JSONEncoder().encode(user)
+        let userJsonString = String(data: jsonData, encoding: .utf8)!
+        KeychainWrapper.standard.set(userJsonString, forKey: AppConstants.UserConstants.userSaveData)
+        
         dismiss(animated: true, completion: nil)
     }
     

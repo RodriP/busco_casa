@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import Lottie
 
 protocol ModalDelegate {
     func changeUser(user: User)
@@ -21,21 +22,40 @@ class UserViewController: UIViewController, ModalDelegate {
     @IBOutlet weak var editUserInfoBtn: UIButton!
     @IBOutlet weak var userEmail: UILabel!
     @IBOutlet weak var logoutBtn: UIButton!
+    
+    @IBOutlet weak var animationPic: AnimationView!
+    
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
         setButtonIcon()
     }
     
+    private func playAnimation(){
+        let animation = Animation.named("profile")
+        animationPic.animation = animation
+        animationPic.layer.cornerRadius = self.animationPic.frame.size.width / 2;
+        animationPic.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
+        animationPic.clipsToBounds = true
+        animationPic.loopMode = .loop
+        animationPic.play()
+    }
+    
     private func setupLoginState(){
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+        ImageStorageUtils.deleteDirectory()
         self.present(loginNC, animated: true, completion: nil)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userPicture.contentMode = .scaleAspectFill
+        userPicture.layer.cornerRadius = hightConstraint.constant/2
+        userPicture.layer.borderWidth = 1
+        userPicture.layer.borderColor = UIColor.lightGray.cgColor
+        
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
             if let jsonData = retrievedUser!.data(using: .utf8)
@@ -56,21 +76,26 @@ class UserViewController: UIViewController, ModalDelegate {
         if user != nil {
             userName.text = user.name
             userEmail.text = user.mail
+            animationPic.isHidden = true
             if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
                 // From new registration flow
+                userPicture.isHidden = false
                 userPicture.image = image
             } else {
-                // From FB login
-                userPicture.downloaded(from: user.photo)
+                if(user.photo.elementsEqual("")){
+                    //User not selected a profile photo, use custome one
+                    userPicture.isHidden = true
+                    animationPic.isHidden = false
+                    playAnimation()
+                } else{
+                    // From FB login
+                    userPicture.isHidden = false
+                    userPicture.downloaded(from: user.photo)
+                }
             }
+        } else{
+            fatalError("Not user found")
         }
-    }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        userPicture.contentMode = .scaleAspectFill
-        userPicture.layer.cornerRadius = hightConstraint.constant/2
-        userPicture.layer.borderWidth = 1
-        userPicture.layer.borderColor = UIColor.lightGray.cgColor
     }
 
     func changeUser(user: User) {

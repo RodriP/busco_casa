@@ -84,22 +84,32 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83Z-8x-gqs">
                                 <rect key="frame" x="183" y="311.5" width="48" height="25"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="shadowColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZO-Jy-0oS">
                                 <rect key="frame" x="183" y="351.5" width="48" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="shadowColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1RT-Qm-cbo" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="107" y="103" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="EfL-EP-kH0"/>
+                                    <constraint firstAttribute="height" constant="200" id="TRR-Cs-UNg"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.1939910715" green="0.47314130049999997" blue="0.65726198189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vZO-Jy-0oS" firstAttribute="centerX" secondItem="dRa-q6-mRH" secondAttribute="centerX" id="3NK-nb-8d3"/>
                             <constraint firstAttribute="bottom" secondItem="9bc-3c-zgA" secondAttribute="bottom" id="5vR-V7-54S"/>
+                            <constraint firstItem="1RT-Qm-cbo" firstAttribute="top" secondItem="dRa-q6-mRH" secondAttribute="top" constant="15" id="Dzj-rB-5Z1"/>
                             <constraint firstItem="83Z-8x-gqs" firstAttribute="centerX" secondItem="dRa-q6-mRH" secondAttribute="centerX" id="ETR-fc-GE9"/>
                             <constraint firstItem="9bc-3c-zgA" firstAttribute="trailing" secondItem="dRa-q6-mRH" secondAttribute="trailing" id="Ee7-yw-L4p"/>
                             <constraint firstItem="9bc-3c-zgA" firstAttribute="trailing" secondItem="dRa-q6-mRH" secondAttribute="trailing" id="EjB-x2-ddZ"/>
@@ -109,6 +119,7 @@
                             <constraint firstItem="9bc-3c-zgA" firstAttribute="leading" secondItem="dRa-q6-mRH" secondAttribute="leading" id="Vtb-aF-WZ0"/>
                             <constraint firstAttribute="bottom" secondItem="9bc-3c-zgA" secondAttribute="bottom" id="bYw-g6-eTi"/>
                             <constraint firstItem="vZO-Jy-0oS" firstAttribute="top" secondItem="83Z-8x-gqs" secondAttribute="bottom" constant="15" id="haK-Gq-hC0"/>
+                            <constraint firstItem="1RT-Qm-cbo" firstAttribute="centerX" secondItem="dRa-q6-mRH" secondAttribute="centerX" id="lvC-5B-7wy"/>
                             <constraint firstItem="Uv1-By-xby" firstAttribute="top" secondItem="dRa-q6-mRH" secondAttribute="top" constant="15" id="wxZ-TA-zmy"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dRa-q6-mRH"/>
@@ -116,6 +127,7 @@
                     <tabBarItem key="tabBarItem" title="User Account" image="user_male" id="WKw-Gr-dtR"/>
                     <navigationItem key="navigationItem" title="User Account" id="cFn-zX-KQ6"/>
                     <connections>
+                        <outlet property="animationPic" destination="1RT-Qm-cbo" id="ZRn-wm-WL8"/>
                         <outlet property="editUserInfoBtn" destination="j1X-js-GXf" id="qhd-uK-NSY"/>
                         <outlet property="hightConstraint" destination="miQ-XJ-CoP" id="nIu-Ks-oKQ"/>
                         <outlet property="logoutBtn" destination="yVg-bj-jdv" id="yNs-Zx-dWS"/>
@@ -202,11 +214,20 @@
                                     <action selector="cancelButtonAction:" destination="BFw-z2-2XZ" eventType="touchUpInside" id="Dv5-h4-Txo"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vmR-2W-CQg" customClass="AnimationView" customModule="Lottie">
+                                <rect key="frame" x="107" y="84" width="200" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="3Vh-Gg-u6V"/>
+                                    <constraint firstAttribute="height" constant="200" id="SB8-bB-Dgb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.1939910715" green="0.47314130049999997" blue="0.65726198189999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="hO0-fa-cMq" firstAttribute="leading" secondItem="Z0c-c4-Qda" secondAttribute="leading" constant="15" id="3Aa-OL-hAN"/>
                             <constraint firstItem="1wD-vH-eaB" firstAttribute="top" secondItem="Z0c-c4-Qda" secondAttribute="top" constant="40" id="4by-Vj-xFF"/>
+                            <constraint firstItem="vmR-2W-CQg" firstAttribute="centerX" secondItem="Z0c-c4-Qda" secondAttribute="centerX" id="7fR-n8-JRQ"/>
                             <constraint firstItem="Z0c-c4-Qda" firstAttribute="top" secondItem="ugY-Be-FqE" secondAttribute="top" constant="-15" id="9nQ-FQ-3eG"/>
                             <constraint firstItem="1wD-vH-eaB" firstAttribute="centerX" secondItem="Z0c-c4-Qda" secondAttribute="centerX" id="AFn-ez-SV2"/>
                             <constraint firstItem="Z0c-c4-Qda" firstAttribute="trailing" secondItem="kf5-ub-UDI" secondAttribute="trailing" constant="15" id="Cn1-KH-bdX"/>
@@ -216,6 +237,7 @@
                             <constraint firstItem="HsO-rK-jvX" firstAttribute="centerX" secondItem="kf5-ub-UDI" secondAttribute="centerX" id="FtC-2Z-IqV"/>
                             <constraint firstItem="114-5t-a2b" firstAttribute="leading" secondItem="Z0c-c4-Qda" secondAttribute="leading" constant="20" id="J0p-HD-LF1"/>
                             <constraint firstItem="F93-Kp-8ga" firstAttribute="top" secondItem="hO0-fa-cMq" secondAttribute="bottom" constant="30" id="NxL-Gl-HyW"/>
+                            <constraint firstItem="vmR-2W-CQg" firstAttribute="top" secondItem="Z0c-c4-Qda" secondAttribute="top" constant="40" id="QYA-Dz-l4n"/>
                             <constraint firstItem="Z0c-c4-Qda" firstAttribute="trailing" secondItem="ugY-Be-FqE" secondAttribute="trailing" constant="20" id="WS5-gU-bgA"/>
                             <constraint firstItem="HsO-rK-jvX" firstAttribute="top" secondItem="1wD-vH-eaB" secondAttribute="bottom" constant="56" id="ZDG-3U-aMb"/>
                             <constraint firstItem="114-5t-a2b" firstAttribute="centerX" secondItem="Z0c-c4-Qda" secondAttribute="centerX" id="cBk-50-gJb"/>
@@ -231,6 +253,7 @@
                         <viewLayoutGuide key="safeArea" id="Z0c-c4-Qda"/>
                     </view>
                     <connections>
+                        <outlet property="animateImage" destination="vmR-2W-CQg" id="1aU-Iq-jcJ"/>
                         <outlet property="cancelBtn" destination="ugY-Be-FqE" id="g2j-Mt-FsZ"/>
                         <outlet property="emailTxt" destination="F93-Kp-8ga" id="XOJ-tv-rdW"/>
                         <outlet property="heightConstraint" destination="lOZ-xQ-La4" id="5o1-4k-s8f"/>

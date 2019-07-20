@@ -44,7 +44,7 @@ class LaunchViewController: UIViewController {
         playAnimation()
     }
     
-    func playAnimation(){
+    private func playAnimation(){
         let animation = Animation.named("homeAnimation")
         animationView.animation = animation
         animationView.layer.cornerRadius = self.animationView.frame.size.width / 2;
