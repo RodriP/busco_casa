@@ -21,6 +21,8 @@ struct AppConstants{
     
     struct UserConstants{
         static let userValue = NSNotification.Name("user")
+        static let welcomeUser = "Welcome to BuscoCasa!"
+        static let welcomeLoggedUser = "Welcome back again "
         static let userObject = "user"
         static let userImage = "image"
         static let userSaveData = "userData"
@@ -38,5 +40,13 @@ struct AppConstants{
         static let userNameEmptyTitle = "Empty user name"
         static let userNameEmptyMsg = "User Name can't be empty"
         static let userEmptyValue = ""
+    }
+    
+    struct MapConstants{
+        static let MapTitle = "Map"
+        static let AskLocationTitle = "Set Location Services"
+        static let AskLocationMsg = "We need to access to location services for this application"
+        static let AskLocationConfigAction = "Ir a Configuración"
+        static let AskLocationCancelAction = "Cancel"
     }
 }

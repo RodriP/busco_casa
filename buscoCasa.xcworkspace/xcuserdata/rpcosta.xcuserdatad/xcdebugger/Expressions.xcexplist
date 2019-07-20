@@ -3,10 +3,66 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "EditUserViewController.loadData():EditUserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationVC.viewControllers[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "dict">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserNameRegistrationViewController.prepare(for:sender:):UserNameRegistrationViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "segue.destination">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.prepare(for:sender:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.viewDidLoad():UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditUserViewController.uploadAction(_:):EditUserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -23,38 +79,6 @@
          <PersistentStrings>
             <PersistentString
                value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditUserViewController.uploadAction(_:):EditUserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "dict">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "navigationVC.viewControllers[2]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
