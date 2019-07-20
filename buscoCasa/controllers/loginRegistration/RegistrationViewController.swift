@@ -25,10 +25,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         prepareButtons()
-        userImage.isUserInteractionEnabled = true
-        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
-        userImage.addGestureRecognizer(singleTap)
-        imageToSave.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +48,16 @@ class RegistrationViewController: UIViewController {
         userImage.layer.cornerRadius = self.userImage.frame.size.width / 2;
         userImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
         userImage.clipsToBounds = true
+        
+        userImage.isUserInteractionEnabled = true
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        userImage.addGestureRecognizer(singleTap)
+        
+        let singleAnimatedTap = UITapGestureRecognizer(target: self, action: #selector(animatedTap))
+        imageToSave.isHidden = true
+        imageToSave.isUserInteractionEnabled = true
+        imageToSave.addGestureRecognizer(singleAnimatedTap)
+
         
         imageToSave.contentMode = .scaleAspectFill
         imageToSave.layer.cornerRadius = self.userImage.frame.size.width / 2;
@@ -100,6 +106,17 @@ class RegistrationViewController: UIViewController {
             present(imagePicker, animated: true, completion: nil)
         }
         
+    }
+    
+    @objc func animatedTap(){
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

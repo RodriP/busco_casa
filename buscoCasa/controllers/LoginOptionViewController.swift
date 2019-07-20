@@ -40,6 +40,8 @@ class LoginOptionViewController: UIViewController {
     private func playAnimation(){
         let animation = Animation.named("loginHome")
         loginImageAnimation.animation = animation
+        loginImageAnimation.layer.cornerRadius = self.loginImageAnimation.frame.size.width / 2;
+        loginImageAnimation.clipsToBounds = true
         loginImageAnimation.loopMode = .loop
         loginImageAnimation.play()
     }

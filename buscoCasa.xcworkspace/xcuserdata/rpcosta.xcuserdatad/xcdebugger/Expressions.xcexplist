@@ -75,6 +75,20 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UserViewController.setUserData():UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+            <PersistentString
+               value = "getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
          <PersistentStrings>
             <PersistentString
