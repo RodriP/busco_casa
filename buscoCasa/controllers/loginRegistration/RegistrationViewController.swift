@@ -119,6 +119,17 @@ class RegistrationViewController: UIViewController {
         }
     }
     
+    @IBAction func cancelButtonAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+
+}
+
+extension RegistrationViewController : UINavigationControllerDelegate {
+    //Nothing here, only for delegte
+}
+
+extension RegistrationViewController : UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: { () -> Void in
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -128,17 +139,5 @@ class RegistrationViewController: UIViewController {
         })
         userImage.isHidden = true
     }
-    
-    @IBAction func cancelButtonAction(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-
-}
-
-extension RegistrationViewController : UINavigationControllerDelegate {
-    
-}
-
-extension RegistrationViewController : UIImagePickerControllerDelegate {
     
 }

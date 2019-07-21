@@ -136,14 +136,6 @@ class EditUserViewController: UIViewController {
         }
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        self.dismiss(animated: true, completion: { () -> Void in
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-                self.userImage.image = image
-            }
-        })
-        self.user.photo = AppConstants.UserConstants.userImageNameToSave
-    }
 
     @IBAction func cancelButtonAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -155,6 +147,14 @@ extension EditUserViewController: UINavigationControllerDelegate{
 }
 
 extension EditUserViewController: UIImagePickerControllerDelegate{
- //nothing here, only for delegate
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: { () -> Void in
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.userImage.image = image
+            }
+        })
+        self.user.photo = AppConstants.UserConstants.userImageNameToSave
+    }
 }
 
