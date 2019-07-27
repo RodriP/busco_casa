@@ -104,7 +104,7 @@ class LoginOptionViewController: UIViewController {
             GraphRequest(graphPath: AppConstants.LoginConstants.loginMe, parameters: [AppConstants.LoginConstants.loginFields: "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
                 if (error == nil){
                     self.fbDictionaryDataResult = result as! [String : AnyObject]
-                    guard let userName = self.fbDictionaryDataResult["name"] as? String , let mail = self.fbDictionaryDataResult["email"] as? String, let userphotoDictionary = self.fbDictionaryDataResult["picture"] as? [String:NSDictionary], let photoData = userphotoDictionary["data"], let userUrlPhoto = photoData["url"] as? String else {
+                    guard let userName = self.fbDictionaryDataResult["name"] as? String , let userphotoDictionary = self.fbDictionaryDataResult["picture"] as? [String:NSDictionary], let photoData = userphotoDictionary["data"], let userUrlPhoto = photoData["url"] as? String else {
                         let alert = UIAlertController(title: AppConstants.LoginConstants.loginErrorTitle, message: (AppConstants.LoginConstants.loginErrorRetry), preferredStyle: UIAlertController.Style.alert)
                         alert.addAction(UIAlertAction(title: AppConstants.LoginConstants.loginRetry, style: UIAlertAction.Style.default, handler: { action in
                             self.loginButtonClicked()
@@ -113,8 +113,9 @@ class LoginOptionViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                         return
                     }
-                    ImageStorageUtils.deleteDirectory()
-                    self.user = User(name: userName, mail: mail, password: "empty", photo: userUrlPhoto)
+                    let mail = self.fbDictionaryDataResult["email"] as? String
+                    ImageStorageUtils.deleteDirectory(deleteName: userName)
+                    self.user = User(name: userName, mail: mail ?? "", password: "empty", photo: userUrlPhoto, profilePic: "")
                     
                     NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: nil)
                     

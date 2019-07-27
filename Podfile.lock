@@ -19,7 +19,7 @@ PODS:
 DEPENDENCIES:
   - FacebookCore
   - FacebookLogin
-  - FBSDKCoreKit
+  - FBSDKCoreKit (from `https://github.com/facebook/facebook-objc-sdk.git`, branch `master`)
   - FBSDKLoginKit
   - lottie-ios
   - SwiftKeychainWrapper
@@ -28,10 +28,19 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FacebookCore
     - FacebookLogin
-    - FBSDKCoreKit
     - FBSDKLoginKit
     - lottie-ios
     - SwiftKeychainWrapper
+
+EXTERNAL SOURCES:
+  FBSDKCoreKit:
+    :branch: master
+    :git: https://github.com/facebook/facebook-objc-sdk.git
+
+CHECKOUT OPTIONS:
+  FBSDKCoreKit:
+    :commit: 7e19a8c9e6cd831b2b5979395020b48e7df3def0
+    :git: https://github.com/facebook/facebook-objc-sdk.git
 
 SPEC CHECKSUMS:
   FacebookCore: 4eee98476cb37a485af5d337eb21f8cd5b3c7e6c
@@ -41,6 +50,6 @@ SPEC CHECKSUMS:
   lottie-ios: 49cd85b1f24f61a7708ad7ec76a523ab2d0e3100
   SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
 
-PODFILE CHECKSUM: 2a79c800562408602ef4bf2b1f49fc3d65e92c4e
+PODFILE CHECKSUM: eba7baafa7e8913d0c32293062abc3742204f31b
 
 COCOAPODS: 1.7.2

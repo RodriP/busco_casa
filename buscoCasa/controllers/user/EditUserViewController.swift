@@ -78,7 +78,7 @@ class EditUserViewController: UIViewController {
             playAnimation()
         } else{
             userImage.isHidden = false
-            userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)
+            userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
             animateImage.isHidden = true
         }
     }
@@ -102,7 +102,7 @@ class EditUserViewController: UIViewController {
             return
         }
         user.password = password
-        ImageStorageUtils.saveImage(image: userImage.image!)
+        ImageStorageUtils.saveImage(image: userImage.image!, nameToSave:AppConstants.UserConstants.userImageNameToSave + user.name)
         delegate?.changeUser(user: user)
         
         //Save user

@@ -18,7 +18,7 @@ class ImageStorageUtils {
         return nil
     }
     
-    static func saveImage(image: UIImage) -> Bool {
+    static func saveImage(image: UIImage, nameToSave: String) -> Bool {
         guard let data = image.jpegData(compressionQuality: 1) ?? image.pngData() else {
             return false
         }
@@ -26,7 +26,7 @@ class ImageStorageUtils {
             return false
         }
         do {
-            try data.write(to: directory.appendingPathComponent(AppConstants.UserConstants.userImageNameToSave)!)
+            try data.write(to: directory.appendingPathComponent(nameToSave)!)
             return true
         } catch {
             print(error.localizedDescription)
@@ -34,9 +34,9 @@ class ImageStorageUtils {
         }
     }
     
-    static func deleteDirectory() {
+    static func deleteDirectory(deleteName: String) {
         let fileManager = FileManager.default
-        let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent("image.png")
+        let yourProjectImagesPath = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(deleteName)
         if fileManager.fileExists(atPath: yourProjectImagesPath) {
             try! fileManager.removeItem(atPath: yourProjectImagesPath)
         }

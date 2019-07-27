@@ -11,6 +11,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "UserViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "portraitPicture.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -30,7 +38,7 @@
          contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "dict">
+               value = "fbDictionaryDataResult">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -68,6 +76,22 @@
       </ContextState>
       <ContextState
          contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginOptionViewController.loginButtonClicked():LoginOptionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "publicProfile">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "RegistrationViewController.uploadAction(_:):RegistrationViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "user">

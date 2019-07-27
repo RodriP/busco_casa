@@ -81,10 +81,10 @@ class RegistrationViewController: UIViewController {
         }
         
         if(imageToSave.image == nil ){
-            user = User(name: name, mail: email, password: password, photo: "")
+            user = User(name: name, mail: email, password: password, photo: "", profilePic: "")
         } else {
-           user = User(name: name, mail: email, password: password, photo: AppConstants.UserConstants.userImageNameToSave)
-           ImageStorageUtils.saveImage(image: imageToSave.image!)
+           user = User(name: name, mail: email, password: password, photo: AppConstants.UserConstants.userImageNameToSave + name, profilePic: "")
+            ImageStorageUtils.saveImage(image: imageToSave.image!, nameToSave: AppConstants.UserConstants.userImageNameToSave + user.name)
         }
         //Save user
         let jsonData = try! JSONEncoder().encode(user)

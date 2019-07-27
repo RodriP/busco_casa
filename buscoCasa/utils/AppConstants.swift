@@ -35,6 +35,7 @@ struct AppConstants{
         static let userChoosePictureError = "Choose a picture before continue"
         static let userChoosePicMsg = "You have to choose a profile picture"
         static let userImageNameToSave = "image.png"
+        static let userPortraitPicture = "portrait.png"
         static let userEmailErrorTitle = "Empty user mail"
         static let userEmailErrorMsg = "User mail can't be empty"
         static let userNameEmptyTitle = "Empty user name"

@@ -16,6 +16,9 @@ protocol ModalDelegate {
 
 class UserViewController: UIViewController, ModalDelegate {
     
+    @IBOutlet weak var portraitBtn: UIImageView!
+    var imagePicker = UIImagePickerController()
+    @IBOutlet weak var portraitPicture: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userPicture: UIImageView!
     @IBOutlet weak var hightConstraint: NSLayoutConstraint!
@@ -28,7 +31,19 @@ class UserViewController: UIViewController, ModalDelegate {
     var user : User!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let singleTap = UITapGestureRecognizer(target: self, action: #selector(tapDetected))
+        portraitBtn.addGestureRecognizer(singleTap)
         setButtonIcon()
+    }
+    @objc private func tapDetected(){
+        if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .savedPhotosAlbum
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     private func playAnimation(){
@@ -37,23 +52,32 @@ class UserViewController: UIViewController, ModalDelegate {
         animationPic.layer.cornerRadius = self.animationPic.frame.size.width / 2;
         animationPic.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
         animationPic.clipsToBounds = true
+        animationPic.layer.borderWidth = 4
+        animationPic.layer.borderColor = UIColor.white.cgColor
         animationPic.loopMode = .loop
         animationPic.play()
     }
     
     private func setupLoginState(){
+        //TODO VER cambiar el root
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
+        ImageStorageUtils.deleteDirectory(deleteName:AppConstants.UserConstants.userImageNameToSave + user.name)
+        ImageStorageUtils.deleteDirectory(deleteName:AppConstants.UserConstants.userPortraitPicture + user.name)
         self.present(loginNC, animated: true, completion: nil)
     }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        portraitPicture.contentMode = UIView.ContentMode.scaleAspectFill
+        portraitPicture.layer.cornerRadius = 8.0
+        portraitPicture.clipsToBounds = true
+        
         userPicture.contentMode = .scaleAspectFill
         userPicture.layer.cornerRadius = hightConstraint.constant/2
-        userPicture.layer.borderWidth = 1
-        userPicture.layer.borderColor = UIColor.lightGray.cgColor
+        userPicture.layer.borderWidth = 4
+        userPicture.layer.borderColor = UIColor.white.cgColor
         
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
@@ -74,9 +98,16 @@ class UserViewController: UIViewController, ModalDelegate {
     private func setUserData(){
         if user != nil {
             userName.text = user.name
-            userEmail.text = user.mail
+            if(user.mail.isEmpty){
+                userEmail.isHidden = true
+            } else{
+                userEmail.text = user.mail
+            }
             animationPic.isHidden = true
-            if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave) {
+            if let portraitImage = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userPortraitPicture + user.name){
+                portraitPicture.image = portraitImage
+            }
+            if let image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name) {
                 // From new registration flow
                 userPicture.isHidden = false
                 userPicture.image = image
@@ -89,7 +120,7 @@ class UserViewController: UIViewController, ModalDelegate {
                 } else{
                     // From FB login
                     userPicture.isHidden = false
-                    userPicture.downloaded(from: user.photo)
+                    userPicture.downloaded(from: user.photo, user: user)
                 }
             }
         } else{
@@ -118,8 +149,6 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     @IBAction func logout(_ sender: Any) {
-        navigationController?.popViewController(animated: false)
-        self.user = nil
         setupLoginState()
     }
     
@@ -135,7 +164,7 @@ class UserViewController: UIViewController, ModalDelegate {
 
 
 extension UIImageView {
-    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+    func downloaded(from url: URL, user: User, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -146,13 +175,31 @@ extension UIImageView {
                 else { return }
             DispatchQueue.main.async() {
                 self.image = image
-                ImageStorageUtils.saveImage(image: image)
+                ImageStorageUtils.saveImage(image: image, nameToSave: AppConstants.UserConstants.userImageNameToSave + user.name)
             }
             }.resume()
     }
-    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+    
+    func downloaded(from link: String, user: User, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         guard let url = URL(string: link) else { return }
-        downloaded(from: url, contentMode: mode)
+        downloaded(from: url, user: user)
     }
     
+}
+
+extension UserViewController: UINavigationControllerDelegate{
+    //nothing here, only for delegate
+}
+
+extension UserViewController: UIImagePickerControllerDelegate{
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        self.dismiss(animated: true, completion: { () -> Void in
+            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                self.portraitPicture.image = image
+                ImageStorageUtils.saveImage(image: image, nameToSave: AppConstants.UserConstants.userPortraitPicture + self.user.name)
+            }
+        })
+        self.user.profilePic = AppConstants.UserConstants.userPortraitPicture
+    }
 }

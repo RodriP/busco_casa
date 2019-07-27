@@ -12,4 +12,5 @@ struct User : Codable{
     var mail : String
     var password : String
     var photo : String
+    var profilePic : String
 }
