@@ -71,8 +71,6 @@ class UserViewController: UIViewController, ModalDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         portraitPicture.contentMode = UIView.ContentMode.scaleAspectFill
-        portraitPicture.layer.cornerRadius = 8.0
-        portraitPicture.clipsToBounds = true
         
         userPicture.contentMode = .scaleAspectFill
         userPicture.layer.cornerRadius = hightConstraint.constant/2
