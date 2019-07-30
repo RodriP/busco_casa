@@ -101,6 +101,7 @@ class UserViewController: UIViewController, ModalDelegate {
             if(user.mail.isEmpty){
                 userEmail.isHidden = true
             } else{
+                userEmail.isHidden = false
                 userEmail.text = user.mail
             }
             animationPic.isHidden = true
