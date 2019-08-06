@@ -3,18 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "EditUserViewController.loadData():EditUserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "UserViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):UserViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "portraitPicture.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditUserViewController.loadData():EditUserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -99,6 +99,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in closure #1 in MapViewController.viewDidLoad():MapViewController.swift">
+      </ContextState>
+      <ContextState
          contextName = "UserViewController.setUserData():UserViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -133,6 +136,14 @@
          <PersistentStrings>
             <PersistentString
                value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "APIClient.prepareLatitudeLocation():ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "latitude">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

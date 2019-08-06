@@ -17,7 +17,6 @@ class MapViewController: UIViewController{
     var user : User!
     private let regionMeters: Double = 1000
     private var houses : HouseModel!
-    private let apiClient = APIClient()
 
     private let locationManager :CustomLocationManager = CustomLocationManager.shared
     override func viewDidLoad() {
@@ -34,20 +33,6 @@ class MapViewController: UIViewController{
         map.mapType = .standard
         map.isZoomEnabled = true
         map.isScrollEnabled = true
-        apiClient.fetchPlaces { result in
-            switch result {
-            case .success(let places):
-                DispatchQueue.main.async {
-                    self.houses = places
-                    /*for house in houses {
-                        let annotation = RestaurantAnnotation(restaurant: restaurant)
-                        self.mapView.addAnnotation(annotation)
-                    }*/
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,11 +58,26 @@ extension MapViewController: LocationManagerDelegate {
     
     func locationManager(_ locataionManager: CustomLocationManager, didUpdateLocation location: Location) {
         map.center(on: location, latitudinalMeters: regionMeters, longitudinalMeters: regionMeters)
-        
+  
         var locValue:CLLocationCoordinate2D = CLLocationCoordinate2D()
         locValue.latitude = locataionManager.location!.latitude
         locValue.longitude = locataionManager.location!.longitude
         
+        let apiClient =  APIClient(latitude: String(locataionManager.location!.latitude), longitude: String(locataionManager.location!.longitude))
+        apiClient.fetchPlaces { result in
+            switch result {
+            case .success(let places):
+                DispatchQueue.main.async {
+                    self.houses = places
+                    /*for house in houses {
+                     let annotation = RestaurantAnnotation(restaurant: restaurant)
+                     self.mapView.addAnnotation(annotation)
+                     }*/
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         map.mapType = MKMapType.standard
         
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)

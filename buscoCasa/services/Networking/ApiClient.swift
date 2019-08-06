@@ -22,12 +22,22 @@ enum NetworkError: Error {
 
 class APIClient {
     
+    private var latitude : String
+    private var longitude : String
+    private let lat : String = "lat:"
+    private let long : String = "lon:"
+    private let underseparator : String = "_"
+    
+    init(latitude: String, longitude : String) {
+        self.latitude = latitude
+        self.longitude = longitude
+    }
+
     
     private let session = URLSession.shared
-    private let url = URL(string:"https://api.mercadolibre.com/sites/MLA/search?item_location=lat:-37.987148_-30.987148,lon:-57.5483864_-50.5483864&category=MLA1459&limit=10")!
-    
     
     func fetchPlaces(completion: @escaping (Result<HouseModel, NetworkError>) -> ()) {
+        let url = URL(string:"https://api.mercadolibre.com/sites/MLA/search?item_location=" + lat + latitude + underseparator + prepareLatitudeLocation() + long + longitude + underseparator + prepareLongitudeLocation() + "&category=MLA1459&limit=10")!
         
         session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {
@@ -59,6 +69,23 @@ class APIClient {
                 completion(.failure(.parseError))
             }
             }.resume()
+    }
+    
+    private func prepareLatitudeLocation () -> String {
+        //This only works in ARG and thats why lat and log starts with - always and we didnt consider another cases
+        if latitude.starts(with: "-") {
+            let newLatitude : Double = Double (latitude)! + 7.000000
+            return String(newLatitude)
+        }
+        return ""
+    }
+    
+    private func prepareLongitudeLocation() -> String {
+        if longitude.starts(with: "-"){
+            let newLongitude : Double = Double (longitude)! + 7.000000
+            return String(newLongitude)
+        }
+        return ""
     }
     
     private func networkError(forStatusCode statusCode: Int) -> NetworkError {

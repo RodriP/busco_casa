@@ -10,7 +10,6 @@ import Foundation
 struct Results: Codable{
     let id : String
     let title : String
-    let subtitle : String
     let price : Double
     let thumbnail : String
     let sellerContact : SellerContact
@@ -19,11 +18,10 @@ struct Results: Codable{
     enum CodingKeys: String, CodingKey {
         case id
         case title
-        case subtitle
         case price
         case thumbnail
         case sellerContact = "seller_contact"
-        case location
+        case location = "location"
     }
     
     init(from decoder: Decoder) throws {
@@ -31,7 +29,6 @@ struct Results: Codable{
         
         id = try values.decode(String.self, forKey: .id)
         title = try values.decode(String.self, forKey: .title)
-        subtitle = try values.decode(String.self, forKey: .subtitle)
         price = try values.decode(Double.self, forKey: .price)
         thumbnail = try values.decode(String.self, forKey: .thumbnail)
         sellerContact = try values.decode(SellerContact.self, forKey: .sellerContact)
@@ -43,7 +40,6 @@ struct Results: Codable{
         
         try container.encode(id, forKey: .id)
         try container.encode(title, forKey: .title)
-        try container.encode(subtitle, forKey: .subtitle)
         try container.encode(price, forKey: .price)
         try container.encode(thumbnail, forKey: .thumbnail)
         try container.encode(sellerContact, forKey: .sellerContact)
