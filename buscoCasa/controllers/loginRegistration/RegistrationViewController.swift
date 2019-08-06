@@ -84,12 +84,12 @@ class RegistrationViewController: UIViewController {
             user = User(name: name, mail: email, password: password, photo: "", profilePic: "")
         } else {
            user = User(name: name, mail: email, password: password, photo: AppConstants.UserConstants.userImageNameToSave + name, profilePic: "")
-            ImageStorageUtils.saveImage(image: imageToSave.image!, nameToSave: AppConstants.UserConstants.userImageNameToSave + user.name)
+            ImageStorageUtils.saveImage(image: imageToSave.image!, nameToSave: AppConstants.UserConstants.userImageNameToSave)
         }
         //Save user
         let jsonData = try! JSONEncoder().encode(user)
         let userJsonString = String(data: jsonData, encoding: .utf8)!
-        KeychainWrapper.standard.set(userJsonString, forKey: AppConstants.UserConstants.userSaveData)
+        KeychainWrapper.standard.set(userJsonString, forKey: AppConstants.UserConstants.userSaveData + user.name)
         NotificationCenter.default.post(name: AppConstants.UserConstants.userValue , object: nil, userInfo: nil)
         
         self.navigationController?.popViewController(animated: true)
