@@ -58,7 +58,7 @@ class LoginOptionViewController: UIViewController {
     @objc private func currentUser() {
         dismiss(animated: true, completion: nil)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mainVC = storyboard.instantiateViewController(withIdentifier: "MainNavigationController") as! UINavigationController
+        let mainVC = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController") as! UIViewController
         self.present(mainVC, animated: true, completion: nil)
     }
     

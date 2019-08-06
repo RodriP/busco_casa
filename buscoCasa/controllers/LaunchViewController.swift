@@ -56,7 +56,7 @@ class LaunchViewController: UIViewController {
 
             if self.savedUser != nil {
                 storyboard = UIStoryboard(name: "Main", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "MainNavigationController")
+                initialViewController = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController")
             } else {
                 storyboard = UIStoryboard(name: "login", bundle: nil)
                 initialViewController = storyboard.instantiateViewController(withIdentifier: "loginNavigationController")

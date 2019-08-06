@@ -37,7 +37,7 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     @objc private func tapDetected(){
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            
+            portraitBtn.tintColor = UIColor.white
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum
             imagePicker.allowsEditing = false
@@ -119,7 +119,7 @@ class UserViewController: UIViewController, ModalDelegate {
                 } else{
                     // From FB login
                     userPicture.isHidden = false
-                    userPicture.downloaded(from: user.photo, user: user)
+                    userPicture.downloaded(from: user.photo, user: user, userImage: userPicture, picImage: animationPic)
                 }
             }
         } else{
@@ -163,7 +163,7 @@ class UserViewController: UIViewController, ModalDelegate {
 
 
 extension UIImageView {
-    func downloaded(from url: URL, user: User, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+    func downloaded(from url: URL, user: User,userImage: UIImageView, picImage: AnimationView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
         contentMode = mode
         URLSession.shared.dataTask(with: url) { data, response, error in
             guard
@@ -171,7 +171,9 @@ extension UIImageView {
                 let mimeType = response?.mimeType, mimeType.hasPrefix(AppConstants.UserConstants.userImage),
                 let data = data, error == nil,
                 let image = UIImage(data: data)
-                else { return }
+                else { userImage.isHidden = true
+                    picImage.isHidden = false
+                    return}
             DispatchQueue.main.async() {
                 self.image = image
                 ImageStorageUtils.saveImage(image: image, nameToSave: AppConstants.UserConstants.userImageNameToSave + user.name)
@@ -179,9 +181,9 @@ extension UIImageView {
             }.resume()
     }
     
-    func downloaded(from link: String, user: User, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+    func downloaded(from link: String, user: User, userImage: UIImageView, picImage : AnimationView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
         guard let url = URL(string: link) else { return }
-        downloaded(from: url, user: user)
+        downloaded(from: url, user: user, userImage: userImage, picImage: picImage)
     }
     
 }
