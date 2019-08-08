@@ -57,6 +57,7 @@ class CustomLocationManager : NSObject {
             print("Usuario no dio permisos")
             break
         case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
             locationManager.requestAlwaysAuthorization()
         case .restricted:
             print("Usuario no puede dar permisos de ubicación")

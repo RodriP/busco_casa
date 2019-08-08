@@ -9,12 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import SwiftKeychainWrapper
 
 class MapViewController: UIViewController{
 
     @IBOutlet weak var map: MKMapView!
     var user : User!
     private let regionMeters: Double = 1000
+    private var houses : HouseModel!
 
     private let locationManager :CustomLocationManager = CustomLocationManager.shared
     override func viewDidLoad() {
@@ -31,19 +33,65 @@ class MapViewController: UIViewController{
         map.mapType = .standard
         map.isZoomEnabled = true
         map.isScrollEnabled = true
-
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    self.user = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
+
+
 
 extension MapViewController: LocationManagerDelegate {
     
     func locationManager(_ locataionManager: CustomLocationManager, didUpdateLocation location: Location) {
         map.center(on: location, latitudinalMeters: regionMeters, longitudinalMeters: regionMeters)
-        
+  
         var locValue:CLLocationCoordinate2D = CLLocationCoordinate2D()
         locValue.latitude = locataionManager.location!.latitude
         locValue.longitude = locataionManager.location!.longitude
         
+        let apiClient =  APIClient(latitude: String(locataionManager.location!.latitude), longitude: String(locataionManager.location!.longitude))
+        apiClient.fetchPlaces { result in
+            switch result {
+            case .success(let places):
+                DispatchQueue.main.async {
+                    self.houses = places
+                    for place in places.results {
+                        if(place.location != nil && place.location?.latitude != nil
+                            && place.location?.longitude != nil) {
+                            let annotation = MKPointAnnotation();
+                            annotation.coordinate = CLLocationCoordinate2D(latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+
+                            var annotationView = self.map.dequeueReusableAnnotationView(withIdentifier: self.user.mail)
+                            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: self.user.mail)
+                            annotationView?.canShowCallout = true
+                            let pin = UIImage(named: "home")
+                            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                            imageView.image = pin;
+                            imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+                            imageView.layer.masksToBounds = true
+                            annotationView?.addSubview(imageView)
+                            self.map.addAnnotation(annotation)
+                        }
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
         map.mapType = MKMapType.standard
         
         let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
@@ -87,7 +135,7 @@ extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
-        let identifier = "MyPin"
+        let identifier = user.name
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
@@ -96,7 +144,7 @@ extension MapViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            let pin = ImageStorageUtils.getSavedImage(named: "image.png") //user.photo
+            let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
             let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
             imageView.image = pin;
             imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2

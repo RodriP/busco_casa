@@ -34,6 +34,11 @@
 		F8C882712293925200177093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8C882702293925200177093 /* Assets.xcassets */; };
 		F8C882812293993100177093 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882802293993100177093 /* User.swift */; };
 		F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882822294231400177093 /* LoginOptionViewController.swift */; };
+		F8D951AD22F912BF00B6E773 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951AC22F912BF00B6E773 /* ApiClient.swift */; };
+		F8D951AF22F9133000B6E773 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951AE22F9133000B6E773 /* HouseModel.swift */; };
+		F8D951B122F9174B00B6E773 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B022F9174B00B6E773 /* Results.swift */; };
+		F8D951B322F9183F00B6E773 /* SellerContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B222F9183F00B6E773 /* SellerContact.swift */; };
+		F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B422F9210C00B6E773 /* HouseLocation.swift */; };
 		F8DD28F322E22ACA00F9889B /* loginHome.json in Resources */ = {isa = PBXBuildFile; fileRef = F8DD28F222E22AC900F9889B /* loginHome.json */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +75,11 @@
 		F8C882752293925200177093 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8C882802293993100177093 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F8C882822294231400177093 /* LoginOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionViewController.swift; sourceTree = "<group>"; };
+		F8D951AC22F912BF00B6E773 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		F8D951AE22F9133000B6E773 /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
+		F8D951B022F9174B00B6E773 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		F8D951B222F9183F00B6E773 /* SellerContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerContact.swift; sourceTree = "<group>"; };
+		F8D951B422F9210C00B6E773 /* HouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseLocation.swift; sourceTree = "<group>"; };
 		F8DD28F222E22AC900F9889B /* loginHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginHome.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +117,7 @@
 		F8013FC722DDEA0700035010 /* services */ = {
 			isa = PBXGroup;
 			children = (
+				F8D951AB22F9128C00B6E773 /* Networking */,
 				F8013FC822DDEA4F00035010 /* CustomLocationManager.swift */,
 				F8013FCF22E0E5CE00035010 /* golftest.gpx */,
 			);
@@ -215,6 +226,10 @@
 			isa = PBXGroup;
 			children = (
 				F8C882802293993100177093 /* User.swift */,
+				F8D951AE22F9133000B6E773 /* HouseModel.swift */,
+				F8D951B022F9174B00B6E773 /* Results.swift */,
+				F8D951B222F9183F00B6E773 /* SellerContact.swift */,
+				F8D951B422F9210C00B6E773 /* HouseLocation.swift */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -243,6 +258,14 @@
 				F8013FD422E207EC00035010 /* CustomLaunch.storyboard */,
 			);
 			path = storyboards;
+			sourceTree = "<group>";
+		};
+		F8D951AB22F9128C00B6E773 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F8D951AC22F912BF00B6E773 /* ApiClient.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,11 +394,15 @@
 				F871438022BEA425007CA5AC /* MapViewController.swift in Sources */,
 				F8BE36B122E35D6700923C64 /* RegistrationViewController.swift in Sources */,
 				F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */,
+				F8D951AD22F912BF00B6E773 /* ApiClient.swift in Sources */,
 				F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */,
 				F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */,
+				F8D951B122F9174B00B6E773 /* Results.swift in Sources */,
 				F8013FC922DDEA4F00035010 /* CustomLocationManager.swift in Sources */,
 				F8013FCE22E0DB4700035010 /* MapExtensions.swift in Sources */,
 				F8013FD722E208F000035010 /* LaunchViewController.swift in Sources */,
+				F8D951AF22F9133000B6E773 /* HouseModel.swift in Sources */,
+				F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */,
 				F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,
 				F8C882812293993100177093 /* User.swift in Sources */,
@@ -383,6 +410,7 @@
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
 				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
 				F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */,
+				F8D951B322F9183F00B6E773 /* SellerContact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
