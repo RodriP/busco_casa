@@ -13,7 +13,7 @@ struct Results: Codable{
     let price : Double
     let thumbnail : String
     let sellerContact : SellerContact
-    let location : HouseLocation
+    let location : HouseLocation?
     
     enum CodingKeys: String, CodingKey {
         case id

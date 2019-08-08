@@ -37,7 +37,7 @@ class APIClient {
     private let session = URLSession.shared
     
     func fetchPlaces(completion: @escaping (Result<HouseModel, NetworkError>) -> ()) {
-        let url = URL(string:"https://api.mercadolibre.com/sites/MLA/search?item_location=" + lat + latitude + underseparator + prepareLatitudeLocation() + long + longitude + underseparator + prepareLongitudeLocation() + "&category=MLA1459&limit=10")!
+        let url = URL(string:"https://api.mercadolibre.com/sites/MLA/search?item_location=" + lat + latitude + underseparator + prepareLatitudeLocation() + long + longitude + underseparator + prepareLongitudeLocation() + "&category=MLA1459&limit=50")!
         
         session.dataTask(with: url) { (data, response, error) in
             guard error == nil else {

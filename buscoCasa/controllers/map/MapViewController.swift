@@ -69,10 +69,24 @@ extension MapViewController: LocationManagerDelegate {
             case .success(let places):
                 DispatchQueue.main.async {
                     self.houses = places
-                    /*for house in houses {
-                     let annotation = RestaurantAnnotation(restaurant: restaurant)
-                     self.mapView.addAnnotation(annotation)
-                     }*/
+                    for place in places.results {
+                        if(place.location != nil && place.location?.latitude != nil
+                            && place.location?.longitude != nil) {
+                            let annotation = MKPointAnnotation();
+                            annotation.coordinate = CLLocationCoordinate2D(latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+
+                            var annotationView = self.map.dequeueReusableAnnotationView(withIdentifier: self.user.mail)
+                            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: self.user.mail)
+                            annotationView?.canShowCallout = true
+                            let pin = UIImage(named: "home")
+                            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                            imageView.image = pin;
+                            imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+                            imageView.layer.masksToBounds = true
+                            annotationView?.addSubview(imageView)
+                            self.map.addAnnotation(annotation)
+                        }
+                    }
                 }
             case .failure(let error):
                 print(error)
