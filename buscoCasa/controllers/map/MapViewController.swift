@@ -78,7 +78,8 @@ extension MapViewController: LocationManagerDelegate {
                     }
                 }
             case .failure(let error):
-                print(error)
+                let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userMapError,message:AppConstants.UserConstants.userMapLocationErrorMsg, action: actions), animated: true, completion: nil)
             }
         }
         map.mapType = MKMapType.standard
@@ -151,6 +152,7 @@ extension MapViewController: MKMapViewDelegate {
                 let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
+                imageView.contentMode = .scaleAspectFit;
                 self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
                 annotationView?.addSubview(imageView)
             } else {
@@ -175,7 +177,7 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-
+        mapView.deselectAnnotation(view.annotation, animated: true)
     }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
