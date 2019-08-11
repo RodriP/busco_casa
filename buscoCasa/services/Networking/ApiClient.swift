@@ -66,6 +66,7 @@ class APIClient {
                 let houseModels = try decoder.decode(HouseModel.self, from: data)
                 completion(.success(houseModels))
             } catch {
+                print(error.localizedDescription)
                 completion(.failure(.parseError))
             }
             }.resume()

@@ -72,19 +72,19 @@ extension MapViewController: LocationManagerDelegate {
                     for place in places.results {
                         if(place.location != nil && place.location?.latitude != nil
                             && place.location?.longitude != nil) {
-                            let annotation = MKPointAnnotation();
-                            annotation.coordinate = CLLocationCoordinate2D(latitude: place.location!.latitude!, longitude: place.location!.longitude!)
-
-                            var annotationView = self.map.dequeueReusableAnnotationView(withIdentifier: self.user.mail)
-                            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: self.user.mail)
-                            annotationView?.canShowCallout = true
-                            let pin = UIImage(named: "home")
-                            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-                            imageView.image = pin;
-                            imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                            imageView.layer.masksToBounds = true
-                            annotationView?.addSubview(imageView)
-                            self.map.addAnnotation(annotation)
+                            //let annotation = MKPointAnnotation();
+                            //annotation.coordinate = CLLocationCoordinate2D(latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            //let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                            /*if(!place.thumbnail.isEmpty){
+                                self.downloadImage(from: URL(string: place.thumbnail)!, imageView: imageView)
+                            } else{
+                                imageView.image = UIImage(named: "house")
+                            }*/
+                            //imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+                            //imageView.layer.masksToBounds = true
+                            var mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            self.map.addAnnotation(mapAnnotation)
+                            //self.map.addAnnotation(annotation)
                         }
                     }
                 }
@@ -127,6 +127,22 @@ extension MapViewController: LocationManagerDelegate {
         
         self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.MapConstants.AskLocationTitle,message:AppConstants.MapConstants.AskLocationMsg, action: actions), animated: true, completion: nil)
     }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+    
+    func downloadImage(from url: URL, imageView : UIImageView) {
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            DispatchQueue.main.async() {
+                imageView.image = UIImage(data: data)
+            }
+        }
+    }
 }
 
 
@@ -139,20 +155,33 @@ extension MapViewController: MKMapViewDelegate {
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
         
-        
-        map.addAnnotation(annotation);
-        if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            annotationView?.canShowCallout = true
-            let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
-            let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-            imageView.image = pin;
-            imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-            imageView.layer.masksToBounds = true
-            annotationView?.addSubview(imageView)
+        if let annotation = annotation as? MapHouseAnnotation {
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView?.canShowCallout = true
+                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+                imageView.layer.masksToBounds = true
+                self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
+                annotationView?.addSubview(imageView)
+            } else {
+                annotationView?.annotation = annotation
+            }
         } else {
-            annotationView?.annotation = annotation
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                annotationView?.canShowCallout = true
+                let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
+                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                imageView.image = pin;
+                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+                imageView.layer.masksToBounds = true
+                annotationView?.addSubview(imageView)
+            } else {
+                annotationView?.annotation = annotation
+            }
         }
+        map.addAnnotation(annotation);
         return annotationView
     }
     
@@ -170,4 +199,29 @@ extension MapViewController: MKMapViewDelegate {
         renderer.lineWidth = 2
         return renderer 
     }
+}
+
+
+extension UIImageView {
+    func startDownloading(from url: URL, houseImage: UIImageView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix(AppConstants.UserConstants.userImage),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { houseImage.image = UIImage(named: "house")
+                    return}
+            DispatchQueue.main.async() {
+                self.image = image
+            }
+            }.resume()
+    }
+    
+    func downloaded(from link: String, houseImage: UIImageView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
+        guard let url = URL(string: link) else { return }
+        startDownloading(from: url, houseImage: houseImage)
+    }
+    
 }

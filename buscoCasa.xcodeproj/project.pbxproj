@@ -27,6 +27,7 @@
 		F871438022BEA425007CA5AC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437F22BEA425007CA5AC /* MapViewController.swift */; };
 		F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */; };
 		F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871438722BFC47B007CA5AC /* EditUserViewController.swift */; };
+		F893100422FF2B1B007F5F07 /* MapHouseAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F893100322FF2B1B007F5F07 /* MapHouseAnnotation.swift */; };
 		F8BE36B122E35D6700923C64 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BE36B022E35D6700923C64 /* RegistrationViewController.swift */; };
 		F8C8826A2293925100177093 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C882692293925100177093 /* AppDelegate.swift */; };
 		F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C8826B2293925100177093 /* LoginWithMailViewController.swift */; };
@@ -66,6 +67,7 @@
 		F871437F22BEA425007CA5AC /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorageUtils.swift; sourceTree = "<group>"; };
 		F871438722BFC47B007CA5AC /* EditUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUserViewController.swift; sourceTree = "<group>"; };
+		F893100322FF2B1B007F5F07 /* MapHouseAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHouseAnnotation.swift; sourceTree = "<group>"; };
 		F8BE36B022E35D6700923C64 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		F8C882662293925100177093 /* buscoCasa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = buscoCasa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C882692293925100177093 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -187,6 +189,14 @@
 			path = loginRegistration;
 			sourceTree = "<group>";
 		};
+		F893100222FF2AF5007F5F07 /* MapAnnotation */ = {
+			isa = PBXGroup;
+			children = (
+				F893100322FF2B1B007F5F07 /* MapHouseAnnotation.swift */,
+			);
+			path = MapAnnotation;
+			sourceTree = "<group>";
+		};
 		F8C8825D2293925100177093 = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +235,7 @@
 		F8C8827B2293926400177093 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				F893100222FF2AF5007F5F07 /* MapAnnotation */,
 				F8C882802293993100177093 /* User.swift */,
 				F8D951AE22F9133000B6E773 /* HouseModel.swift */,
 				F8D951B022F9174B00B6E773 /* Results.swift */,
@@ -403,6 +414,7 @@
 				F8013FD722E208F000035010 /* LaunchViewController.swift in Sources */,
 				F8D951AF22F9133000B6E773 /* HouseModel.swift in Sources */,
 				F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */,
+				F893100422FF2B1B007F5F07 /* MapHouseAnnotation.swift in Sources */,
 				F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,
 				F8C882812293993100177093 /* User.swift in Sources */,
