@@ -52,18 +52,16 @@ class LaunchViewController: UIViewController {
         animationView.clipsToBounds = true
         animationView.play(fromProgress: 0, toProgress: 0.5, loopMode: .repeat(3)) { (success) in
             let storyboard : UIStoryboard
-            let initialViewController : UIViewController
-
             if self.savedUser != nil {
                 storyboard = UIStoryboard(name: "Main", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController")
+                let userInitialViewController = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController") as! UserMenuTabViewController
+                userInitialViewController.user = self.savedUser
+                self.present(userInitialViewController, animated: true, completion: nil)
             } else {
                 storyboard = UIStoryboard(name: "login", bundle: nil)
-                initialViewController = storyboard.instantiateViewController(withIdentifier: "loginNavigationController")
+                let loginInitialViewController = storyboard.instantiateViewController(withIdentifier: "loginNavigationController")
+                self.present(loginInitialViewController, animated: true, completion: nil)
             }
-            
-            self.present(initialViewController, animated: true, completion: nil)
-            
         }
     }
     

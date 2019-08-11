@@ -62,8 +62,6 @@ class UserViewController: UIViewController, ModalDelegate {
         //TODO VER cambiar el root
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
-        ImageStorageUtils.deleteDirectory(deleteName:AppConstants.UserConstants.userImageNameToSave + user.name)
-        ImageStorageUtils.deleteDirectory(deleteName:AppConstants.UserConstants.userPortraitPicture + user.name)
         self.present(loginNC, animated: true, completion: nil)
     }
     

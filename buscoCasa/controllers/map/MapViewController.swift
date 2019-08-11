@@ -72,19 +72,8 @@ extension MapViewController: LocationManagerDelegate {
                     for place in places.results {
                         if(place.location != nil && place.location?.latitude != nil
                             && place.location?.longitude != nil) {
-                            //let annotation = MKPointAnnotation();
-                            //annotation.coordinate = CLLocationCoordinate2D(latitude: place.location!.latitude!, longitude: place.location!.longitude!)
-                            //let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-                            /*if(!place.thumbnail.isEmpty){
-                                self.downloadImage(from: URL(string: place.thumbnail)!, imageView: imageView)
-                            } else{
-                                imageView.image = UIImage(named: "house")
-                            }*/
-                            //imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                            //imageView.layer.masksToBounds = true
                             var mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
                             self.map.addAnnotation(mapAnnotation)
-                            //self.map.addAnnotation(annotation)
                         }
                     }
                 }
