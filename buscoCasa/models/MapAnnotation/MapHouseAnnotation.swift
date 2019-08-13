@@ -14,8 +14,7 @@ class MapHouseAnnotation : NSObject, MKAnnotation{
     @objc dynamic var coordinate = CLLocationCoordinate2D()
     
     // Required if you set the annotation view's `canShowCallout` property to `true`
-    var title: String? = NSLocalizedString("SAN_FRANCISCO_TITLE", comment: "SF annotation")
-    var subtitle: String? = "fafafa"
+    var title: String? = NSLocalizedString("CUSTOM_TITLE", comment: "custom annotation")
     
     public var image : String
     

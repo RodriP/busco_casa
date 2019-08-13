@@ -140,45 +140,20 @@ extension MapViewController: LocationManagerDelegate {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        let identifier = user.name
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        
-        if let annotation = annotation as? MapHouseAnnotation {
-            if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView?.canShowCallout = true
-                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                imageView.layer.masksToBounds = true
-                imageView.layer.borderWidth = 1
-                imageView.layer.borderColor = UIColor.black.cgColor
-                self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
-                annotationView?.addSubview(imageView)
-            } else {
-                annotationView?.annotation = annotation
-            }
-        } else {
-            if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView?.canShowCallout = true
-                let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
-                imageView.image = pin;
-                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                imageView.layer.masksToBounds = true
-                annotationView?.addSubview(imageView)
-            } else {
-                annotationView?.annotation = annotation
-            }
-        }
-        map.addAnnotation(annotation);
+        let annotationView = MapHouseAnnotationView(annotation: annotation, reuseIdentifier: user.name)
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        mapView.deselectAnnotation(view.annotation, animated: true)
-    }
+        guard let view = view as? MapHouseAnnotationView else {
+            return
+        }
+        
+        view.deselect()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)    }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
 

@@ -41,6 +41,7 @@
 		F8D951B322F9183F00B6E773 /* SellerContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B222F9183F00B6E773 /* SellerContact.swift */; };
 		F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B422F9210C00B6E773 /* HouseLocation.swift */; };
 		F8DD28F322E22ACA00F9889B /* loginHome.json in Resources */ = {isa = PBXBuildFile; fileRef = F8DD28F222E22AC900F9889B /* loginHome.json */; };
+		F8FFF0EF2302D73600980011 /* MapHouseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FFF0EE2302D73600980011 /* MapHouseAnnotationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		F8D951B222F9183F00B6E773 /* SellerContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerContact.swift; sourceTree = "<group>"; };
 		F8D951B422F9210C00B6E773 /* HouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseLocation.swift; sourceTree = "<group>"; };
 		F8DD28F222E22AC900F9889B /* loginHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginHome.json; sourceTree = "<group>"; };
+		F8FFF0EE2302D73600980011 /* MapHouseAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHouseAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +195,7 @@
 			isa = PBXGroup;
 			children = (
 				F893100322FF2B1B007F5F07 /* MapHouseAnnotation.swift */,
+				F8FFF0EE2302D73600980011 /* MapHouseAnnotationView.swift */,
 			);
 			path = MapAnnotation;
 			sourceTree = "<group>";
@@ -419,6 +422,7 @@
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,
 				F8C882812293993100177093 /* User.swift in Sources */,
 				F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */,
+				F8FFF0EF2302D73600980011 /* MapHouseAnnotationView.swift in Sources */,
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
 				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
 				F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */,
