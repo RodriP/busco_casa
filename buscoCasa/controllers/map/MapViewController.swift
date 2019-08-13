@@ -144,12 +144,12 @@ extension MapViewController: MKMapViewDelegate {
         let identifier = user.name
         
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         
         if let annotation = annotation as? MapHouseAnnotation {
             if annotationView == nil {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
-                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
                 imageView.layer.borderWidth = 1
@@ -164,7 +164,6 @@ extension MapViewController: MKMapViewDelegate {
                 annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 annotationView?.canShowCallout = true
                 let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
-                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.image = pin;
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
