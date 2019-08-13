@@ -152,7 +152,8 @@ extension MapViewController: MKMapViewDelegate {
                 let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
-                imageView.contentMode = .scaleAspectFit;
+                imageView.layer.borderWidth = 1
+                imageView.layer.borderColor = UIColor.black.cgColor
                 self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
                 annotationView?.addSubview(imageView)
             } else {

@@ -15,6 +15,7 @@ class MapHouseAnnotation : NSObject, MKAnnotation{
     
     // Required if you set the annotation view's `canShowCallout` property to `true`
     var title: String? = NSLocalizedString("SAN_FRANCISCO_TITLE", comment: "SF annotation")
+    var subtitle: String? = "fafafa"
     
     public var image : String
     

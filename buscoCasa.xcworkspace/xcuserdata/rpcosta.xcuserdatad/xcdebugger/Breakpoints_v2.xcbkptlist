@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.589974"
+            timestampString = "587345388.203275"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
@@ -170,7 +170,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/user/UserViewController.swift"
-            timestampString = "587244962.590127"
+            timestampString = "587345388.205917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/user/UserViewController.swift"
-            timestampString = "587244962.590646"
+            timestampString = "587345388.206609"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591151"
+            timestampString = "587345388.206933"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.59123"
+            timestampString = "587345388.207726"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
+            startingLineNumber = "179"
+            endingLineNumber = "179"
             landmarkName = "MapViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -410,11 +410,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591337"
+            timestampString = "587345388.208531"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "182"
-            endingLineNumber = "182"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "MapViewController"
             landmarkType = "21">
          </BreakpointContent>
@@ -474,7 +474,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591442"
+            timestampString = "587345388.210342"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591537"
+            timestampString = "587345388.211217"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "210"
-            endingLineNumber = "210"
+            startingLineNumber = "211"
+            endingLineNumber = "211"
             landmarkName = "startDownloading(from:houseImage:contentMode:)"
             landmarkType = "7">
             <Locations>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.5915819"
+            timestampString = "587345388.2118289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
             landmarkName = "downloaded(from:houseImage:contentMode:)"
             landmarkType = "7">
             <Locations>
@@ -650,11 +650,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.5916311"
+            timestampString = "587345388.21241"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219">
+            startingLineNumber = "220"
+            endingLineNumber = "220">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -664,7 +664,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591677"
+            timestampString = "587345388.212862"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "132"
@@ -680,11 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591727"
+            timestampString = "587345388.213414"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "mapView(_:viewFor:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -692,11 +692,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591777"
+            timestampString = "587345388.213956"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
@@ -712,11 +712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591826"
+            timestampString = "587345388.214486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "startDownloading(from:houseImage:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -728,27 +728,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.591873"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
-            landmarkName = "startDownloading(from:houseImage:contentMode:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587244962.5919189"
+            timestampString = "587345388.214968"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "209"
             endingLineNumber = "209"
+            landmarkName = "startDownloading(from:houseImage:contentMode:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "buscoCasa/controllers/map/MapViewController.swift"
+            timestampString = "587345388.215392"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "startDownloading(from:houseImage:contentMode:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -792,12 +792,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "buscoCasa/controllers/map/MapViewController.swift"
-            timestampString = "587245009.752897"
+            timestampString = "587345388.215861"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "180"
-            endingLineNumber = "180"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "mapView(_:didSelect:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "buscoCasa/controllers/map/MapViewController.swift"
+            timestampString = "587345388.21641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "mapView(_:rendererFor:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
