@@ -61,6 +61,7 @@ class UserViewController: UIViewController, ModalDelegate {
     private func setupLoginState(){
         //TODO VER cambiar el root
         let storyboard = UIStoryboard(name: "login", bundle: nil)
+        ImageStorageUtils.deleteDirectory(deleteName: AppConstants.UserConstants.userPortraitPicture + user.name)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
         self.present(loginNC, animated: true, completion: nil)
     }
@@ -192,7 +193,7 @@ extension UserViewController: UINavigationControllerDelegate{
 
 extension UserViewController: UIImagePickerControllerDelegate{
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: { () -> Void in
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 self.portraitPicture.image = image

@@ -15,13 +15,14 @@ class MapHouseAnnotation : NSObject, MKAnnotation{
     
     // Required if you set the annotation view's `canShowCallout` property to `true`
     var title: String? = NSLocalizedString("CUSTOM_TITLE", comment: "custom annotation")
-    
+    var subtitle: String? = ""
     public var image : String
     
     public var price : Double
     
-    init(image : String, title: String, price: Double, latitude: Double, longitude: Double) {
+    init(image : String, title: String, subtitle: String, price: Double, latitude: Double, longitude: Double) {
         self.image = image
+        self.subtitle = subtitle
         self.price = price
         self.title = title
         self.coordinate.latitude = latitude

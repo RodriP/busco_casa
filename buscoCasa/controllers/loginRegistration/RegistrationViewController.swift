@@ -130,7 +130,7 @@ extension RegistrationViewController : UINavigationControllerDelegate {
 }
 
 extension RegistrationViewController : UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         self.dismiss(animated: true, completion: { () -> Void in
             if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 self.imageToSave.image = image

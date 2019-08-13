@@ -23,11 +23,6 @@ class MapViewController: UIViewController{
         super.viewDidLoad()
         self.title = AppConstants.MapConstants.MapTitle
         locationManager.delegate = self
-        if locationManager.locationServicesEnabled() {
-            locationManager.startUpdatingAlwaysLocation()
-        } else {
-            showLocationServicesAlert()
-        }
         map.showsUserLocation = true
         map.delegate = self
         map.mapType = .standard
@@ -35,7 +30,14 @@ class MapViewController: UIViewController{
         map.isScrollEnabled = true
     }
     
+    
+    
     override func viewWillAppear(_ animated: Bool) {
+        if locationManager.locationServicesEnabled() {
+            locationManager.startUpdatingAlwaysLocation()
+        } else {
+            showLocationServicesAlert()
+        }
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
             if let jsonData = retrievedUser!.data(using: .utf8)
@@ -72,12 +74,19 @@ extension MapViewController: LocationManagerDelegate {
                     for place in places.results {
                         if(place.location != nil && place.location?.latitude != nil
                             && place.location?.longitude != nil) {
-                            var mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            let price = place.price as NSNumber
+                            
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .currency
+                            formatter.string(from: price)
+                            formatter.locale = Locale(identifier: "es_AR")
+                            
+                            let mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
                             self.map.addAnnotation(mapAnnotation)
                         }
                     }
                 }
-            case .failure(let error):
+            case .failure( _):
                 let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
                 self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userMapError,message:AppConstants.UserConstants.userMapLocationErrorMsg, action: actions), animated: true, completion: nil)
             }
