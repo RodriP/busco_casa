@@ -51,6 +51,33 @@ class MapViewController: UIViewController{
                 }
             }
         }
+        
+        /*let apiClient =  APIClient(latitude: String(locationManager.location!.latitude), longitude: String(locationManager.location!.longitude))
+        apiClient.fetchPlaces { result in
+            switch result {
+            case .success(let places):
+                DispatchQueue.main.async {
+                    self.houses = places
+                    for place in places.results {
+                        if(place.location != nil && place.location?.latitude != nil
+                            && place.location?.longitude != nil) {
+                            let price = place.price as NSNumber
+                            
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .currency
+                            formatter.string(from: price)
+                            formatter.locale = Locale(identifier: "es_AR")
+                            
+                            let mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            self.map.addAnnotation(mapAnnotation)
+                        }
+                    }
+                }
+            case .failure( _):
+                let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userMapError,message:AppConstants.UserConstants.userMapLocationErrorMsg, action: actions), animated: true, completion: nil)
+            }
+        }*/
     }
 }
 
@@ -99,6 +126,11 @@ extension MapViewController: LocationManagerDelegate {
         
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            
+        }
+    }
     func locationManager(_ locationManager: CustomLocationManager, didChangeAuthorizationStatus status: LocationAuthStatus) {
         switch status {
         case .authorized:
@@ -158,14 +190,22 @@ extension MapViewController: MKMapViewDelegate {
             return
         }
         
-        view.deselect()
+        view.select()
         
         UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
             self.view.layoutIfNeeded()
         }, completion: nil)    }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-
+        guard let view = view as? MapHouseAnnotationView else {
+            return
+        }
+        
+        view.deselect()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

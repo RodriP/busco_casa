@@ -32,8 +32,10 @@ class MapHouseAnnotationView : MKAnnotationView{
         self.frame = viewFrame
         canShowCallout = true
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-
         if let annotation = annotation as? MapHouseAnnotation {
+                let bookmarksBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+                bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .normal)
+                rightCalloutAccessoryView = bookmarksBtn
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
                 imageView.layer.borderWidth = 1
@@ -54,7 +56,7 @@ class MapHouseAnnotationView : MKAnnotationView{
     
     func select() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
-            self.transform = CGAffineTransform(scaleX: 1.8, y: 1.8)
+            self.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
         }, completion: nil)
     }
     

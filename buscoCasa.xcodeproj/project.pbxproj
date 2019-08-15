@@ -19,6 +19,9 @@
 		F830A91022C0182200107881 /* bookmarks.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F830A90F22C0182200107881 /* bookmarks.storyboard */; };
 		F837648F22E3AA4D00C03EC3 /* profile.json in Resources */ = {isa = PBXBuildFile; fileRef = F837648E22E3AA4D00C03EC3 /* profile.json */; };
 		F840082622C6D64E00CFC612 /* login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F840082522C6D64E00CFC612 /* login.storyboard */; };
+		F856ECB42304DA79006D5661 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F856ECB32304DA79006D5661 /* BookmarksViewController.swift */; };
+		F856ECB62304DB9E006D5661 /* emptyBookmarks.json in Resources */ = {isa = PBXBuildFile; fileRef = F856ECB52304DB9E006D5661 /* emptyBookmarks.json */; };
+		F856ECB82304E431006D5661 /* bookmarksPlaceholder.json in Resources */ = {isa = PBXBuildFile; fileRef = F856ECB72304E431006D5661 /* bookmarksPlaceholder.json */; };
 		F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* AppConstants.swift */; };
 		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
 		F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437922BEA12C007CA5AC /* UserViewController.swift */; };
@@ -60,6 +63,9 @@
 		F830A90F22C0182200107881 /* bookmarks.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = bookmarks.storyboard; sourceTree = "<group>"; };
 		F837648E22E3AA4D00C03EC3 /* profile.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = profile.json; sourceTree = "<group>"; };
 		F840082522C6D64E00CFC612 /* login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = login.storyboard; sourceTree = "<group>"; };
+		F856ECB32304DA79006D5661 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
+		F856ECB52304DB9E006D5661 /* emptyBookmarks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyBookmarks.json; sourceTree = "<group>"; };
+		F856ECB72304E431006D5661 /* bookmarksPlaceholder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookmarksPlaceholder.json; sourceTree = "<group>"; };
 		F871437522BE78E1007CA5AC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
 		F871437922BEA12C007CA5AC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -158,11 +164,21 @@
 			isa = PBXGroup;
 			children = (
 				F837648E22E3AA4D00C03EC3 /* profile.json */,
+				F856ECB72304E431006D5661 /* bookmarksPlaceholder.json */,
 				F80FCC2722E3768A00DF5255 /* choosePicture.json */,
 				F8DD28F222E22AC900F9889B /* loginHome.json */,
+				F856ECB52304DB9E006D5661 /* emptyBookmarks.json */,
 				F8013FD922E2108200035010 /* homeAnimation.json */,
 			);
 			path = animations;
+			sourceTree = "<group>";
+		};
+		F856ECAF2304DA25006D5661 /* bookmarks */ = {
+			isa = PBXGroup;
+			children = (
+				F856ECB32304DA79006D5661 /* BookmarksViewController.swift */,
+			);
+			path = bookmarks;
 			sourceTree = "<group>";
 		};
 		F871437422BE78AC007CA5AC /* utils */ = {
@@ -251,6 +267,7 @@
 		F8C8827C229392B100177093 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F856ECAF2304DA25006D5661 /* bookmarks */,
 				F8013FCB22DDEABE00035010 /* map */,
 				F8013FCA22DDEAB200035010 /* user */,
 				F871438422BED44E007CA5AC /* loginRegistration */,
@@ -316,6 +333,7 @@
 				TargetAttributes = {
 					F8C882652293925100177093 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -352,7 +370,9 @@
 				F8C8826F2293925100177093 /* Main.storyboard in Resources */,
 				F840082622C6D64E00CFC612 /* login.storyboard in Resources */,
 				F8013FD522E207EC00035010 /* CustomLaunch.storyboard in Resources */,
+				F856ECB82304E431006D5661 /* bookmarksPlaceholder.json in Resources */,
 				F8DD28F322E22ACA00F9889B /* loginHome.json in Resources */,
+				F856ECB62304DB9E006D5661 /* emptyBookmarks.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +446,7 @@
 				F8C882832294231400177093 /* LoginOptionViewController.swift in Sources */,
 				F830A90E22BFFEF700107881 /* AlertDialogUtils.swift in Sources */,
 				F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */,
+				F856ECB42304DA79006D5661 /* BookmarksViewController.swift in Sources */,
 				F8D951B322F9183F00B6E773 /* SellerContact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -566,6 +587,7 @@
 			baseConfigurationReference = 978DADC5CE87E99BF284E7A2 /* Pods-buscoCasa.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TAJXWT989C;
 				INFOPLIST_FILE = buscoCasa/Info.plist;
@@ -575,6 +597,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = rodrigo.buscoCasa;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -585,6 +608,7 @@
 			baseConfigurationReference = A6E63470E6D6FA01B01AD900 /* Pods-buscoCasa.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TAJXWT989C;
 				INFOPLIST_FILE = buscoCasa/Info.plist;
