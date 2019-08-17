@@ -36,7 +36,7 @@ class MapHouseAnnotation : NSObject, NSCoding, MKAnnotation{
         let image = aDecoder.decodeObject(forKey: "image") as! String
         let subtitle = aDecoder.decodeObject(forKey: "subtitle") as! String
         let price = aDecoder.decodeDouble(forKey: "price")
-        let title = aDecoder.decodeObject(forKey: "image") as! String
+        let title = aDecoder.decodeObject(forKey: "title") as! String
         let latitude = aDecoder.decodeDouble(forKey: "latitude")
         let longitude = aDecoder.decodeDouble(forKey: "longitude")
         self.init(id: id, image: image, title: title, subtitle: subtitle, price: price, latitude: latitude, longitude: longitude)

@@ -186,6 +186,22 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BookmarksViewController.tableView(_:numberOfRowsInSection:):BookmarksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bookmarks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BookmarksViewController.viewWillAppear(_:):BookmarksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bookMarks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
          <PersistentStrings>
             <PersistentString
