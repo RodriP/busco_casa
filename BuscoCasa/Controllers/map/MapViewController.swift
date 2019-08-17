@@ -37,6 +37,7 @@ class MapViewController: UIViewController{
         } else {
             showLocationServicesAlert()
         }
+        let userDefaults = UserDefaults.standard
 
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
@@ -51,6 +52,13 @@ class MapViewController: UIViewController{
                 }
             }
         }
+        
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
+        if(decoded != nil){
+            bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
+        }
+
+        
         if(locationManager.location != nil){
             map.center(on: locationManager.location!, latitudinalMeters: regionMeters, longitudinalMeters: regionMeters)
             let apiClient =  APIClient(latitude: String(locationManager.location!.latitude), longitude: String(locationManager.location!.longitude))
@@ -135,16 +143,14 @@ extension MapViewController: LocationManagerDelegate {
             if let button = view.rightCalloutAccessoryView as? UIButton {
                 if button.isSelected{
                     button.isSelected = false
-                    if let index = bookmarks.firstIndex(of: view.annotation as! MapHouseAnnotation) {
-                        bookmarks.remove(at: index)
-                    }
+                    bookmarks = bookmarks.filter(){$0.id != (view.annotation as! MapHouseAnnotation).id}
                 } else {
                     bookmarks.append(view.annotation as! MapHouseAnnotation)
                     button.isSelected = true
                 }
                 let userDefaults = UserDefaults.standard
                 let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: bookmarks)
-                userDefaults.set(encodedData, forKey: AppConstants.UserConstants.userSaveBookmarks)
+                userDefaults.set(encodedData, forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
                 userDefaults.synchronize()
             }
         }

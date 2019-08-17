@@ -8,6 +8,7 @@
 
 import UIKit
 import Lottie
+import SwiftKeychainWrapper
 
 class BookmarksViewController: UIViewController {
 
@@ -15,6 +16,8 @@ class BookmarksViewController: UIViewController {
     @IBOutlet weak var bookmarksTable: UITableView!
     
     @IBOutlet weak var emptyBookmarksView: AnimationView!
+    
+    private var user : User!
     
     var bookmarks : [MapHouseAnnotation] = []
     
@@ -24,7 +27,20 @@ class BookmarksViewController: UIViewController {
         
         let userDefaults = UserDefaults.standard
 
-        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks)
+        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
+        if retrievedUser != nil {
+            if let jsonData = retrievedUser!.data(using: .utf8)
+            {
+                let decoder = JSONDecoder()
+                
+                do {
+                    self.user = try decoder.decode(User.self, from: jsonData)
+                } catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
         if(decoded != nil){
             bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
         }

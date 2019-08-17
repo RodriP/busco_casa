@@ -167,6 +167,12 @@
          contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "view.annotation">
+            </PersistentString>
+            <PersistentString
+               value = "bookmarks.index(of: view.annotation as! MapHouseAnnotation) ">
+            </PersistentString>
+            <PersistentString
                value = "bookmarks">
             </PersistentString>
          </PersistentStrings>

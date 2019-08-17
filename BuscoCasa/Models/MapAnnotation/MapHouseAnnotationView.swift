@@ -34,7 +34,7 @@ class MapHouseAnnotationView : MKAnnotationView{
         
         let userDefaults = UserDefaults.standard
         
-        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks)
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks + user!.name)
         var bookmarks : [MapHouseAnnotation] = []
         if(decoded != nil){
              bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
