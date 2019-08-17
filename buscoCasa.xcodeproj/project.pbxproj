@@ -22,6 +22,7 @@
 		F856ECB42304DA79006D5661 /* BookmarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F856ECB32304DA79006D5661 /* BookmarksViewController.swift */; };
 		F856ECB62304DB9E006D5661 /* emptyBookmarks.json in Resources */ = {isa = PBXBuildFile; fileRef = F856ECB52304DB9E006D5661 /* emptyBookmarks.json */; };
 		F856ECB82304E431006D5661 /* bookmarksPlaceholder.json in Resources */ = {isa = PBXBuildFile; fileRef = F856ECB72304E431006D5661 /* bookmarksPlaceholder.json */; };
+		F856ECBD23084EE6006D5661 /* TransitionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F856ECBC23084EE6006D5661 /* TransitionHelper.swift */; };
 		F871437622BE78E1007CA5AC /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437522BE78E1007CA5AC /* AppConstants.swift */; };
 		F871437822BE8FBC007CA5AC /* UserMenuTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */; };
 		F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F871437922BEA12C007CA5AC /* UserViewController.swift */; };
@@ -66,6 +67,7 @@
 		F856ECB32304DA79006D5661 /* BookmarksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksViewController.swift; sourceTree = "<group>"; };
 		F856ECB52304DB9E006D5661 /* emptyBookmarks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyBookmarks.json; sourceTree = "<group>"; };
 		F856ECB72304E431006D5661 /* bookmarksPlaceholder.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bookmarksPlaceholder.json; sourceTree = "<group>"; };
+		F856ECBC23084EE6006D5661 /* TransitionHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionHelper.swift; sourceTree = "<group>"; };
 		F871437522BE78E1007CA5AC /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		F871437722BE8FBC007CA5AC /* UserMenuTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMenuTabViewController.swift; sourceTree = "<group>"; };
 		F871437922BEA12C007CA5AC /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
@@ -124,14 +126,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F8013FC722DDEA0700035010 /* services */ = {
+		F8013FC722DDEA0700035010 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				F8D951AB22F9128C00B6E773 /* Networking */,
 				F8013FC822DDEA4F00035010 /* CustomLocationManager.swift */,
 				F8013FCF22E0E5CE00035010 /* golftest.gpx */,
 			);
-			path = services;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F8013FCA22DDEAB200035010 /* user */ = {
@@ -152,15 +154,15 @@
 			path = map;
 			sourceTree = "<group>";
 		};
-		F8013FCC22E0DB3700035010 /* extensions */ = {
+		F8013FCC22E0DB3700035010 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				F8013FCD22E0DB4700035010 /* MapExtensions.swift */,
 			);
-			path = extensions;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		F8013FD822E20F4F00035010 /* animations */ = {
+		F8013FD822E20F4F00035010 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
 				F837648E22E3AA4D00C03EC3 /* profile.json */,
@@ -170,7 +172,7 @@
 				F856ECB52304DB9E006D5661 /* emptyBookmarks.json */,
 				F8013FD922E2108200035010 /* homeAnimation.json */,
 			);
-			path = animations;
+			path = Animations;
 			sourceTree = "<group>";
 		};
 		F856ECAF2304DA25006D5661 /* bookmarks */ = {
@@ -181,14 +183,15 @@
 			path = bookmarks;
 			sourceTree = "<group>";
 		};
-		F871437422BE78AC007CA5AC /* utils */ = {
+		F871437422BE78AC007CA5AC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				F871437522BE78E1007CA5AC /* AppConstants.swift */,
 				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
 				F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */,
+				F856ECBC23084EE6006D5661 /* TransitionHelper.swift */,
 			);
-			path = utils;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F871438322BED430007CA5AC /* loginWithEmail */ = {
@@ -219,7 +222,7 @@
 		F8C8825D2293925100177093 = {
 			isa = PBXGroup;
 			children = (
-				F8C882682293925100177093 /* buscoCasa */,
+				F8C882682293925100177093 /* BuscoCasa */,
 				F8C882672293925100177093 /* Products */,
 				090CB09F0F44A06B62FC4FDF /* Pods */,
 				24010A1804F7CB27EDF71DBA /* Frameworks */,
@@ -234,24 +237,24 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F8C882682293925100177093 /* buscoCasa */ = {
+		F8C882682293925100177093 /* BuscoCasa */ = {
 			isa = PBXGroup;
 			children = (
-				F8013FD822E20F4F00035010 /* animations */,
-				F8013FCC22E0DB3700035010 /* extensions */,
-				F8013FC722DDEA0700035010 /* services */,
-				F871437422BE78AC007CA5AC /* utils */,
-				F8C8827D2293930D00177093 /* storyboards */,
-				F8C8827C229392B100177093 /* controllers */,
-				F8C8827B2293926400177093 /* models */,
+				F8013FD822E20F4F00035010 /* Animations */,
+				F8013FCC22E0DB3700035010 /* Extensions */,
+				F8013FC722DDEA0700035010 /* Services */,
+				F871437422BE78AC007CA5AC /* Utils */,
+				F8C8827D2293930D00177093 /* Storyboards */,
+				F8C8827C229392B100177093 /* Controllers */,
+				F8C8827B2293926400177093 /* Models */,
 				F8C882692293925100177093 /* AppDelegate.swift */,
 				F8C882702293925200177093 /* Assets.xcassets */,
 				F8C882752293925200177093 /* Info.plist */,
 			);
-			path = buscoCasa;
+			path = BuscoCasa;
 			sourceTree = "<group>";
 		};
-		F8C8827B2293926400177093 /* models */ = {
+		F8C8827B2293926400177093 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				F893100222FF2AF5007F5F07 /* MapAnnotation */,
@@ -261,10 +264,10 @@
 				F8D951B222F9183F00B6E773 /* SellerContact.swift */,
 				F8D951B422F9210C00B6E773 /* HouseLocation.swift */,
 			);
-			path = models;
+			path = Models;
 			sourceTree = "<group>";
 		};
-		F8C8827C229392B100177093 /* controllers */ = {
+		F8C8827C229392B100177093 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F856ECAF2304DA25006D5661 /* bookmarks */,
@@ -275,10 +278,10 @@
 				F8C882822294231400177093 /* LoginOptionViewController.swift */,
 				F8013FD622E208F000035010 /* LaunchViewController.swift */,
 			);
-			path = controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
-		F8C8827D2293930D00177093 /* storyboards */ = {
+		F8C8827D2293930D00177093 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				F8C8826D2293925100177093 /* Main.storyboard */,
@@ -288,7 +291,7 @@
 				F840082522C6D64E00CFC612 /* login.storyboard */,
 				F8013FD422E207EC00035010 /* CustomLaunch.storyboard */,
 			);
-			path = storyboards;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		F8D951AB22F9128C00B6E773 /* Networking */ = {
@@ -437,6 +440,7 @@
 				F8013FD722E208F000035010 /* LaunchViewController.swift in Sources */,
 				F8D951AF22F9133000B6E773 /* HouseModel.swift in Sources */,
 				F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */,
+				F856ECBD23084EE6006D5661 /* TransitionHelper.swift in Sources */,
 				F893100422FF2B1B007F5F07 /* MapHouseAnnotation.swift in Sources */,
 				F871438822BFC47B007CA5AC /* EditUserViewController.swift in Sources */,
 				F8C8826A2293925100177093 /* AppDelegate.swift in Sources */,

@@ -34,7 +34,9 @@ class MapHouseAnnotationView : MKAnnotationView{
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         if let annotation = annotation as? MapHouseAnnotation {
                 let bookmarksBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+                bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .highlighted)
                 bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .normal)
+                bookmarksBtn.setImage(UIImage(named: "favoriteon"), for: .selected)
                 rightCalloutAccessoryView = bookmarksBtn
                 imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
                 imageView.layer.masksToBounds = true
@@ -42,7 +44,10 @@ class MapHouseAnnotationView : MKAnnotationView{
                 imageView.layer.borderColor = UIColor.black.cgColor
                 self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
         } else {
-            let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user!.name)
+            var pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user!.name)
+            if(pin == nil){
+                pin = UIImage(named: "loginuser")
+            }
             imageView.image = pin;
             imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
             imageView.layer.masksToBounds = true

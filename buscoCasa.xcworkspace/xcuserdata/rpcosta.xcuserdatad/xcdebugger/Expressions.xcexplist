@@ -14,7 +14,12 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in APIClient.fetchPlaces(completion:):ApiClient.swift">
+         contextName = "MapHouseAnnotationView.init(annotation:reuseIdentifier:):MapHouseAnnotationView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "UserViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):UserViewController.swift">
@@ -25,6 +30,9 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "closure #1 in APIClient.fetchPlaces(completion:):ApiClient.swift">
+      </ContextState>
+      <ContextState
          contextName = "PictureViewController.nextFlow(_:):PictureViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -33,18 +41,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in MapViewController.locationManager(_:didUpdateLocation:):MapViewController.swift">
+         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "place.thumbnail">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MapHouseAnnotationView.init(annotation:reuseIdentifier:):MapHouseAnnotationView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
+               value = "fbDictionaryDataResult">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -109,9 +109,6 @@
          contextName = "HouseLocation.init(from:):HouseLocation.swift">
       </ContextState>
       <ContextState
-         contextName = "SellerContact.init(from:):SellerContact.swift">
-      </ContextState>
-      <ContextState
          contextName = "HouseModel.init(from:):HouseModel.swift">
       </ContextState>
       <ContextState
@@ -134,6 +131,9 @@
          contextName = "closure #1 in closure #1 in MapViewController.viewDidLoad():MapViewController.swift">
       </ContextState>
       <ContextState
+         contextName = "SellerContact.init(from:):SellerContact.swift">
+      </ContextState>
+      <ContextState
          contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -143,12 +143,31 @@
       </ContextState>
       <ContextState
          contextName = "MapViewController.mapView(_:viewFor:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MapViewController.viewWillAppear(_:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
+               value = "map">
+            </PersistentString>
+            <PersistentString
+               value = "locationManager.location">
+            </PersistentString>
+            <PersistentString
                value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bookmarks">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -185,10 +204,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
+         contextName = "closure #1 in closure #1 in MapViewController.locationManager(_:didUpdateLocation:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "fbDictionaryDataResult">
+               value = "place.thumbnail">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

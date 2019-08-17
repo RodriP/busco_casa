@@ -11,18 +11,34 @@ import Lottie
 
 class BookmarksViewController: UIViewController {
 
+    @IBOutlet weak var emptyBookmarksLbl: UILabel!
     @IBOutlet weak var bookmarksTable: UITableView!
     
     @IBOutlet weak var emptyBookmarksView: AnimationView!
     
+    var bookmarcks : [MapHouseAnnotation] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Bookmarks"
-        bookmarksTable.isHidden = true
+        
+        let userDefaults = UserDefaults.standard
+
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks)
+        bookmarcks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        playAnimation()
+        
+        if(!bookmarcks.isEmpty){
+            bookmarksTable.isHidden = false
+            emptyBookmarksLbl.isHidden = true
+        } else{
+            playAnimation()
+            bookmarksTable.isHidden = true
+            emptyBookmarksLbl.isHidden = false
+        }
     }
     
     private func playAnimation(){

@@ -56,11 +56,11 @@ class LaunchViewController: UIViewController {
                 storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let userInitialViewController = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController") as! UserMenuTabViewController
                 userInitialViewController.user = self.savedUser
-                self.present(userInitialViewController, animated: true, completion: nil)
+                TransitionHelper.setRootView(userInitialViewController)
             } else {
                 storyboard = UIStoryboard(name: "login", bundle: nil)
                 let loginInitialViewController = storyboard.instantiateViewController(withIdentifier: "loginNavigationController")
-                self.present(loginInitialViewController, animated: true, completion: nil)
+                TransitionHelper.setRootView(loginInitialViewController)
             }
         }
     }

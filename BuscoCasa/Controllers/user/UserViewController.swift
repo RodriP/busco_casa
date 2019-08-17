@@ -59,11 +59,10 @@ class UserViewController: UIViewController, ModalDelegate {
     }
     
     private func setupLoginState(){
-        //TODO VER cambiar el root
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         ImageStorageUtils.deleteDirectory(deleteName: AppConstants.UserConstants.userPortraitPicture + user.name)
         let loginNC = storyboard.instantiateViewController(withIdentifier: "loginNavigationController") as! UINavigationController
-        self.present(loginNC, animated: true, completion: nil)
+        TransitionHelper.setRootView(loginNC)
     }
     
     
