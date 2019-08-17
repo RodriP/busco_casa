@@ -16,7 +16,7 @@ class BookmarksViewController: UIViewController {
     
     @IBOutlet weak var emptyBookmarksView: AnimationView!
     
-    var bookmarcks : [MapHouseAnnotation] = []
+    var bookmarks : [MapHouseAnnotation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +25,14 @@ class BookmarksViewController: UIViewController {
         let userDefaults = UserDefaults.standard
 
         let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks)
-        bookmarcks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
-
+        if(decoded != nil){
+            bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
-        if(!bookmarcks.isEmpty){
+        if(!bookmarks.isEmpty){
             bookmarksTable.isHidden = false
             emptyBookmarksLbl.isHidden = true
         } else{

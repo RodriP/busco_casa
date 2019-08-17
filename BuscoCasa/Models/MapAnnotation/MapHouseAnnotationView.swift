@@ -31,18 +31,32 @@ class MapHouseAnnotationView : MKAnnotationView{
         }
         self.frame = viewFrame
         canShowCallout = true
+        
+        let userDefaults = UserDefaults.standard
+        
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks)
+        var bookmarks : [MapHouseAnnotation] = []
+        if(decoded != nil){
+             bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
+        }
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         if let annotation = annotation as? MapHouseAnnotation {
-                let bookmarksBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-                bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .highlighted)
-                bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .normal)
-                bookmarksBtn.setImage(UIImage(named: "favoriteon"), for: .selected)
-                rightCalloutAccessoryView = bookmarksBtn
-                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                imageView.layer.masksToBounds = true
-                imageView.layer.borderWidth = 1
-                imageView.layer.borderColor = UIColor.black.cgColor
-                self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
+            let bookmarksBtn = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+            bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .highlighted)
+            bookmarksBtn.setImage(UIImage(named: "favoriteoff"), for: .normal)
+            bookmarksBtn.setImage(UIImage(named: "favoriteon"), for: .selected)
+            if bookmarks.contains(where: {$0.id == annotation.id}) {
+                bookmarksBtn.isSelected = true
+            } else{
+                bookmarksBtn.isSelected = false
+            }
+            rightCalloutAccessoryView = bookmarksBtn
+            imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
+            imageView.layer.masksToBounds = true
+            imageView.layer.borderWidth = 1
+            imageView.layer.borderColor = UIColor.black.cgColor
+            self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
         } else {
             var pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user!.name)
             if(pin == nil){

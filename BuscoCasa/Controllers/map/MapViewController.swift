@@ -69,7 +69,7 @@ class MapViewController: UIViewController{
                                 formatter.string(from: price)
                                 formatter.locale = Locale(identifier: "es_AR")
                                 
-                                let mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                                let mapAnnotation = MapHouseAnnotation(id: place.id, image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
                                 self.map.addAnnotation(mapAnnotation)
                             }
                         }
@@ -112,7 +112,7 @@ extension MapViewController: LocationManagerDelegate {
                             formatter.string(from: price)
                             formatter.locale = Locale(identifier: "es_AR")
                             
-                            let mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            let mapAnnotation = MapHouseAnnotation(id: place.id, image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
                             self.map.addAnnotation(mapAnnotation)
                         }
                     }
