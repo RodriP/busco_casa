@@ -60,7 +60,7 @@ class LoginOptionViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let mainVC = storyboard.instantiateViewController(withIdentifier: "UserMenuTabViewController") as! UserMenuTabViewController
         mainVC.user = self.user
-        self.present(mainVC, animated: true, completion: nil)
+        TransitionHelper.setRootView(mainVC)
     }
     
     private func prepareButtons(){
