@@ -3,113 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Results.init(from:):Results.swift">
-      </ContextState>
-      <ContextState
-         contextName = "UserNameRegistrationViewController.prepare(for:sender:):UserNameRegistrationViewController.swift">
+         contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "segue.destination">
+               value = "view.annotation">
+            </PersistentString>
+            <PersistentString
+               value = "bookmarks.index(of: view.annotation as! MapHouseAnnotation) ">
+            </PersistentString>
+            <PersistentString
+               value = "bookmarks">
             </PersistentString>
          </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MapHouseAnnotationView.init(annotation:reuseIdentifier:):MapHouseAnnotationView.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):UserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "portraitPicture.image">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in APIClient.fetchPlaces(completion:):ApiClient.swift">
-      </ContextState>
-      <ContextState
-         contextName = "PictureViewController.nextFlow(_:):PictureViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "fbDictionaryDataResult">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "navigationVC.viewControllers[2]">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditUserViewController.loadData():EditUserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "APIClient.prepareLatitudeLocation():ApiClient.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "latitude">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in LoginOptionViewController.loginButtonClicked():LoginOptionViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "publicProfile">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserViewController.setUserData():UserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
-            </PersistentString>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-            <PersistentString
-               value = "getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "APIClient.fetchPlaces(completion:):ApiClient.swift">
       </ContextState>
       <ContextState
          contextName = "HouseLocation.init(from:):HouseLocation.swift">
       </ContextState>
       <ContextState
-         contextName = "HouseModel.init(from:):HouseModel.swift">
+         contextName = "UserViewController.viewDidLoad():UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.user">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "MailRegistrationViewController.prepare(for:sender:):MailRegistrationViewController.swift">
@@ -128,10 +44,74 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "closure #1 in closure #1 in MapViewController.viewDidLoad():MapViewController.swift">
+         contextName = "closure #1 in closure #1 in MapViewController.locationManager(_:didUpdateLocation:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "place.thumbnail">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "SellerContact.init(from:):SellerContact.swift">
+         contextName = "BookmarksViewController.viewWillAppear(_:):BookmarksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bookMarks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "HouseModel.init(from:):HouseModel.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MapHouseAnnotationView.init(annotation:reuseIdentifier:):MapHouseAnnotationView.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in APIClient.fetchPlaces(completion:):ApiClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserNameRegistrationViewController.prepare(for:sender:):UserNameRegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.destination">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserMenuTabViewController.viewDidLoad():UserMenuTabViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationVC.viewControllers[2]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "PictureViewController.nextFlow(_:):PictureViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in LoginOptionViewController.getFBUserData():LoginOptionViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fbDictionaryDataResult">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "PasswordRegistrationViewController.prepare(for:sender:):PasswordRegistrationViewController.swift">
@@ -142,7 +122,89 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "BookmarksViewController.tableView(_:commit:forRowAt:):BookmarksViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "bookmarks">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "EditUserViewController.uploadAction(_:):EditUserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MapViewController.mapView(_:viewFor:):MapViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "APIClient.fetchPlaces(completion:):ApiClient.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RegistrationViewController.uploadAction(_:):RegistrationViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BookmarksViewController.tableView(_:cellForRowAt:):BookmarksViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "APIClient.prepareLatitudeLocation():ApiClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "latitude">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.setUserData():UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+            <PersistentString
+               value = "getSavedImage(named: AppConstants.UserConstants.userImageNameToSave)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Results.init(from:):Results.swift">
+      </ContextState>
+      <ContextState
+         contextName = "UserViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):UserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "portraitPicture.image">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SellerContact.init(from:):SellerContact.swift">
+      </ContextState>
+      <ContextState
+         contextName = "EditUserViewController.loadData():EditUserViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "user">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in PictureViewController.imagePickerController(_:didFinishPickingMediaWithInfo:):PictureViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "user">
@@ -164,28 +226,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MapViewController.mapView(_:annotationView:calloutAccessoryControlTapped:):MapViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "view.annotation">
-            </PersistentString>
-            <PersistentString
-               value = "bookmarks.index(of: view.annotation as! MapHouseAnnotation) ">
-            </PersistentString>
-            <PersistentString
-               value = "bookmarks">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "EditUserViewController.uploadAction(_:):EditUserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "BookmarksViewController.tableView(_:numberOfRowsInSection:):BookmarksViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -194,44 +234,15 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "BookmarksViewController.viewWillAppear(_:):BookmarksViewController.swift">
+         contextName = "closure #1 in LoginOptionViewController.loginButtonClicked():LoginOptionViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "bookMarks">
+               value = "publicProfile">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "UserViewController.viewWillAppear(_:):UserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "RegistrationViewController.uploadAction(_:):RegistrationViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "UserViewController.viewDidLoad():UserViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.user">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "closure #1 in closure #1 in MapViewController.locationManager(_:didUpdateLocation:):MapViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "place.thumbnail">
-            </PersistentString>
-         </PersistentStrings>
+         contextName = "closure #1 in closure #1 in MapViewController.viewDidLoad():MapViewController.swift">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

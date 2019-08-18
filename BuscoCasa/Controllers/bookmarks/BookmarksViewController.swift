@@ -142,6 +142,10 @@ extension BookmarksViewController : UITableViewDelegate{
         if editingStyle == .delete {
             bookmarks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .middle)
+            let userDefaults = UserDefaults.standard
+            let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: bookmarks)
+            userDefaults.set(encodedData, forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
+            userDefaults.synchronize()
         }
     }
     
