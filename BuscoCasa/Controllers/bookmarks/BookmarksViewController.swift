@@ -20,7 +20,7 @@ class BookmarksViewController: UIViewController {
     private var user : User!
     
     var bookmarks : [MapHouseAnnotation] = []
-    private let titles = ["🏡"]
+    private let titles = ["🏡 Apartamentos"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,11 +58,15 @@ class BookmarksViewController: UIViewController {
             emptyBookmarksLbl.isHidden = true
             bookmarksTable.reloadData()
         } else{
-            emptyBookmarksView.isHidden = false
-            playAnimation()
-            bookmarksTable.isHidden = true
-            emptyBookmarksLbl.isHidden = false
+            emptyScreen()
         }
+    }
+    
+    private func emptyScreen(){
+        emptyBookmarksView.isHidden = false
+        playAnimation()
+        bookmarksTable.isHidden = true
+        emptyBookmarksLbl.isHidden = false
     }
     
     private func playAnimation(){
@@ -146,6 +150,9 @@ extension BookmarksViewController : UITableViewDelegate{
             let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: bookmarks)
             userDefaults.set(encodedData, forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
             userDefaults.synchronize()
+            if(bookmarks.isEmpty){
+                emptyScreen()
+            }
         }
     }
     
