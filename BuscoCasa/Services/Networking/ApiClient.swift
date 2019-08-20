@@ -27,7 +27,8 @@ class APIClient {
     private let lat : String = "lat:"
     private let long : String = "lon:"
     private let underseparator : String = "_"
-    
+    private var houseModelDelegate : HouseModelDelegate?
+
     init(latitude: String, longitude : String) {
         self.latitude = latitude
         self.longitude = longitude

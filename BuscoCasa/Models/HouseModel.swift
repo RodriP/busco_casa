@@ -7,6 +7,9 @@
 //
 
 import Foundation
+protocol HouseModelDelegate {
+    func displayHouseResults(resultList : [Results], networkError: NetworkError?)
+}
 struct HouseModel : Codable{
     let results : [Results]
     
