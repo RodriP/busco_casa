@@ -45,6 +45,7 @@
 		F8D951B322F9183F00B6E773 /* SellerContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B222F9183F00B6E773 /* SellerContact.swift */; };
 		F8D951B522F9210C00B6E773 /* HouseLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D951B422F9210C00B6E773 /* HouseLocation.swift */; };
 		F8DCC8C4230C1931001541B5 /* ModelHousePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DCC8C3230C1931001541B5 /* ModelHousePresenter.swift */; };
+		F8DCC8C6230C9FA4001541B5 /* GetLoggedUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DCC8C5230C9FA4001541B5 /* GetLoggedUser.swift */; };
 		F8DD28F322E22ACA00F9889B /* loginHome.json in Resources */ = {isa = PBXBuildFile; fileRef = F8DD28F222E22AC900F9889B /* loginHome.json */; };
 		F8FFF0EF2302D73600980011 /* MapHouseAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FFF0EE2302D73600980011 /* MapHouseAnnotationView.swift */; };
 /* End PBXBuildFile section */
@@ -93,6 +94,7 @@
 		F8D951B222F9183F00B6E773 /* SellerContact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellerContact.swift; sourceTree = "<group>"; };
 		F8D951B422F9210C00B6E773 /* HouseLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseLocation.swift; sourceTree = "<group>"; };
 		F8DCC8C3230C1931001541B5 /* ModelHousePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelHousePresenter.swift; sourceTree = "<group>"; };
+		F8DCC8C5230C9FA4001541B5 /* GetLoggedUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLoggedUser.swift; sourceTree = "<group>"; };
 		F8DD28F222E22AC900F9889B /* loginHome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginHome.json; sourceTree = "<group>"; };
 		F8FFF0EE2302D73600980011 /* MapHouseAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHouseAnnotationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -192,6 +194,7 @@
 				F871438522BFC1A6007CA5AC /* ImageStorageUtils.swift */,
 				F830A90D22BFFEF700107881 /* AlertDialogUtils.swift */,
 				F856ECBC23084EE6006D5661 /* TransitionHelper.swift */,
+				F8DCC8C5230C9FA4001541B5 /* GetLoggedUser.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				F871438022BEA425007CA5AC /* MapViewController.swift in Sources */,
 				F8BE36B122E35D6700923C64 /* RegistrationViewController.swift in Sources */,
 				F871438622BFC1A6007CA5AC /* ImageStorageUtils.swift in Sources */,
+				F8DCC8C6230C9FA4001541B5 /* GetLoggedUser.swift in Sources */,
 				F8D951AD22F912BF00B6E773 /* ApiClient.swift in Sources */,
 				F8C8826C2293925100177093 /* LoginWithMailViewController.swift in Sources */,
 				F871437A22BEA12C007CA5AC /* UserViewController.swift in Sources */,

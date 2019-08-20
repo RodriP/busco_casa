@@ -51,21 +51,8 @@ class LoginWithMailViewController: UIViewController {
         loginbtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
     }
     @IBAction func loginButtonClick(_ sender: Any) {
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        var savedUser : User? = nil
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    savedUser = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-
+        
+        var savedUser = GetLoggedUser.getLoggedUser()
         
         guard let userName = userTextField.text,
             let password = passwordTextField.text, !userName.isEmpty && !password.isEmpty else{

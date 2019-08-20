@@ -40,19 +40,7 @@ class MapViewController: UIViewController{
         }
         let userDefaults = UserDefaults.standard
 
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    self.user = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        self.user = GetLoggedUser.getLoggedUser()
         
         let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
         if(decoded != nil){

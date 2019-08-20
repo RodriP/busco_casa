@@ -16,19 +16,7 @@ class MapHouseAnnotationView : MKAnnotationView{
     
     override init(annotation: MKAnnotation?, reuseIdentifier: String?) {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    self.user = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        self.user = GetLoggedUser.getLoggedUser()
         self.frame = viewFrame
         canShowCallout = true
         
