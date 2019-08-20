@@ -28,17 +28,8 @@ class LoginWithMailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        playAnimation()
-    }
-    
-    func playAnimation(){
-        let animation = Animation.named("loginHome")
-        mailAnimationImage.animation = animation
-        mailAnimationImage.layer.cornerRadius = self.mailAnimationImage.frame.size.width / 2;
         mailAnimationImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
-        mailAnimationImage.clipsToBounds = true
-        mailAnimationImage.loopMode = .loop
-        mailAnimationImage.play()
+        AnimationUtils.playAnimation(animateImage: mailAnimationImage, animation: "loginHome")
     }
 
     @IBAction func passwordChange(_ sender: Any) {
@@ -52,7 +43,7 @@ class LoginWithMailViewController: UIViewController {
     }
     @IBAction func loginButtonClick(_ sender: Any) {
         
-        var savedUser = GetLoggedUser.getLoggedUser()
+        let savedUser = GetLoggedUser.getLoggedUser()
         
         guard let userName = userTextField.text,
             let password = passwordTextField.text, !userName.isEmpty && !password.isEmpty else{

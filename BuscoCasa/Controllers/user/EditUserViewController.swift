@@ -32,17 +32,6 @@ class EditUserViewController: UIViewController {
         prepareButtons()
     }
     
-    private func playAnimation(){
-        animateImage.isHidden = false
-        let animation = Animation.named("profile")
-        animateImage.animation = animation
-        animateImage.layer.cornerRadius = self.animateImage.frame.size.width / 2;
-        animateImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
-        animateImage.clipsToBounds = true
-        animateImage.loopMode = .loop
-        animateImage.play()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         loadData()
         userImage.isUserInteractionEnabled = true
@@ -75,7 +64,8 @@ class EditUserViewController: UIViewController {
         passwordTxt.isSecureTextEntry = true
         if(user.photo.elementsEqual("")) {
             userImage.isHidden = true
-            playAnimation()
+            animateImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
+            AnimationUtils.playAnimation(animateImage: animateImage, animation: "profile")
         } else{
             userImage.isHidden = false
             userImage.image = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)

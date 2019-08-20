@@ -33,17 +33,9 @@ class LoginOptionViewController: UIViewController {
         loginWithFacebook.isUserInteractionEnabled = true
         loginWithFacebook.addGestureRecognizer(singleTap)
     }
-    override func viewWillAppear(_ animated: Bool) {
-        playAnimation()
-    }
     
-    private func playAnimation(){
-        let animation = Animation.named("loginHome")
-        loginImageAnimation.animation = animation
-        loginImageAnimation.layer.cornerRadius = self.loginImageAnimation.frame.size.width / 2;
-        loginImageAnimation.clipsToBounds = true
-        loginImageAnimation.loopMode = .loop
-        loginImageAnimation.play()
+    override func viewWillAppear(_ animated: Bool) {
+        AnimationUtils.playAnimation(animateImage: loginImageAnimation, animation: "loginHome")
     }
     
     private func registerForNotifications() {

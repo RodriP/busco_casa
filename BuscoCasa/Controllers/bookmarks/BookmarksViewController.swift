@@ -51,17 +51,9 @@ class BookmarksViewController: UIViewController {
     
     private func emptyScreen(){
         emptyBookmarksView.isHidden = false
-        playAnimation()
+        AnimationUtils.playAnimation(animateImage: emptyBookmarksView, animation: "bookmarksPlaceholder")
         bookmarksTable.isHidden = true
         emptyBookmarksLbl.isHidden = false
-    }
-    
-    private func playAnimation(){
-        let animation = Animation.named("bookmarksPlaceholder")
-        emptyBookmarksView.animation = animation
-        emptyBookmarksView.clipsToBounds = true
-        emptyBookmarksView.loopMode = .loop
-        emptyBookmarksView.play()
     }
 
 }
