@@ -28,15 +28,9 @@ class RegistrationViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        playAnimation()
+        AnimationUtils.playAnimation(animateImage: userImage, animation: "choosePicture")
     }
     
-    private func playAnimation(){
-        let animation = Animation.named("choosePicture")
-        userImage.animation = animation
-        userImage.loopMode = .loop
-        userImage.play()
-    }
     
     private func prepareButtons(){
         createBtn.layer.cornerRadius = 5

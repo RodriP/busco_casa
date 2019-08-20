@@ -21,20 +21,8 @@ class LaunchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        retrievedUser = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    savedUser = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        savedUser = GetLoggedUser.getLoggedUser()
+
         welcomeLabel.textColor = .white
         if savedUser != nil {
             welcomeLabel.text = AppConstants.UserConstants.welcomeLoggedUser + "\(savedUser!.name)"

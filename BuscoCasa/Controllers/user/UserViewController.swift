@@ -46,18 +46,6 @@ class UserViewController: UIViewController, ModalDelegate {
         }
     }
     
-    private func playAnimation(){
-        let animation = Animation.named("profile")
-        animationPic.animation = animation
-        animationPic.layer.cornerRadius = self.animationPic.frame.size.width / 2;
-        animationPic.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
-        animationPic.clipsToBounds = true
-        animationPic.layer.borderWidth = 4
-        animationPic.layer.borderColor = UIColor.white.cgColor
-        animationPic.loopMode = .loop
-        animationPic.play()
-    }
-    
     private func setupLoginState(){
         let storyboard = UIStoryboard(name: "login", bundle: nil)
         ImageStorageUtils.deleteDirectory(deleteName: AppConstants.UserConstants.userPortraitPicture + user.name)
@@ -75,19 +63,8 @@ class UserViewController: UIViewController, ModalDelegate {
         userPicture.layer.borderWidth = 4
         userPicture.layer.borderColor = UIColor.white.cgColor
         
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    self.user = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        self.user = GetLoggedUser.getLoggedUser()
+
         setUserData()
     }
     
@@ -113,7 +90,10 @@ class UserViewController: UIViewController, ModalDelegate {
                     //User not selected a profile photo, use custome one
                     userPicture.isHidden = true
                     animationPic.isHidden = false
-                    playAnimation()
+                    animationPic.layer.borderWidth = 4
+                    animationPic.layer.borderColor = UIColor.white.cgColor
+                    animationPic.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
+                    AnimationUtils.playAnimation(animateImage: animationPic, animation: "profile")
                 } else{
                     // From FB login
                     userPicture.isHidden = false

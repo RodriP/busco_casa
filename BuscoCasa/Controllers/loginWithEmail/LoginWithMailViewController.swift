@@ -28,17 +28,8 @@ class LoginWithMailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        playAnimation()
-    }
-    
-    func playAnimation(){
-        let animation = Animation.named("loginHome")
-        mailAnimationImage.animation = animation
-        mailAnimationImage.layer.cornerRadius = self.mailAnimationImage.frame.size.width / 2;
         mailAnimationImage.backgroundColor = UIColor(red: 48, green: 120, blue: 168, alpha: 0)
-        mailAnimationImage.clipsToBounds = true
-        mailAnimationImage.loopMode = .loop
-        mailAnimationImage.play()
+        AnimationUtils.playAnimation(animateImage: mailAnimationImage, animation: "loginHome")
     }
 
     @IBAction func passwordChange(_ sender: Any) {
@@ -51,21 +42,8 @@ class LoginWithMailViewController: UIViewController {
         loginbtn.titleEdgeInsets = UIEdgeInsets(top: 5,left: 5,bottom: 5,right: 5)
     }
     @IBAction func loginButtonClick(_ sender: Any) {
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        var savedUser : User? = nil
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    savedUser = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
-
+        
+        let savedUser = GetLoggedUser.getLoggedUser()
         
         guard let userName = userTextField.text,
             let password = passwordTextField.text, !userName.isEmpty && !password.isEmpty else{

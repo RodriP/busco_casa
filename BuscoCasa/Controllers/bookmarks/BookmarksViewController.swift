@@ -26,20 +26,7 @@ class BookmarksViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Bookmarks"
         
-
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
-        if retrievedUser != nil {
-            if let jsonData = retrievedUser!.data(using: .utf8)
-            {
-                let decoder = JSONDecoder()
-                
-                do {
-                    self.user = try decoder.decode(User.self, from: jsonData)
-                } catch {
-                    print(error.localizedDescription)
-                }
-            }
-        }
+        self.user = GetLoggedUser.getLoggedUser()
 
         bookmarksTable.dataSource = self
         bookmarksTable.delegate = self
@@ -64,17 +51,9 @@ class BookmarksViewController: UIViewController {
     
     private func emptyScreen(){
         emptyBookmarksView.isHidden = false
-        playAnimation()
+        AnimationUtils.playAnimation(animateImage: emptyBookmarksView, animation: "bookmarksPlaceholder")
         bookmarksTable.isHidden = true
         emptyBookmarksLbl.isHidden = false
-    }
-    
-    private func playAnimation(){
-        let animation = Animation.named("bookmarksPlaceholder")
-        emptyBookmarksView.animation = animation
-        emptyBookmarksView.clipsToBounds = true
-        emptyBookmarksView.loopMode = .loop
-        emptyBookmarksView.play()
     }
 
 }
