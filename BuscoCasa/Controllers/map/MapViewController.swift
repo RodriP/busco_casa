@@ -17,17 +17,13 @@ class MapViewController: UIViewController{
     var user : User!
     private let regionMeters: Double = 1000
     private var houses : HouseModel!
+    private var bookmarks : [MapHouseAnnotation] = []
 
     private let locationManager :CustomLocationManager = CustomLocationManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = AppConstants.MapConstants.MapTitle
         locationManager.delegate = self
-        if locationManager.locationServicesEnabled() {
-            locationManager.startUpdatingAlwaysLocation()
-        } else {
-            showLocationServicesAlert()
-        }
         map.showsUserLocation = true
         map.delegate = self
         map.mapType = .standard
@@ -36,6 +32,13 @@ class MapViewController: UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        if locationManager.locationServicesEnabled() {
+            locationManager.startUpdatingAlwaysLocation()
+        } else {
+            showLocationServicesAlert()
+        }
+        let userDefaults = UserDefaults.standard
+
         let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         if retrievedUser != nil {
             if let jsonData = retrievedUser!.data(using: .utf8)
@@ -49,6 +52,44 @@ class MapViewController: UIViewController{
                 }
             }
         }
+        
+        let decoded  = userDefaults.data(forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
+        if(decoded != nil){
+            bookmarks = NSKeyedUnarchiver.unarchiveObject(with: decoded!) as! [MapHouseAnnotation]
+        }
+
+        
+        if(locationManager.location != nil){
+            map.center(on: locationManager.location!, latitudinalMeters: regionMeters, longitudinalMeters: regionMeters)
+            let apiClient =  APIClient(latitude: String(locationManager.location!.latitude), longitude: String(locationManager.location!.longitude))
+            apiClient.fetchPlaces { result in
+                switch result {
+                case .success(let places):
+                    DispatchQueue.main.async {
+                        self.houses = places
+                        for place in places.results {
+                            if(place.location != nil && place.location?.latitude != nil
+                                && place.location?.longitude != nil) {
+                                let price = place.price as NSNumber
+                                
+                                let formatter = NumberFormatter()
+                                formatter.numberStyle = .currency
+                                formatter.string(from: price)
+                                formatter.locale = Locale(identifier: "es_AR")
+                                
+                                let mapAnnotation = MapHouseAnnotation(id: place.id, image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                                self.map.addAnnotation(mapAnnotation)
+                            }
+                        }
+                    }
+                case .failure( _):
+                    let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
+                    self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userMapError,message:AppConstants.UserConstants.userMapLocationErrorMsg, action: actions), animated: true, completion: nil)
+                }
+            }
+        }
+        
+        
     }
 }
 
@@ -72,12 +113,19 @@ extension MapViewController: LocationManagerDelegate {
                     for place in places.results {
                         if(place.location != nil && place.location?.latitude != nil
                             && place.location?.longitude != nil) {
-                            var mapAnnotation = MapHouseAnnotation(image: place.thumbnail, title: place.title, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
+                            let price = place.price as NSNumber
+                            
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .currency
+                            formatter.string(from: price)
+                            formatter.locale = Locale(identifier: "es_AR")
+                            
+                            let mapAnnotation = MapHouseAnnotation(id: place.id, image: place.thumbnail, title: place.title, subtitle: "Precio: " +                           formatter.string(from: price)!, price: place.price, latitude: place.location!.latitude!, longitude: place.location!.longitude!)
                             self.map.addAnnotation(mapAnnotation)
                         }
                     }
                 }
-            case .failure(let error):
+            case .failure( _):
                 let actions = [UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil)]
                 self.present(AlertDialogUtils.getAlertDialog(title: AppConstants.UserConstants.userMapError,message:AppConstants.UserConstants.userMapLocationErrorMsg, action: actions), animated: true, completion: nil)
             }
@@ -90,6 +138,23 @@ extension MapViewController: LocationManagerDelegate {
         
     }
     
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if (control == view.rightCalloutAccessoryView && ((view.annotation as? MapHouseAnnotation) != nil)) {
+            if let button = view.rightCalloutAccessoryView as? UIButton {
+                if button.isSelected{
+                    button.isSelected = false
+                    bookmarks = bookmarks.filter(){$0.id != (view.annotation as! MapHouseAnnotation).id}
+                } else {
+                    bookmarks.append(view.annotation as! MapHouseAnnotation)
+                    button.isSelected = true
+                }
+                let userDefaults = UserDefaults.standard
+                let encodedData: Data = NSKeyedArchiver.archivedData(withRootObject: bookmarks)
+                userDefaults.set(encodedData, forKey: AppConstants.UserConstants.userSaveBookmarks + user.name)
+                userDefaults.synchronize()
+            }
+        }
+    }
     func locationManager(_ locationManager: CustomLocationManager, didChangeAuthorizationStatus status: LocationAuthStatus) {
         switch status {
         case .authorized:
@@ -140,49 +205,31 @@ extension MapViewController: LocationManagerDelegate {
 extension MapViewController: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
-        let identifier = user.name
-        
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-        
-        if let annotation = annotation as? MapHouseAnnotation {
-            if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView?.canShowCallout = true
-                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                imageView.layer.masksToBounds = true
-                imageView.layer.borderWidth = 1
-                imageView.layer.borderColor = UIColor.black.cgColor
-                self.downloadImage(from: URL(string: annotation.image)!, imageView: imageView)
-                annotationView?.addSubview(imageView)
-            } else {
-                annotationView?.annotation = annotation
-            }
-        } else {
-            if annotationView == nil {
-                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                annotationView?.canShowCallout = true
-                let pin = ImageStorageUtils.getSavedImage(named: AppConstants.UserConstants.userImageNameToSave + user.name)
-                let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-                imageView.image = pin;
-                imageView.layer.cornerRadius = imageView.layer.frame.size.width / 2
-                imageView.layer.masksToBounds = true
-                annotationView?.addSubview(imageView)
-            } else {
-                annotationView?.annotation = annotation
-            }
-        }
-        map.addAnnotation(annotation);
+        let annotationView = MapHouseAnnotationView(annotation: annotation, reuseIdentifier: user.name)
         return annotationView
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        mapView.deselectAnnotation(view.annotation, animated: true)
-    }
+        guard let view = view as? MapHouseAnnotationView else {
+            return
+        }
+        
+        view.select()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)    }
     
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-
+        guard let view = view as? MapHouseAnnotationView else {
+            return
+        }
+        
+        view.deselect()
+        
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 0.4, initialSpringVelocity: 6, options: .curveEaseIn, animations: {
+            self.view.layoutIfNeeded()
+        }, completion: nil)
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -191,29 +238,4 @@ extension MapViewController: MKMapViewDelegate {
         renderer.lineWidth = 2
         return renderer 
     }
-}
-
-
-extension UIImageView {
-    func startDownloading(from url: URL, houseImage: UIImageView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix(AppConstants.UserConstants.userImage),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { houseImage.image = UIImage(named: "house")
-                    return}
-            DispatchQueue.main.async() {
-                self.image = image
-            }
-            }.resume()
-    }
-    
-    func downloaded(from link: String, houseImage: UIImageView, contentMode mode: UIView.ContentMode = .scaleAspectFill) {  // for swift 4.2 syntax just use ===> mode: UIView.ContentMode
-        guard let url = URL(string: link) else { return }
-        startDownloading(from: url, houseImage: houseImage)
-    }
-    
 }

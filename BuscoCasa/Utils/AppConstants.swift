@@ -26,6 +26,7 @@ struct AppConstants{
         static let userObject = "user"
         static let userImage = "image"
         static let userSaveData = "userData"
+        static let userSaveBookmarks = "userBookmarks"
         static let userValidationErrorMsg = "Wrong user name or password"
         static let userValidationError = "Login Error"
         static let userEmptyErrorTitle = "Empty user or password"

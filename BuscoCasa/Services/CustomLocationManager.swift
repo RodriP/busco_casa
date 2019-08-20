@@ -31,14 +31,6 @@ class CustomLocationManager : NSObject {
         return (location.coordinate.latitude, location.coordinate.longitude)
     }
     
-    func distance(to: Location) -> Double {
-        guard let userLocation = locationManager.location else{
-            return 0
-        }
-       // return userLocation
-        return 0
-    }
-    
     public func startUpdatingAlwaysLocation() {
         setupLocationManager()
         checkLocationAuthorization()
@@ -99,7 +91,7 @@ extension CustomLocationManager: CLLocationManagerDelegate {
         let location = (lastLocation.coordinate.latitude, lastLocation.coordinate.longitude)
         delegate?.locationManager(self, didUpdateLocation: location)
     }
-    
+        
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
