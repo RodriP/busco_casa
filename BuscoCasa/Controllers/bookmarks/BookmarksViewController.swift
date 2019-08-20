@@ -26,8 +26,6 @@ class BookmarksViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Bookmarks"
         
-
-        let retrievedUser: String? = KeychainWrapper.standard.string(forKey: AppConstants.UserConstants.userSaveData)
         self.user = GetLoggedUser.getLoggedUser()
 
         bookmarksTable.dataSource = self
